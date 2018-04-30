@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+//import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 
 import edu.wisc.cs.will.Utils.Utils;
 
