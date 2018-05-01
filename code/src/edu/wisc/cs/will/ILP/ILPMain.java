@@ -135,7 +135,8 @@ public final class ILPMain {
         long end1;
 
         if (useOnion) {
-            TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
+            //TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
+        	TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
             onion.setFilter(onionFilter);
             // Utils.println("maxTimeInMilliseconds = " + maxTimeInMilliseconds);
             onion.setMaxSecondsToSpend((int) Math.min(Integer.MAX_VALUE, maxTimeInMilliseconds / 1000));
@@ -305,7 +306,7 @@ public final class ILPMain {
         getLearnOneClause().setMEstimatePos(0.01); // <-----------------------
         getLearnOneClause().setMEstimateNeg(0.01); // <-----------------------
         gleaner.reportingPeriod = 1000;
-        outerLooper.setMinPrecisionOfAcceptableClause(0.5);// <-----------------------
+        outerLooper.setMinPrecisionOfAcceptableClause(0.1);// <-----------------------
         //outerLooper.initialize(false); // We want to initialize this as late assert possible.
         outerLooper.setCheckpointEnabled(checkpointEnabled);
         getLearnOneClause().setDumpGleanerEveryNexpansions(1000);
