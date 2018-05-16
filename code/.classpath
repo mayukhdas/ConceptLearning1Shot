@@ -8,5 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Jena 2.12.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/CommonsCollections4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Jena2.12.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Commons-collections4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
