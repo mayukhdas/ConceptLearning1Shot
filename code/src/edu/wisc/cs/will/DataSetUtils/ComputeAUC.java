@@ -201,9 +201,11 @@ public class ComputeAUC {
 					outputFromAUC.append((char) c);
 				}
 			}
+			
 			Utils.println("% WAITING FOR command: " + command);
 			p.waitFor();
 			Utils.println("% DONE WAITING FOR command: " + command); // + " workingDir = " + workingDir);
+			System.out.println("OH MY GOD***************"+outputFromAUC);
 			if (outputFromAUC.length() < 1) { 
 				Utils.waitHere("Never collected any AUC output!"); 
 			} else {

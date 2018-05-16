@@ -574,9 +574,12 @@ public class TuneParametersForILP {
 		int    maximalBodyLengthSeen         = 0;
 		Utils.println("\n% Have " + Utils.comma(onionLayers) + " Onion combinations to try.");
 		int numberOfCombos     = Utils.getSizeSafely(onionLayers);
+		Utils.println("LAYERS ################## " +numberOfCombos); //MD
 		int currentComboNumber = 0;
 		if (numberOfCombos > 0) for (ILPparameterSettings setting : onionLayers) {
            
+			//Utils.println(setting.toString(true)); //MD
+			//Utils.warning("Asked to wait",60);
             ILPSearchAction action = outerLooper.innerLoopTask.fireOnionLayerStarting(this, setting);
 
             if ( action == ILPSearchAction.PERFORM_LOOP) {

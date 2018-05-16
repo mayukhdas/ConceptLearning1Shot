@@ -135,8 +135,8 @@ public final class ILPMain {
         long end1;
 
         if (useOnion) {
-            //TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
-        	TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
+            TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
+        	//TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
             onion.setFilter(onionFilter);
             // Utils.println("maxTimeInMilliseconds = " + maxTimeInMilliseconds);
             onion.setMaxSecondsToSpend((int) Math.min(Integer.MAX_VALUE, maxTimeInMilliseconds / 1000));
@@ -399,5 +399,6 @@ public final class ILPMain {
         ILPMain main = new ILPMain();
         main.setup(args);
         main.runILP();
+        //System.out.println(main.getBestTheory());
     }
 }

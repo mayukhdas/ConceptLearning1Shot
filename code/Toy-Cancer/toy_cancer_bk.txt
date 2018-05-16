@@ -1,9 +1,9 @@
 
 useStdLogicVariables: true.
 
-setParam: treeDepth=4.
-setParam: nodeSize=2.
-setParam: numOfClauses=8.
+setParam: treeDepth=10.
+setParam: nodeSize=1.
+//setParam: numOfClauses=8.
 
 mode: friends(+Person, -Person).
 mode: friends(-Person, +Person).

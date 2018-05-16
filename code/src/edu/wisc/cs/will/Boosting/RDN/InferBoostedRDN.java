@@ -399,7 +399,18 @@ public class InferBoostedRDN {
 		
 		// Update true positive, false positives etc.
 		CoverageScore  score = new CoverageScore();
-		String resultsString = "useLeadingQuestionMarkVariables: true.\n\n" + updateScore(examples, score, threshold);
+		
+			ThresholdSelector selector = new ThresholdSelector();
+			for (RegressionRDNExample regEx : examples) {
+				// This code should only be called for single-class examples
+				selector.addProbResult(regEx.getProbOfExample().getProbOfBeingTrue(), regEx.isOriginalTruthValue());
+			}
+			double thresh = selector.selectBestThreshold();
+			Utils.println("% F1 = " + selector.lastComputedF1);
+			Utils.println("% Threshold = " + thresh);
+		
+		//String resultsString = "useLeadingQuestionMarkVariables: true.\n\n" + updateScore(examples, score, threshold);
+		String resultsString = "useLeadingQuestionMarkVariables: true.\n\n" + updateScore(examples, score, thresh);
 		if (trees == cmdArgs.getMaxTreesVal()) {
 
 			// Print examples and some 'context' for possible use by other MLN software.
@@ -424,7 +435,7 @@ public class InferBoostedRDN {
 			Utils.appendString(new File(getLearningCurveFile(target, "pr")), trees + " " + auc.getPR() + "\n");
 			Utils.appendString(new File(getLearningCurveFile(target, "cll")), trees + " " + auc.getCLL() + "\n");
 		}
-		{
+		/*{
 			ThresholdSelector selector = new ThresholdSelector();
 			for (RegressionRDNExample regEx : examples) {
 				// This code should only be called for single-class examples
@@ -433,7 +444,7 @@ public class InferBoostedRDN {
 			double thresh = selector.selectBestThreshold();
 			Utils.println("% F1 = " + selector.lastComputedF1);
 			Utils.println("% Threshold = " + thresh);
-		}
+		}*/
 		Utils.println(   "\n%   AUC ROC   = " + Utils.truncate(auc.getROC(), 6));
 		Utils.println(     "%   AUC PR    = " + Utils.truncate(auc.getPR(),  6));
 		Utils.println(     "%   CLL	      = " + Utils.truncate(auc.getCLL(),  6));
@@ -445,16 +456,16 @@ public class InferBoostedRDN {
 		String fileNameForResults = (writeQueryAndResults ? getTestsetInfoFile(target) : null);
 	//	Utils.waitHere("writeQueryAndResults = " + writeQueryAndResults + "\n" + fileNameForResults);
 	
-		if (threshold != -1) {
-			Utils.println("%   Precision = " + Utils.truncate(score.getPrecision(), 6)       + (threshold != -1 ? " at threshold = " + Utils.truncate(threshold, 3) : " "));
+		if (thresh != -1) {//change by dev , md
+			Utils.println("%   Precision = " + Utils.truncate(score.getPrecision(), 6)       + (thresh != -1 ? " at threshold = " + Utils.truncate(thresh, 3) : " "));
 			Utils.println("%   Recall    = " + Utils.truncate(score.getRecall(),    6));
 			Utils.println("%   F1        = " + Utils.truncate(score.getF1(),        6));
-			resultsString += "\n//   Precision = " + Utils.truncate(score.getPrecision(), 6) + (threshold != -1 ? " at threshold = " + Utils.truncate(threshold, 3) : " ");
+			resultsString += "\n//   Precision = " + Utils.truncate(score.getPrecision(), 6) + (thresh != -1 ? " at threshold = " + Utils.truncate(thresh, 3) : " "); //update by dev,MD 
 			resultsString += "\n//   Recall    = " + Utils.truncate(score.getRecall(),    6);
 			resultsString += "\n//   F1        = " + Utils.truncate(score.getF1(),        6);
-			resultsString += "\nprecision(" + target + ", " + Utils.truncate(score.getPrecision(), 6) + ", usingThreshold(" + threshold + ")).";
-			resultsString += "\nrecall(   " + target + ", " + Utils.truncate(score.getRecall(),    6) + ", usingThreshold(" + threshold + ")).";
-			resultsString += "\nF1(       " + target + ", " + Utils.truncate(score.getF1(),        6) + ", usingThreshold(" + threshold + ")).";
+			resultsString += "\nprecision(" + target + ", " + Utils.truncate(score.getPrecision(), 6) + ", usingThreshold(" + thresh + ")).";
+			resultsString += "\nrecall(   " + target + ", " + Utils.truncate(score.getRecall(),    6) + ", usingThreshold(" + thresh + ")).";
+			resultsString += "\nF1(       " + target + ", " + Utils.truncate(score.getF1(),        6) + ", usingThreshold(" + thresh + ")).";
 			if (writeQueryAndResults) { Utils.writeStringToFile(resultsString + "\n", new CondorFile(fileNameForResults)); }
 			return score.getF1();
 		}

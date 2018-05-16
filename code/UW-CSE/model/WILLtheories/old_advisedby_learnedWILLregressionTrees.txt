@@ -1,0 +1,419 @@
+usePrologVariables: true.
+
+% maxTreeDepthInNodes                 = 5
+% maxTreeDepthInLiterals              = 12
+% maxNumberOfLiteralsAtAnInteriorNode = 2
+% maxFreeBridgersInBody               = 1
+% maxNumberOfClauses                  = 12
+% maxNodesToConsider                  = 10
+% maxNodesToCreate                    = 10,000
+% maxAcceptableNodeScoreToStop        = 0.003
+% negPosRatio                         = 2.000
+% testNegPosRatio                     = -1.000
+% # of pos examples                   = 356
+% # of neg examples                   = 0
+
+
+
+%%%%%  WILL-Produced Tree #1 @ 23:41:55 5/3/18.  [Using 16,363,384 memory cells.]  %%%%%
+
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( count_common_pubs(A, B, C) )
+%   | then return 0.8581489350995118;  // std dev = 2.38e-07, 42.000 (wgt'ed) examples reached here.  /* #pos=42 */
+%   | else if ( have_more_than_n_pubs(B, 1), inphase(A, post_quals) )
+%   | | then if ( count_common_pubs(A, D, 1), have_more_than_n_pubs(D, 1) )
+%   | | | then return 0.3581489350995122;  // std dev = 1.000, 4.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2 */
+%   | | | else return 0.8581489350995117;  // std dev = 1.69e-07, 28.000 (wgt'ed) examples reached here.  /* #pos=28 */
+%   | | else if ( hasposition(B, faculty), inphase(A, post_generals) )
+%   | | | then if ( count_common_pubs(A, E, F), professor(E) )
+%   | | | | then return -0.14185106490048777;  // std dev = 0.000, 5.000 (wgt'ed) examples reached here.  /* #neg=5 */
+%   | | | | else if ( tempadvisedby(G, B), yearsinprogram(G, year_1) )
+%   | | | | | then return 0.4945125714631487;  // std dev = 1.595, 11.000 (wgt'ed) examples reached here.  /* #neg=4 #pos=7 */
+%   | | | | | else return 0.8581489350995123;  // std dev = 0.000, 13.000 (wgt'ed) examples reached here.  /* #pos=13 */
+%   | | | else if ( yearsinprogram(A, year_2) )
+%   | | | | then return 0.8581489350995122;  // std dev = 0.000, 5.000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | | | | else if ( projectmember(H, B) )
+%   | | | | | then return 0.8581489350995122;  // std dev = 0.000, 4.000 (wgt'ed) examples reached here.  /* #pos=4 */
+%   | | | | | else return 0.08621911053810886;  // std dev = 3.168, 57.000 (wgt'ed) examples reached here.  /* #neg=44 #pos=13 */
+%   else return -0.14185106490048827;  // std dev = 0.000, 187.000 (wgt'ed) examples reached here.  /* #neg=187 */
+
+
+% Clauses:
+
+advisedby(A, B, 0.8581489350995118) :- 
+     professor(B), 
+     student(A), 
+     count_common_pubs(A, B, C), 
+     !. // Clause #1.
+
+advisedby(A, B, 0.3581489350995122) :- 
+     professor(B), 
+     student(A), 
+     have_more_than_n_pubs(B, 1), 
+     inphase(A, post_quals), 
+     count_common_pubs(A, C, 1), 
+     have_more_than_n_pubs(C, 1), 
+     !. // Clause #2.
+
+advisedby(A, B, 0.8581489350995117) :- 
+     professor(B), 
+     student(A), 
+     have_more_than_n_pubs(B, 1), 
+     inphase(A, post_quals), 
+     !. // Clause #3.
+
+advisedby(A, B, -0.14185106490048777) :- 
+     professor(B), 
+     student(A), 
+     hasposition(B, faculty), 
+     inphase(A, post_generals), 
+     count_common_pubs(A, C, D), 
+     professor(C), 
+     !. // Clause #4.
+
+advisedby(A, B, 0.4945125714631487) :- 
+     professor(B), 
+     student(A), 
+     hasposition(B, faculty), 
+     inphase(A, post_generals), 
+     tempadvisedby(C, B), 
+     yearsinprogram(C, year_1), 
+     !. // Clause #5.
+
+advisedby(A, B, 0.8581489350995123) :- 
+     professor(B), 
+     student(A), 
+     hasposition(B, faculty), 
+     inphase(A, post_generals), 
+     !. // Clause #6.
+
+advisedby(A, B, 0.8581489350995122) :- 
+     professor(B), 
+     student(A), 
+     yearsinprogram(A, year_2), 
+     !. // Clause #7.
+
+advisedby(A, B, 0.8581489350995122) :- 
+     professor(B), 
+     student(A), 
+     projectmember(C, B), 
+     !. // Clause #8.
+
+advisedby(A, B, 0.08621911053810886) :- 
+     professor(B), 
+     student(A), 
+     !. // Clause #9.
+
+advisedby(A, B, -0.14185106490048827) :- !. // Clause #10.
+
+
+% The flattened versions of these clauses:
+
+flattened_advisedby(a, b, 0.8581489350995118) :-  /* #pos=42 */ 
+   professor(b),
+   student(a),
+   count_common_pubs(a, b, underscore),
+   !. // Flattened version of clause #1.
+
+flattened_advisedby(a, b, 0.3581489350995122) :-  /* #neg=2 #pos=2 */ 
+   professor(b),
+   student(a),
+   have_more_than_n_pubs(b, 1),
+   inphase(a, post_quals),
+   count_common_pubs(a, uniqueVar1, 1),
+   have_more_than_n_pubs(uniqueVar1, 1),
+   !. // Flattened version of clause #2.
+
+flattened_advisedby(a, b, 0.8581489350995117) :-  /* #pos=28 */ 
+   professor(b),
+   student(a),
+   have_more_than_n_pubs(b, 1),
+   inphase(a, post_quals),
+   !. // Flattened version of clause #3.
+
+flattened_advisedby(a, b, -0.14185106490048777) :-  /* #neg=5 */ 
+   professor(b),
+   student(a),
+   hasposition(b, faculty),
+   inphase(a, post_generals),
+   count_common_pubs(a, uniqueVar2, underscore),
+   professor(uniqueVar2),
+   !. // Flattened version of clause #4.
+
+flattened_advisedby(a, b, 0.4945125714631487) :-  /* #neg=4 #pos=7 */ 
+   professor(b),
+   student(a),
+   hasposition(b, faculty),
+   inphase(a, post_generals),
+   tempadvisedby(uniqueVar3, b),
+   yearsinprogram(uniqueVar3, year_1),
+   !. // Flattened version of clause #5.
+
+flattened_advisedby(a, b, 0.8581489350995123) :-  /* #pos=13 */ 
+   professor(b),
+   student(a),
+   hasposition(b, faculty),
+   inphase(a, post_generals),
+   !. // Flattened version of clause #6.
+
+flattened_advisedby(a, b, 0.8581489350995122) :-  /* #pos=5 */ 
+   professor(b),
+   student(a),
+   yearsinprogram(a, year_2),
+   !. // Flattened version of clause #7.
+
+flattened_advisedby(a, b, 0.8581489350995122) :-  /* #pos=4 */ 
+   professor(b),
+   student(a),
+   projectmember(underscore, b),
+   !. // Flattened version of clause #8.
+
+flattened_advisedby(a, b, 0.08621911053810886) :-  /* #neg=44 #pos=13 */ 
+   professor(b),
+   student(a),
+   !. // Flattened version of clause #9.
+
+flattened_advisedby(underscore, underscore, -0.14185106490048827) :-  /* #neg=187 */ 
+   !. // Flattened version of clause #10.
+
+
+% The unique flattened literals:
+%   tempadvisedby(uniqueVar3, b)
+%   have_more_than_n_pubs(b, 1)
+%   hasposition(b, faculty)
+%   professor(uniqueVar2)
+%   professor(b)
+%   count_common_pubs(a, uniqueVar2, underscore)
+%   yearsinprogram(a, year_2)
+%   inphase(a, post_generals)
+%   count_common_pubs(a, b, underscore)
+%   inphase(a, post_quals)
+%   student(a)
+%   have_more_than_n_pubs(uniqueVar1, 1)
+%   projectmember(underscore, b)
+%   count_common_pubs(a, uniqueVar1, 1)
+%   yearsinprogram(uniqueVar3, year_1)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Final call for computing score for advisedby.  %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+stepLength_tree1(1.0).
+
+logPrior(-1.8).
+advisedby(D, E, Total) :- // A general accessor. 
+   advisedby(D, E, 1000000, Total), !.
+advisedby(D, E, Total) :- waitHere("This should not fail", advisedby(D, E, Total)).
+
+advisedby(D, E, TreesToUse, Total) :- // A tree-limited accessor (e.g., for tuning the number of trees to use).
+   logPrior(LogPrior),
+   getScore_advisedby_tree1(D, E, TreesToUse, Total1),
+   Total is LogPrior + Total1,
+   !.
+advisedby(D, E, TreesToUse, Total) :- waitHere("This should not fail", advisedby(D, E, TreesToUse, Total)).
+
+getScore_advisedby_tree1(D, E, TreesToUse, 0.0) :- 1 > TreesToUse, !.
+getScore_advisedby_tree1(D, E, TreesToUse, Total1) :- advisedby_tree1(D, E, Total), stepLength_tree1(StepLen), Total1 is Total * StepLen.
+
+flattenedLiteralsInThisSetOfTrees(advisedby, 15, [
+   tempadvisedby(uniqueVar3, b),
+   have_more_than_n_pubs(b, 1),
+   hasposition(b, faculty),
+   professor(uniqueVar2),
+   professor(b),
+   count_common_pubs(a, uniqueVar2, underscore),
+   yearsinprogram(a, year_2),
+   inphase(a, post_generals),
+   count_common_pubs(a, b, underscore),
+   inphase(a, post_quals),
+   student(a),
+   have_more_than_n_pubs(uniqueVar1, 1),
+   projectmember(underscore, b),
+   count_common_pubs(a, uniqueVar1, 1),
+   yearsinprogram(uniqueVar3, year_1)]).
+
+%%%%%  WILL-Produced Tree Combined @ 23:41:59 5/3/18.  [Using 16,363,352 memory cells.]  %%%%%
+
+% FOR advisedby(A, B):
+%   if ( professor(B), student(A) )
+%   then if ( count_common_pubs(A, B, C) )
+%   | then return 0.8581489350995118;  // std dev = 2.38e-07, 42.000 (wgt'ed) examples reached here.  /* #pos=42 */
+%   | else if ( have_more_than_n_pubs(B, 1), inphase(A, post_quals) )
+%   | | then if ( count_common_pubs(A, D, 1), have_more_than_n_pubs(D, 1) )
+%   | | | then return 0.3581489350995122;  // std dev = 1.000, 4.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=2 */
+%   | | | else return 0.8581489350995117;  // std dev = 1.69e-07, 28.000 (wgt'ed) examples reached here.  /* #pos=28 */
+%   | | else if ( have_more_than_n_pubs(B, 1), inphase(A, post_generals) )
+%   | | | then if ( count_common_pubs(A, E, F), professor(E) )
+%   | | | | then return -0.14185106490048777;  // std dev = 0.000, 4.000 (wgt'ed) examples reached here.  /* #neg=4 */
+%   | | | | else if ( have_more_than_n_common_pubs(B, G, 3), have_more_than_n_pubs(G, 13) )
+%   | | | | | then return 0.6081489350995123;  // std dev = 1.225, 8.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=6 */
+%   | | | | | else return 0.8581489350995123;  // std dev = 0.000, 11.000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | | else if ( inphase(A, post_quals), tempadvisedby(H, B) )
+%   | | | | then return 0.6914822684328455;  // std dev = 0.913, 6.000 (wgt'ed) examples reached here.  /* #neg=1 #pos=5 */
+%   | | | | else if ( inphase(A, pre_quals), publication(I, B) )
+%   | | | | | then return 0.5010060779566552;  // std dev = 1.793, 14.000 (wgt'ed) examples reached here.  /* #neg=5 #pos=9 */
+%   | | | | | else return 0.06968739663797388;  // std dev = 2.945, 52.000 (wgt'ed) examples reached here.  /* #neg=41 #pos=11 */
+%   else return -0.14185106490048827;  // std dev = 0.000, 187.000 (wgt'ed) examples reached here.  /* #neg=187 */
+
+
+% Clauses:
+
+advisedby(A, B, 0.8581489350995118) :- 
+     professor(B), 
+     student(A), 
+     count_common_pubs(A, B, C), 
+     !. // Clause #1.
+
+advisedby(A, B, 0.3581489350995122) :- 
+     professor(B), 
+     student(A), 
+     have_more_than_n_pubs(B, 1), 
+     inphase(A, post_quals), 
+     count_common_pubs(A, C, 1), 
+     have_more_than_n_pubs(C, 1), 
+     !. // Clause #2.
+
+advisedby(A, B, 0.8581489350995117) :- 
+     professor(B), 
+     student(A), 
+     have_more_than_n_pubs(B, 1), 
+     inphase(A, post_quals), 
+     !. // Clause #3.
+
+advisedby(A, B, -0.14185106490048777) :- 
+     professor(B), 
+     student(A), 
+     have_more_than_n_pubs(B, 1), 
+     inphase(A, post_generals), 
+     count_common_pubs(A, C, D), 
+     professor(C), 
+     !. // Clause #4.
+
+advisedby(A, B, 0.6081489350995123) :- 
+     professor(B), 
+     student(A), 
+     have_more_than_n_pubs(B, 1), 
+     inphase(A, post_generals), 
+     have_more_than_n_common_pubs(B, C, 3), 
+     have_more_than_n_pubs(C, 13), 
+     !. // Clause #5.
+
+advisedby(A, B, 0.8581489350995123) :- 
+     professor(B), 
+     student(A), 
+     have_more_than_n_pubs(B, 1), 
+     inphase(A, post_generals), 
+     !. // Clause #6.
+
+advisedby(A, B, 0.6914822684328455) :- 
+     professor(B), 
+     student(A), 
+     inphase(A, post_quals), 
+     tempadvisedby(C, B), 
+     !. // Clause #7.
+
+advisedby(A, B, 0.5010060779566552) :- 
+     professor(B), 
+     student(A), 
+     inphase(A, pre_quals), 
+     publication(C, B), 
+     !. // Clause #8.
+
+advisedby(A, B, 0.06968739663797388) :- 
+     professor(B), 
+     student(A), 
+     !. // Clause #9.
+
+advisedby(A, B, -0.14185106490048827) :- !. // Clause #10.
+
+
+% The flattened versions of these clauses:
+
+flattened_advisedby(a, b, 0.8581489350995118) :-  /* #pos=42 */ 
+   professor(b),
+   student(a),
+   count_common_pubs(a, b, underscore),
+   !. // Flattened version of clause #1.
+
+flattened_advisedby(a, b, 0.3581489350995122) :-  /* #neg=2 #pos=2 */ 
+   professor(b),
+   student(a),
+   have_more_than_n_pubs(b, 1),
+   inphase(a, post_quals),
+   count_common_pubs(a, uniqueVar4, 1),
+   have_more_than_n_pubs(uniqueVar4, 1),
+   !. // Flattened version of clause #2.
+
+flattened_advisedby(a, b, 0.8581489350995117) :-  /* #pos=28 */ 
+   professor(b),
+   student(a),
+   have_more_than_n_pubs(b, 1),
+   inphase(a, post_quals),
+   !. // Flattened version of clause #3.
+
+flattened_advisedby(a, b, -0.14185106490048777) :-  /* #neg=4 */ 
+   professor(b),
+   student(a),
+   have_more_than_n_pubs(b, 1),
+   inphase(a, post_generals),
+   count_common_pubs(a, uniqueVar5, underscore),
+   professor(uniqueVar5),
+   !. // Flattened version of clause #4.
+
+flattened_advisedby(a, b, 0.6081489350995123) :-  /* #neg=2 #pos=6 */ 
+   professor(b),
+   student(a),
+   have_more_than_n_pubs(b, 1),
+   inphase(a, post_generals),
+   have_more_than_n_common_pubs(b, uniqueVar6, 3),
+   have_more_than_n_pubs(uniqueVar6, 13),
+   !. // Flattened version of clause #5.
+
+flattened_advisedby(a, b, 0.8581489350995123) :-  /* #pos=11 */ 
+   professor(b),
+   student(a),
+   have_more_than_n_pubs(b, 1),
+   inphase(a, post_generals),
+   !. // Flattened version of clause #6.
+
+flattened_advisedby(a, b, 0.6914822684328455) :-  /* #neg=1 #pos=5 */ 
+   professor(b),
+   student(a),
+   inphase(a, post_quals),
+   tempadvisedby(underscore, b),
+   !. // Flattened version of clause #7.
+
+flattened_advisedby(a, b, 0.5010060779566552) :-  /* #neg=5 #pos=9 */ 
+   professor(b),
+   student(a),
+   inphase(a, pre_quals),
+   publication(underscore, b),
+   !. // Flattened version of clause #8.
+
+flattened_advisedby(a, b, 0.06968739663797388) :-  /* #neg=41 #pos=11 */ 
+   professor(b),
+   student(a),
+   !. // Flattened version of clause #9.
+
+flattened_advisedby(underscore, underscore, -0.14185106490048827) :-  /* #neg=187 */ 
+   !. // Flattened version of clause #10.
+
+
+% The unique flattened literals:
+%   have_more_than_n_pubs(b, 1)
+%   professor(uniqueVar5)
+%   have_more_than_n_pubs(uniqueVar4, 1)
+%   count_common_pubs(a, uniqueVar5, underscore)
+%   professor(b)
+%   have_more_than_n_pubs(uniqueVar6, 13)
+%   inphase(a, post_generals)
+%   publication(underscore, b)
+%   count_common_pubs(a, uniqueVar4, 1)
+%   count_common_pubs(a, b, underscore)
+%   inphase(a, post_quals)
+%   tempadvisedby(underscore, b)
+%   student(a)
+%   have_more_than_n_common_pubs(b, uniqueVar6, 3)
+%   inphase(a, pre_quals)

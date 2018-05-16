@@ -1,0 +1,8 @@
+Row(a).
+Length(a,6).
+Column(b).
+Height(b,5).
+Contains(s, a, b).
+SpRel(top-left,b,a).
+Height(s, 6).
+Base(s, 6).
