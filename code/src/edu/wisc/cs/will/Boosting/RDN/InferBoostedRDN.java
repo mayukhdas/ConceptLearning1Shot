@@ -397,20 +397,23 @@ public class InferBoostedRDN {
 		// We repeatedly loop over the examples, but the code at least is cleaner.
 		// Update the probabilities here if needed, such as normalizing.
 		
+		ThresholdSelector selector = new ThresholdSelector();
+		for (RegressionRDNExample regEx : examples) {
+			// This code should only be called for single-class examples
+			selector.addProbResult(regEx.getProbOfExample().getProbOfBeingTrue(), regEx.isOriginalTruthValue());
+		}
+		double thresh = selector.selectBestThreshold();
+		Utils.println("% F1 = " + selector.lastComputedF1);
+		Utils.println("% Threshold = " + thresh);
+		threshold = thresh;
+		
 		// Update true positive, false positives etc.
 		CoverageScore  score = new CoverageScore();
 		
-			ThresholdSelector selector = new ThresholdSelector();
-			for (RegressionRDNExample regEx : examples) {
-				// This code should only be called for single-class examples
-				selector.addProbResult(regEx.getProbOfExample().getProbOfBeingTrue(), regEx.isOriginalTruthValue());
-			}
-			double thresh = selector.selectBestThreshold();
-			Utils.println("% F1 = " + selector.lastComputedF1);
-			Utils.println("% Threshold = " + thresh);
+			
 		
 		//String resultsString = "useLeadingQuestionMarkVariables: true.\n\n" + updateScore(examples, score, threshold);
-		String resultsString = "useLeadingQuestionMarkVariables: true.\n\n" + updateScore(examples, score, thresh);
+		String resultsString = "useLeadingQuestionMarkVariables: true.\n\n" + updateScore(examples, score, threshold);
 		if (trees == cmdArgs.getMaxTreesVal()) {
 
 			// Print examples and some 'context' for possible use by other MLN software.
@@ -457,15 +460,15 @@ public class InferBoostedRDN {
 	//	Utils.waitHere("writeQueryAndResults = " + writeQueryAndResults + "\n" + fileNameForResults);
 	
 		if (thresh != -1) {//change by dev , md
-			Utils.println("%   Precision = " + Utils.truncate(score.getPrecision(), 6)       + (thresh != -1 ? " at threshold = " + Utils.truncate(thresh, 3) : " "));
+			Utils.println("%   Precision = " + Utils.truncate(score.getPrecision(), 6)       + (threshold != -1 ? " at threshold = " + Utils.truncate(threshold, 3) : " "));
 			Utils.println("%   Recall    = " + Utils.truncate(score.getRecall(),    6));
 			Utils.println("%   F1        = " + Utils.truncate(score.getF1(),        6));
-			resultsString += "\n//   Precision = " + Utils.truncate(score.getPrecision(), 6) + (thresh != -1 ? " at threshold = " + Utils.truncate(thresh, 3) : " "); //update by dev,MD 
+			resultsString += "\n//   Precision = " + Utils.truncate(score.getPrecision(), 6) + (threshold != -1 ? " at threshold = " + Utils.truncate(threshold, 3) : " "); //update by dev,MD 
 			resultsString += "\n//   Recall    = " + Utils.truncate(score.getRecall(),    6);
 			resultsString += "\n//   F1        = " + Utils.truncate(score.getF1(),        6);
-			resultsString += "\nprecision(" + target + ", " + Utils.truncate(score.getPrecision(), 6) + ", usingThreshold(" + thresh + ")).";
-			resultsString += "\nrecall(   " + target + ", " + Utils.truncate(score.getRecall(),    6) + ", usingThreshold(" + thresh + ")).";
-			resultsString += "\nF1(       " + target + ", " + Utils.truncate(score.getF1(),        6) + ", usingThreshold(" + thresh + ")).";
+			resultsString += "\nprecision(" + target + ", " + Utils.truncate(score.getPrecision(), 6) + ", usingThreshold(" + threshold + ")).";
+			resultsString += "\nrecall(   " + target + ", " + Utils.truncate(score.getRecall(),    6) + ", usingThreshold(" + threshold + ")).";
+			resultsString += "\nF1(       " + target + ", " + Utils.truncate(score.getF1(),        6) + ", usingThreshold(" + threshold + ")).";
 			if (writeQueryAndResults) { Utils.writeStringToFile(resultsString + "\n", new CondorFile(fileNameForResults)); }
 			return score.getF1();
 		}
