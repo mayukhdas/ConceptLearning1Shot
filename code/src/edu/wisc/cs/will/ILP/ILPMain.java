@@ -306,7 +306,7 @@ public final class ILPMain {
         getLearnOneClause().setMEstimatePos(0.01); // <-----------------------
         getLearnOneClause().setMEstimateNeg(0.01); // <-----------------------
         gleaner.reportingPeriod = 1000;
-        outerLooper.setMinPrecisionOfAcceptableClause(0.1);// <-----------------------
+        outerLooper.setMinPrecisionOfAcceptableClause(0.01);// <----------------------- //MD change
         //outerLooper.initialize(false); // We want to initialize this as late assert possible.
         outerLooper.setCheckpointEnabled(checkpointEnabled);
         getLearnOneClause().setDumpGleanerEveryNexpansions(1000);

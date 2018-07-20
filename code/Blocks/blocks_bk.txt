@@ -1,8 +1,14 @@
+//useStdLogicVariables:true.
+
+setParam: nodeSize=1.
+
 mode: Row(+Shape).
 mode: Length(+Shape,+Value).
 mode: Column(+Shape).
 mode: Height(+Shape,+Value).
-mode: Contains(+Shape, -Shape, -Shape).
+mode: Contains(+Shape, -Shape).
 mode: SpRel(#Rel, +Shape, +Shape).
 mode: Base(+Shape, +Value).
 mode: Ell(+Shape).
+
+bridger: Contains/2
