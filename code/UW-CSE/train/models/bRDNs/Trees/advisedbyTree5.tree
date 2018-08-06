@@ -1,0 +1,8 @@
+setParam: stringsAreCaseSensitive = true.
+
+usePrologVariables: true.
+
+
+(advisedby(_, A, 0.19379918111119676) :- have_more_than_n_pubs(A, 1), professor(A)).
+(advisedby(A, B, 0.06943541152967347) :- count_publications(A, _), professor(B)).
+(advisedby(A, B, 0.11174699377374571) :- inphase(A, post_quals), professor(B)).

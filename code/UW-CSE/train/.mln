@@ -1,0 +1,75 @@
+professor(person)
+student(person)
+publication(title, person)
+taughtby(course, person, quarter)
+courselevel(course, level)
+hasposition(person, position)
+multiclass_hasposition(person)
+projectmember(project, person)
+position(position)
+phase(phase)
+inphase(person, phase)
+multiclass_inphase(person)
+tempadvisedby(person, person)
+yearsinprogram(person, integer)
+ta(course, person, quarter)
+sameperson(person, person)
+samecourse(course, course)
+sameproject(project, project)
+have_more_than_n_pubs(person, pthresh)
+have_more_than_n_common_pubs(person, person, pthresh)
+count_taughtby(person, pthresh)
+count_publications(person, pthresh)
+count_common_pubs(person, person, pthresh)
+addList(willlist, willnumber)
+multiplyList(willlist, willnumber)
+abs(willnumber, willnumber)
+minus(willnumber, willnumber)
+plus(willnumber, willnumber, willnumber)
+minus(willnumber, willnumber, willnumber)
+mult(willnumber, willnumber, willnumber)
+div(willnumber, willnumber, willnumber)
+allNumbers(willlist)
+positiveNumber(willnumber)
+negativeNumber(willnumber)
+in0toDot001(willnumber)
+in0toDot01(willnumber)
+in0toDot1(willnumber)
+in0to1(willnumber)
+in0to10(willnumber)
+in0to100(willnumber)
+in0to1000(willnumber)
+equalWithTolerance(willnumber, willnumber, willnumber)
+greaterOrEqualDifference(willnumber, willnumber, willnumber)
+smallerOrEqualDifference(willnumber, willnumber, willnumber)
+isaEqualTolerance(willnumber)
+lessThan(willnumber, willnumber)
+greaterThan(willnumber, willnumber)
+lessThanOrEqual(willnumber, willnumber)
+greaterThanOrEqual(willnumber, willnumber)
+inBetweenOO(willnumber, willnumber, willnumber)
+inBetweenCO(willnumber, willnumber, willnumber)
+inBetweenOC(willnumber, willnumber, willnumber)
+inBetweenCC(willnumber, willnumber, willnumber)
+memberOfList(willanything, willlist)
+firstInList(willlist, willanything)
+restOfList(willlist, willlist)
+positionInList(willanything, willlist, willnumber)
+nthInList(willnumber, willlist, willanything)
+lengthOfList(willlist, willnumber)
+advisedby(person, person)
+0.0694 advisedby(a, b) v !count_publications(a, _) v !professor(b) /*  */
+0.6260 advisedby(a, b) v !professor(b) v !student(a) /*  */
+0.1372 advisedby(a, b) v !have_more_than_n_pubs(b, 3) v !student(a) v !professor(b) /*  */
+0.0118 advisedby(a, b) v !inphase(a, "post_generals") v !count_common_pubs(b, _, _) /*  */
+0.1938 advisedby(_, a) v !have_more_than_n_pubs(a, 1) v !professor(a) /*  */
+0.3268 advisedby(_, a) v !professor(a) /*  */
+0.2738 advisedby(a, b) v !count_common_pubs(a, b, _) /*  */
+1.5719 advisedby(_, a) v !hasposition(a, "faculty") /*  */
+0.0015 advisedby(_, a) v !count_common_pubs(a, _, b) v !count_common_pubs(a, _, b) /*  */
+-0.4812 advisedby(_, a) v !student(a) /*  */
+0.0049 advisedby(a, _) v !inphase(a, "post_generals") /*  */
+-0.0146 advisedby(a, b) v !taughtby(_, a, _) v !student(b) /*  */
+0.2007 advisedby(a, b) v !inphase(a, "post_quals") v !professor(b) /*  */
+-0.4464 advisedby(a, b) v !professor(a) v !hasposition(b, "faculty") /*  */
+-0.5247 advisedby(a, b) v !professor(a) v !professor(b) /*  */

@@ -1,0 +1,9 @@
+setParam: stringsAreCaseSensitive = true.
+
+usePrologVariables: true.
+
+
+(advisedby(A, B, 0.2835639888763043) :- professor(B), student(A)).
+(advisedby(A, B, -0.01456577197259814) :- taughtby(_, A, _), student(B)).
+(advisedby(A, B, -0.5246630580405026) :- professor(A), professor(B)).
+(advisedby(_, A, 0.0015409388312442322) :- count_common_pubs(A, _, B), count_common_pubs(A, _, B)).

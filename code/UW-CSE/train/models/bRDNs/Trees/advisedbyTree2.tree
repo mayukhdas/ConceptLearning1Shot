@@ -1,0 +1,7 @@
+setParam: stringsAreCaseSensitive = true.
+
+usePrologVariables: true.
+
+
+(advisedby(_, A, -0.11231637819360661) :- student(A)).
+(advisedby(_, A, 0.4342164230793823) :- hasposition(A, faculty)).

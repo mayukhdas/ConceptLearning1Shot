@@ -1,0 +1,8 @@
+Row(Shape).
+Length(Shape,Value).
+Column(Shape).
+Height(Shape,Value).
+Contains(Shape, Shape, Shape).
+SpRel(Rel, Shape, Shape).
+Base(Shape, Value).
+Ell(Shape).

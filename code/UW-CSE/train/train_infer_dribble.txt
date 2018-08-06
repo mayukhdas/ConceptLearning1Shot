@@ -1,0 +1,280 @@
+% Running on host: DESKTOP-K98RL7C
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+
+% Calling ILPouterLoop from createRegressionOuterLooper.
+
+% getInputArgWithDefaultValue: args=[.\UW-CSE\train/train_pos.txt, .\UW-CSE\train/train_neg.txt, .\UW-CSE\train/train_bk.txt, .\UW-CSE\train/train_facts.txt]
+%  for N=0: args[N]=.\UW-CSE\train/train_pos.txt
+
+% getInputArgWithDefaultValue: args=[.\UW-CSE\train/train_pos.txt, .\UW-CSE\train/train_neg.txt, .\UW-CSE\train/train_bk.txt, .\UW-CSE\train/train_facts.txt]
+%  for N=1: args[N]=.\UW-CSE\train/train_neg.txt
+
+% getInputArgWithDefaultValue: args=[.\UW-CSE\train/train_pos.txt, .\UW-CSE\train/train_neg.txt, .\UW-CSE\train/train_bk.txt, .\UW-CSE\train/train_facts.txt]
+%  for N=2: args[N]=.\UW-CSE\train/train_bk.txt
+
+% getInputArgWithDefaultValue: args=[.\UW-CSE\train/train_pos.txt, .\UW-CSE\train/train_neg.txt, .\UW-CSE\train/train_bk.txt, .\UW-CSE\train/train_facts.txt]
+%  for N=3: args[N]=.\UW-CSE\train/train_facts.txt
+
+% Welcome to the WILL ILP/SRL systems.
+
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+% Reading background theory from dir: null
+% Load '../uw-cse_bk.txt'.
+
+% Switching to VarIndicator = uppercase.
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
+  loadThisFile: i=0 newName=precomputed.txt sents=[(commonpub(Title, P1, P2) :- publication(Title, P1), publication(Title, P2), P1 \== P2), (commonta(C, Q, P1, P2) :- ta(C, P2, Q), taughtby(C, P1, Q))]
+  loadThisFile: i=1 newName=precomputed1.txt sents=[(count_taughtby(Person, N) :- taughtby(SomeC, Person, SomeQ), all([Course, Quarter], taughtby(Course, Person, Quarter), AllCourses), N is length(AllCourses)), (count_publications(Person, N) :- publication(Somet, Person), all(Title, publication(Title, Person), AllTitles), N is length(AllTitles)), (count_common_pubs(P1, P2, N) :- commonpub(Somet, P1, P2), all(Title, commonpub(Title, P1, P2), AllTitles), N is length(AllTitles))]
+  loadThisFile: i=2 newName=precomputed2.txt sents=[(have_more_than_n_pubs(A, N) :- count_publications(A, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N), (have_more_than_n_common_pubs(A1, A2, N) :- count_common_pubs(A1, A2, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N)]
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
+% [ LazyGroundClauseIndex ]  Building full index for mode/1 with 1 assertions.
+% LoadAllModes() called.  Currently loaded modes: []
+% [ LazyGroundClauseIndex ]  Building full index for sameAs/2 with 2 assertions.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for exp/3.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for log/3.
+
+%  Read the facts.
+%  Have read 2,561 facts.
+% Have read 114 examples from '.\UW-CSE\train' [.\UW-CSE\train/train*].
+% Have read 77,172 examples from '.\UW-CSE\train' [.\UW-CSE\train/train*].
+
+%  LearnOneClause initialized.
+
+% The outer looper has been created.
+
+% Initializing the ILP inner looper.
+
+% NEW target:                 advisedby(D, E)
+%  targetPred:                advisedby/2
+%  targetArgTypes:            signature = [const, const], types = [+Person, +Person]
+%  targets:                   [advisedby(D, E)]
+%  targetPredicates:          [advisedby/2]
+%  targetArgSpecs:            [[D[+Person], E[+Person]]]
+%  variablesInTargets:        [[D, E]]
+
+% Precompute #0's requests: 'precomputed.txt'
+%   commonpub(Title, P1, P2) :- publication(Title, P1), publication(Title, P2), P1 \== P2
+%   commonta(C, Q, P1, P2) :- ta(C, P2, Q), taughtby(C, P1, Q)
+
+% Precompute #1's requests: 'precomputed1.txt'
+%   count_taughtby(Person, N) :- taughtby(SomeC, Person, SomeQ), all([Course, Quarter], taughtby(Course, Person, Quarter), AllCourses), N is length(AllCourses)
+%   count_publications(Person, N) :- publication(Somet, Person), all(Title, publication(Title, Person), AllTitles), N is length(AllTitles)
+%   count_common_pubs(P1, P2, N) :- commonpub(Somet, P1, P2), all(Title, commonpub(Title, P1, P2), AllTitles), N is length(AllTitles)
+
+% Precompute #2's requests: 'precomputed2.txt'
+%   have_more_than_n_pubs(A, N) :- count_publications(A, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N
+%   have_more_than_n_common_pubs(A1, A2, N) :- count_common_pubs(A1, A2, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N
+% Processing precompute file: precomputed.txt
+Writing to file: C:\Users\mayuk\Documents\git\ConceptLearningOnion1Shot\code\precomputed.txt
+
+% Precomputing 'precomputed.txt'.
+
+%%% Precomputing 2 predicates.
+
+% Saving all provable instances of 'commonpub'
+% using clause:   commonpub(Title, P1, P2) :- publication(Title, P1), publication(Title, P2), P1 \== P2
+
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for publication/2.
+%  Found 1,096 proofs of 'commonpub(Title, P1, P2)'.
+
+// Precomputed a total of 1,096 facts (and found 0 duplications) from: 'commonpub(Title, P1, P2) :- publication(Title, P1), publication(Title, P2), P1 \== P2.'
+
+
+% Saving all provable instances of 'commonta'
+% using clause:   commonta(C, Q, P1, P2) :- ta(C, P2, Q), taughtby(C, P1, Q)
+
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for taughtby/3.
+%  Found 164 proofs of 'commonta(C, Q, P1, P2)'.
+
+// Precomputed a total of 164 facts (and found 0 duplications) from: 'commonta(C, Q, P1, P2) :- ta(C, P2, Q), taughtby(C, P1, Q).'
+
+
+
+%%% Precomputed a total of 1,260 facts (and found 0 duplications).  Done at 20:21:35 7/26/18
+
+%    No need to compress since small: precomputed.txt
+% Loading: precomputed.txt
+% Read an additional 1,260 facts from edu.wisc.cs.will.Utils.condor.CondorFileReader@6b419da.
+% Processing precompute file: precomputed1.txt
+Writing to file: C:\Users\mayuk\Documents\git\ConceptLearningOnion1Shot\code\precomputed1.txt
+
+% Precomputing 'precomputed1.txt'.
+
+%%% Precomputing 3 predicates.
+
+% Saving all provable instances of 'count_taughtby'
+% using clause:   count_taughtby(Person, N) :- taughtby(SomeC, Person, SomeQ), all([Course, Quarter], taughtby(Course, Person, Quarter), AllCourses), N is length(AllCourses)
+
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for taughtby/3.
+%  Found 286 proofs of 'count_taughtby(Person, N)'.
+
+// Precomputed a total of 64 facts (and found 222 duplications) from: 'count_taughtby(Person, N) :- taughtby(SomeC, Person, SomeQ), all([Course, Quarter], taughtby(Course, Person, Quarter), AllCourses), N is length(AllCourses).'
+
+
+% Saving all provable instances of 'count_publications'
+% using clause:   count_publications(Person, N) :- publication(Somet, Person), all(Title, publication(Title, Person), AllTitles), N is length(AllTitles)
+
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for publication/2.
+%  Found 734 proofs of 'count_publications(Person, N)'.
+
+// Precomputed a total of 99 facts (and found 635 duplications) from: 'count_publications(Person, N) :- publication(Somet, Person), all(Title, publication(Title, Person), AllTitles), N is length(AllTitles).'
+
+
+% Saving all provable instances of 'count_common_pubs'
+% using clause:   count_common_pubs(P1, P2, N) :- commonpub(Somet, P1, P2), all(Title, commonpub(Title, P1, P2), AllTitles), N is length(AllTitles)
+
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for commonpub/3.
+%  Found 1,096 proofs of 'count_common_pubs(P1, P2, N)'.
+
+// Precomputed a total of 362 facts (and found 734 duplications) from: 'count_common_pubs(P1, P2, N) :- commonpub(Somet, P1, P2), all(Title, commonpub(Title, P1, P2), AllTitles), N is length(AllTitles).'
+
+
+
+%%% Precomputed a total of 525 facts (and found 1,591 duplications).  Done at 20:21:35 7/26/18
+
+%    No need to compress since small: precomputed1.txt
+% Loading: precomputed1.txt
+% Read an additional 525 facts from edu.wisc.cs.will.Utils.condor.CondorFileReader@33afa13b.
+% Processing precompute file: precomputed2.txt
+Writing to file: C:\Users\mayuk\Documents\git\ConceptLearningOnion1Shot\code\precomputed2.txt
+
+% Precomputing 'precomputed2.txt'.
+
+%%% Precomputing 2 predicates.
+
+% Saving all provable instances of 'have_more_than_n_common_pubs'
+% using clause:   have_more_than_n_common_pubs(A1, A2, N) :- count_common_pubs(A1, A2, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N
+
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for member/2.
+%  Found 424 proofs of 'have_more_than_n_common_pubs(A1, A2, N)'.
+
+// Precomputed a total of 424 facts (and found 0 duplications) from: 'have_more_than_n_common_pubs(A1, A2, N) :- count_common_pubs(A1, A2, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N.'
+
+
+% Saving all provable instances of 'have_more_than_n_pubs'
+% using clause:   have_more_than_n_pubs(A, N) :- count_publications(A, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N
+
+%  Found 256 proofs of 'have_more_than_n_pubs(A, N)'.
+
+// Precomputed a total of 256 facts (and found 0 duplications) from: 'have_more_than_n_pubs(A, N) :- count_publications(A, N2), member(N, [1, 3, 5, 7, 9, 11, 13, 15]), N2 > N.'
+
+
+
+%%% Precomputed a total of 680 facts (and found 0 duplications).  Done at 20:21:35 7/26/18
+
+%    No need to compress since small: precomputed2.txt
+% Loading: precomputed2.txt
+% Read an additional 680 facts from edu.wisc.cs.will.Utils.condor.CondorFileReader@5876bed9.
+
+% Started collecting constants
+
+% Collecting the types of constants.
+
+% Looking at the training examples to see if any types of new constants can be inferred.
+% Time to collect constants: 92 milliseconds
+% Time to collect examples: 0 seconds
+
+% Read 114 pos examples and 77,172 neg examples.
+% Time to init learnOneClause: 790 milliseconds
+% Old dir./UW-CSE/train/models/
+
+% Have 114 'raw' positive examples and kept 114.
+% Have 77,172 'raw' negative examples and kept 77,172.
+Setting class args for hasposition to: 1
+Setting class args for inphase to: 1
+
+% processing backup's for advisedby
+%  POS EX = 114
+%  NEG EX = 77,172
+
+% Memory usage by WILLSetup (just counts # targets?):
+%  |backupPosExamples| = 1
+%  |backupNegExamples| = 1
+%  |predicatesAsFacts| = 0
+%  |addedToFactBase|   = 0
+% Did not learn a model for 'advisedby' this run.
+%   loadModel (#0): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree0.tree
+%   loadModel (#1): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree1.tree
+%   loadModel (#2): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree2.tree
+%   loadModel (#3): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree3.tree
+%   loadModel (#4): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree4.tree
+%   loadModel (#5): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree5.tree
+%   loadModel (#6): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree6.tree
+%   loadModel (#7): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree7.tree
+%   loadModel (#8): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree8.tree
+%   loadModel (#9): ./UW-CSE/train/models/bRDNs/Trees/advisedbyTree9.tree
+%  Done loading 10 models.
+File: .\UW-CSE\train/advice.txt doesnt exist.Hence no advice loaded
+
+% for advisedby |lookupPos| = 114
+% for advisedby |lookupNeg| = 77,172
+% getJointExamples: |pos| = 114, |neg| = 77,172
+
+% Starting inference in bRDN.
+
+% Subsampling the negative examples.
+% Trees = 10
+% [ LazyGroundClauseIndex ]  Building full index for hasposition/2 with 52 assertions.
+% [ LazyGroundClauseIndex ]  Building full index for student/1 with 216 assertions.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for count_common_pubs/3.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for count_common_pubs/3.
+% [ LazyGroundClauseIndex ]  Building full index for professor/1 with 62 assertions.
+% [ LazyGroundClauseIndex ]  Building full index for inphase/2 with 140 assertions.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for tempadvisedby/2.
+% [ LazyGroundClauseIndex ]  Building full index for have_more_than_n_pubs/2 with 256 assertions.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for count_publications/2.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for count_taughtby/2.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for have_more_than_n_common_pubs/3.
+% F1 = 1.0
+% Threshold = 0.42981924012081413
+ (Arithmetic) Mean Probability Assigned to Correct Output Class: 62,223.380/77,286.00 = 0.805105
+
+ The weighted count of positive examples = 114.000 and the weighted count of negative examples = 77,172.000
+
+printExamples: Writing out predictions (for Tuffy?) on 77,286 examples for 'advisedby' to:
+  .\UW-CSE\train/results_advisedby.db
+ and to:
+  .\UW-CSE\train/query_advisedby.db
+
+***** Warning: Both regular and gzip'ed versions of this file exist; will use NEWER one:
+ .\UW-CSE\train/query_advisedby.db *****
+
+
+***** Warning: Both regular and gzip'ed versions of this file exist; will read NEWER one:
+ .\UW-CSE\train/query_advisedby.db *****
+
+
+% Computing Area Under Curves.
+%Pos=114
+%Neg=77172
+%LL:-33.5359241923198
+%LL:-20637.05934641885
+
+% Running command: java -jar .//auc.jar .\UW-CSE\train/AUC/aucTemp.txt list 0.0
+% WAITING FOR command: java -jar .//auc.jar .\UW-CSE\train/AUC/aucTemp.txt list 0.0
+% DONE WAITING FOR command: java -jar .//auc.jar .\UW-CSE\train/AUC/aucTemp.txt list 0.0
+
+%   AUC ROC   = 0.969979
+%   AUC PR    = 0.204675
+%   CLL	      = -0.267022
+%   Precision = 0.009317 at threshold = 0.430
+%   Recall    = 0.991228
+%   F1        = 0.018461
+
+% Total inference time (10 trees): 12.480 seconds.

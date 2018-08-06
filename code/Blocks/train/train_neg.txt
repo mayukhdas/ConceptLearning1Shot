@@ -1,4 +1,3 @@
-Ell(s1).
-Ell(s2).
-Ell(s3).
-Ell(s4).
+Ell(u).
+Ell(v).
+Ell(w).
