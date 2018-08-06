@@ -299,14 +299,14 @@ public final class ILPMain {
         outerLooper.max_total_nodesCreated = 10 * outerLooper.max_total_nodesExpanded;
         outerLooper.maxNumberOfClauses = 2; // <-----------------------
         outerLooper.maxNumberOfCycles = 2 * outerLooper.maxNumberOfClauses;
-        getLearnOneClause().minNumberOfNegExamples = 1;
+        getLearnOneClause().minNumberOfNegExamples = 0; //change by MD
         getLearnOneClause().setMinPosCoverage(1);
         getLearnOneClause().restartsRRR = 25;
         getLearnOneClause().stringHandler.setStarMode(TypeSpec.plusMode);
         getLearnOneClause().setMEstimatePos(0.01); // <-----------------------
         getLearnOneClause().setMEstimateNeg(0.01); // <-----------------------
         gleaner.reportingPeriod = 1000;
-        outerLooper.setMinPrecisionOfAcceptableClause(0.1);// <-----------------------
+        outerLooper.setMinPrecisionOfAcceptableClause(0.01);// <----------------------- //MD change
         //outerLooper.initialize(false); // We want to initialize this as late assert possible.
         outerLooper.setCheckpointEnabled(checkpointEnabled);
         getLearnOneClause().setDumpGleanerEveryNexpansions(1000);

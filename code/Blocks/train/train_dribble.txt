@@ -1,4 +1,4 @@
-% Running on host: DESKTOP-K98RL7C
+% Running on host: BL-SOIC-30ZND42
 
 % Creating string handler #1.
 
@@ -41,9 +41,15 @@
 % LoadAllLibraries() called.  Currently loaded libraries: [listsInLogic, differentInLogic, modes_arithmeticInLogic, inlines_comparisonInLogic, modes_listsInLogic, inlines_differentInLogic, modes_differentInLogic, arithmeticInLogic, inlines_listsInLogic, modes_comparisonInLogic, comparisonInLogic, inlines_arithmeticInLogic]
 
 %  Read the facts.
+<<<<<<< HEAD
 %  Have read 18 facts.
 % Have read 2 examples from '.\Blocks\train' [.\Blocks\train/train*].
 % Have read 3 examples from '.\Blocks\train' [.\Blocks\train/train*].
+=======
+%  Have read 9 facts.
+% Have read 1 examples from '.\Blocks\train' [.\Blocks\train/train*].
+% Have read 4 examples from '.\Blocks\train' [.\Blocks\train/train*].
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e
 
 %  LearnOneClause initialized.
 % Reading background theory from dir: .\Blocks\train
@@ -63,11 +69,20 @@
 % Collecting the types of constants.
 
 % Looking at the training examples to see if any types of new constants can be inferred.
+<<<<<<< HEAD
 % Time to collect constants: 1 milliseconds
 % Time to collect examples: 0 seconds
 
 % Read 2 pos examples and 3 neg examples.
 % Time to init learnOneClause: 8 milliseconds
+=======
+% Time to collect constants: 0 seconds
+% Time to collect examples: 0 seconds
+
+% Read 1 pos examples and 4 neg examples.
+% Time to init learnOneClause: 0 seconds
+% setMinF1toStop = 0.9891089108910891
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e
 %   Add combo #1.
 %     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(101)/MinPos(0.99)/MaxNegs(-1.00)
 %   Add combo #2.
@@ -757,8 +772,13 @@
 LAYERS ################## 180
 
 %----------------------------
+<<<<<<< HEAD
 % CONSIDERING Settings #1 (1 of 180).
 % (The ONION has been running for a total of 77.00ms
+=======
+% CONSIDERING Settings #1 (1 of 171).
+% (The ONION has been running for a total of 64.00ms
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e
 %  and has 12.00h left;
 %  36.00m have been allotted for this setting)
 %  The differences from the default settings are:
@@ -791,12 +811,16 @@ LAYERS ################## 180
 %    Ell(+Shape)
 %  Modes (43):
 %    Row(+Shape),
-%    Length(+Shape, #Value),
+%    Length(+Shape, +Value),
 %    Column(+Shape),
+<<<<<<< HEAD
 %    Height(+Shape, #Value),
+=======
+%    Height(+Shape, +Value),
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e
 %    Contains(+Shape, -Shape),
 %    SpRel(#Rel, +Shape, +Shape),
-%    Base(+Shape, #Value),
+%    Base(+Shape, +Value),
 %    addList(+willList, #willNumber),
 %    multiplyList(+willList, #willNumber),
 %    abs(+willNumber, &willNumber),
@@ -835,6 +859,7 @@ LAYERS ################## 180
 %    lengthOfList(+willList, &willNumber)
 
 % target           = Ell(D)
+<<<<<<< HEAD
 HERE!*************SCORING - MD, CHECK THIS
 % Most-general root: Ell(_).  [covers 2.0/2.0 pos, 3.0/3.0 neg]  score = 0.399
 
@@ -859,6 +884,22 @@ HERE!*************SCORING - MD, CHECK THIS
 % On cycle #1, the best clause found is:
 %      Ell(A) :- Contains(A, _).  [covers 2.0/2.0 pos, 0.0/3.0 neg]
 % This clause covers 2 positive examples, of which 2 are newly covered.
+=======
+% Most-general root: Ell(_).  [covers 1.0/1.0 pos, 4.0/4.0 neg]  score = 0.200
+
+% Consider expanding [#1 of outerLoop #1_fold0, bodyLen=0] 'Ell(_).  [covers 1.0/1.0 pos, 4.0/4.0 neg]' score=0.1995996984031936
+%  At # nodes expanded = 1, |OPEN| = 0.  Pruned 0 variant children.  Sending 1 items to OPEN for evaluation and possible insertion.
+% Have created 1 valid-on-seeds descendants and have picked up 4 bad extensions.
+% Gleaner: New best node found (score = 0.990088): Ell(A) :- Contains(A, _).  [covers 1.0/1.0 pos, 0.0/4.0 neg]
+
+% The best node found: Ell(A) :- Contains(A, _).  [covers 1.0/1.0 pos, 0.0/4.0 neg]
+
+% The best node found: Ell(A) :- Contains(A, _).  [covers 1.0/1.0 pos, 0.0/4.0 neg]
+
+% On cycle #1, the best clause found is:
+%      Ell(A) :- Contains(A, _).  [covers 1.0/1.0 pos, 0.0/4.0 neg]
+% This clause covers 1 positive examples, of which 1 are newly covered.
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e
 % It also covers 0 negative examples, of which 0 are newly covered.
 % The current set of 1 best clauses covers 100.0% of the positive examples and 0.0% of the negatives.}
 
@@ -868,10 +909,17 @@ HERE!*************SCORING - MD, CHECK THIS
 
 % ******************************************
 
+<<<<<<< HEAD
 % Finished fold 0 (0.04s):
 
 % Created a total of 1 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 2 (out of 2) pos and 0 (out of 3) neg examples.
+=======
+% Finished fold 0 (0.02s):
+
+% Created a total of 2 clauses and expanded 1 of them.
+% The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 4) neg examples.
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e
 
 % % 
 % % Clauses:
@@ -879,12 +927,21 @@ HERE!*************SCORING - MD, CHECK THIS
 % Ell(A) :- Contains(A, B). // Clause #1.
 
 
+<<<<<<< HEAD
   initially:  |falseNegatives| = 2 and |trueNegatives| = 3.
      getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, _))
   currently:  |falseNegatives| = 0 and |trueNegatives| = 3.
   initially:  |falseNegatives| = 2 and |trueNegatives| = 3.
      getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, _))
   currently:  |falseNegatives| = 0 and |trueNegatives| = 3.
+=======
+  initially:  |falseNegatives| = 1 and |trueNegatives| = 4.
+     getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, _))
+  currently:  |falseNegatives| = 0 and |trueNegatives| = 4.
+  initially:  |falseNegatives| = 1 and |trueNegatives| = 4.
+     getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, _))
+  currently:  |falseNegatives| = 0 and |trueNegatives| = 4.
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e
 
 % Trainset results for
 %  The differences from the default settings are:
@@ -961,6 +1018,12 @@ Ell(A) :- Contains(A, B). // Clause #1.
 
 % ------------------------------------------------
 
+<<<<<<< HEAD
 % Took 141 milliseconds.
 % Executed 100 proofs in 0.02 seconds (6330.36 proofs/sec).
 % Performed 113 unifications while proving Horn clauses.
+=======
+% Took 79 milliseconds.
+% Executed 31 proofs in 0.00 seconds (14962.83 proofs/sec).
+% Performed 14 unifications while proving Horn clauses.
+>>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e

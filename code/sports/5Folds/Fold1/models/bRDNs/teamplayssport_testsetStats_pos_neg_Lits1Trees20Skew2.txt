@@ -1,0 +1,22 @@
+useLeadingQuestionMarkVariables: true.
+
+// (Arithmetic) Mean Probability Assigned to Correct Output Class: 212.119/300.00 = 0.707064
+testsetLikelihood(sum(212.119), countOfExamples(300.00), mean(0.707064)).
+
+// The weighted count of positive examples = 100.000 and the weighted count of negative examples = 200.000
+weightedSumPos(100.000).
+weightedSumNeg(200.000).
+
+//  AUC ROC   = 0.769875
+//  AUC PR    = 0.661317
+//  CLL       = -1.282183
+aucROC(teamplayssport, 0.769875).
+aucPR( teamplayssport, 0.661317).
+
+//   Precision = 0.596774 at threshold = 0.506
+//   Recall    = 0.740000
+//   F1        = 0.660714
+precision(teamplayssport, 0.596774, usingThreshold(0.5060160069699504)).
+recall(   teamplayssport, 0.740000, usingThreshold(0.5060160069699504)).
+F1(       teamplayssport, 0.660714, usingThreshold(0.5060160069699504)).
+

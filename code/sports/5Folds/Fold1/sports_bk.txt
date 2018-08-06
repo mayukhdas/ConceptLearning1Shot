@@ -1,0 +1,18 @@
+useStdLogicVariables:true.
+
+mode: athleteplaysforteam(+athlete,+team).
+mode: athleteplaysforteam(-athlete,+team).
+mode: athleteplaysforteam(+athlete,-team).
+mode: athleteplayssport(+athlete,+sport).
+mode: athleteplayssport(-athlete,+sport).
+mode: athleteplayssport(+athlete,-sport).
+mode: plays(+sport,+team).
+mode: plays(-sport,+team).
+mode: plays(+sport,-team).
+mode: teamplaysagainstteam(+team,+team).
+mode: teamplaysagainstteam(-team,+team).
+mode: teamplaysagainstteam(+team,-team).
+mode: teamplaysinleague(+team,-conference).
+mode: teamplaysinleague(-team,+conference).
+mode: teamplaysinleague(+team,+conference).
+mode: teamplayssport(+team,+sport).

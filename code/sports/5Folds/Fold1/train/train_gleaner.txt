@@ -1,0 +1,1115 @@
+////// Learned from a dataset containing 400 positive (400.0 weighted sum) and 0 negative (0.0 wgt'ed) examples.
+////// The minimal (wgt'ed) coverage = 3.000, the maximal (wgt'ed) NEG coverage = 0.499, and the minimal (wgt'ed) precision = 0.001 (using m = 0.1)
+
+useStdLogicNotation: true.
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: allPossibleMarkers
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #0, (-Infinity, 0.05], from 'outerLoop #8, null' and covering 3.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.048, precision = 0.968, and F1 = 0.091 - learned after 5 total and 0 acceptable nodes.  Node score = -12.54422961306259
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysagainstteam(a, anon45437)) THEN output = 0.850961 ELSE output = 0.024361;
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #12, null' and covering 5.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.062, precision = 0.980, and F1 = 0.117 - learned after 6 total and 2 acceptable nodes.  Node score = -9.629769185734304
+
+ FOR teamplayssport(a, b) IF (plays(b, anon49107), teamplaysinleague(a, anon49557), teamplaysinleague(anon49107, anon49557), teamplaysagainstteam(a, anon49107)) THEN output = 0.852109 ELSE output = 0.134432;
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #11, null' and covering 8.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.133, precision = 0.988, and F1 = 0.235 - learned after 5 total and 0 acceptable nodes.  Node score = -11.637372046259255
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103), teamplaysagainstteam(anon4245, a)) THEN output = 0.031929 ELSE output = 0.023354;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #8, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.158, precision = 0.990, and F1 = 0.273 - learned after 9 total and 3 acceptable nodes.  Node score = -13.943732567361202
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysagainstteam(a, anon47445)) THEN output = 0.005900 ELSE output = 0.023361;
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #5, null' and covering 6.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.206, precision = 0.984, and F1 = 0.341 - learned after 4 total and 0 acceptable nodes.  Node score = -5.834219388502332
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), athleteplayssport(anon57763, b)) THEN output = 0.011680 ELSE output = 0.000240;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #9, null' and covering 3.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.270, precision = 0.968, and F1 = 0.423 - learned after 5 total and 1 acceptable nodes.  Node score = -1.0012559998374844
+
+ FOR teamplayssport(a, b) IF (plays(b, anon9105), teamplaysagainstteam(anon11163, a), plays(b, anon11163)) THEN output = 0.036293 ELSE output = 0.031854;
+
+// Best in (weighted) recall bin #6, (0.3, 0.35], from 'outerLoop #4, null' and covering 29.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.315, precision = 0.997, and F1 = 0.479 - learned after 2 total and 0 acceptable nodes.  Node score = -20.786871617281598
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a)) THEN output = 0.002788 ELSE output = 0.025105;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #5, null' and covering 11.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.378, precision = 0.991, and F1 = 0.547 - learned after 9 total and 3 acceptable nodes.  Node score = -5.7666353199092235
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), teamplaysagainstteam(anon57033, a)) THEN output = 0.030454 ELSE output = -0.000478;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #5, null' and covering 12.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.412, precision = 0.992, and F1 = 0.583 - learned after 8 total and 2 acceptable nodes.  Node score = -5.447207802842516
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), teamplaysagainstteam(a, anon57033)) THEN output = 0.026508 ELSE output = -0.000563;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #6, null' and covering 6.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.496, precision = 0.984, and F1 = 0.659 - learned after 4 total and 0 acceptable nodes.  Node score = -4.254875118832533
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), teamplaysagainstteam(a, anon57033), athleteplayssport(anon57763, b)) THEN output = 0.025387 ELSE output = 0.068791;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #12, null' and covering 63.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.520, precision = 0.998, and F1 = 0.684 - learned after 8 total and 2 acceptable nodes.  Node score = -22.3798340774251
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysinleague(a, anon55505), teamplaysagainstteam(a, anon56093)) THEN output = 0.002080 ELSE output = 0.027914;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #14, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.585, precision = 0.990, and F1 = 0.735 - learned after 5 total and 0 acceptable nodes.  Node score = -1.5719532286136817
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), athleteplaysforteam(anon70001, a), athleteplayssport(anon70001, anon72977)) THEN output = -0.001284 ELSE output = 0.003010;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #9, null' and covering 7.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.631, precision = 0.986, and F1 = 0.769 - learned after 10 total and 5 acceptable nodes.  Node score = -1.762228012921933
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon59087, a), teamplaysagainstteam(anon57033, anon59087)) THEN output = 0.066631 ELSE output = 0.032371;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #9, null' and covering 7.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.693, precision = 0.986, and F1 = 0.814 - learned after 9 total and 4 acceptable nodes.  Node score = -2.1641116759724532
+
+ FOR teamplayssport(a, b) IF (plays(b, anon61085), teamplaysagainstteam(a, anon63141), teamplaysagainstteam(anon61085, anon63141)) THEN output = 0.055110 ELSE output = 0.031752;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #9, null' and covering 8.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.721, precision = 0.988, and F1 = 0.833 - learned after 11 total and 6 acceptable nodes.  Node score = -2.239310720837136
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon59087, a), teamplaysagainstteam(anon59087, anon57033)) THEN output = 0.080079 ELSE output = 0.032203;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #6, null' and covering 24.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.797, precision = 0.996, and F1 = 0.886 - learned after 2 total and 0 acceptable nodes.  Node score = -11.554151022266895
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), athleteplaysforteam(anon54399, a)) THEN output = 0.000728 ELSE output = 0.037277;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #12, null' and covering 136.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.834, precision = 0.999, and F1 = 0.909 - learned after 8 total and 2 acceptable nodes.  Node score = -17.554485958983644
+
+ FOR teamplayssport(a, b) IF (plays(b, anon33181), teamplaysinleague(a, anon33649), teamplaysagainstteam(a, anon36299)) THEN output = 0.000149 ELSE output = 0.000842;
+      /* FALSE NEG: teamplayssport("florida_state_university", "football") Actual Bool=true Prob=0.1446070658022113 Output=0.8553929341977887 */
+      /* FALSE NEG: teamplayssport("harvard_crimson", "hockey") Actual Bool=true Prob=0.1446070658022113 Output=0.8553929341977887 */
+      /* FALSE NEG: teamplayssport("charlotte_hornets", "football") Actual Bool=false Prob=0.1446070658022113 Output=-0.1446070658022113 */
+      /* FALSE NEG: teamplayssport("columbia_university", "football") Actual Bool=true Prob=0.1446070658022113 Output=0.8553929341977887 */
+      /* FALSE NEG: teamplayssport("birmingham_southern_college", "hockey") Actual Bool=false Prob=0.1446070658022113 Output=-0.1446070658022113 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #6, null' and covering 27.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.897, precision = 0.996, and F1 = 0.944 - learned after 9 total and 2 acceptable nodes.  Node score = -8.11081620188178
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), teamplaysagainstteam(a, anon52823)) THEN output = 0.019162 ELSE output = 0.072582;
+      /* FALSE NEG: teamplayssport("nets", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("mavericks", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("connecticut_huskies", "football") Actual Bool=false Prob=0.14675863018367732 Output=-0.14675863018367732 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #12, null' and covering 1,080.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.915, precision = 1.000, and F1 = 0.956 - learned after 3 total and 1 acceptable nodes.  Node score = -109138.89712372237
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), athleteplayssport(anon83683, b)) THEN output = 0.000948 ELSE output = -0.507041;
+      /* FALSE NEG: teamplayssport("akron_zips", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("arkansas_razorbacks", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("boston_college", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("baltimore_colts", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("connecticut_huskies", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #13, null' and covering 151.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.974, precision = 0.999, and F1 = 0.986 - learned after 9 total and 3 acceptable nodes.  Node score = -19.30729117759276
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), athleteplaysforteam(anon75573, a), teamplaysagainstteam(anon77063, a)) THEN output = -0.000020 ELSE output = -0.002559;
+      /* FALSE NEG: teamplayssport("blue_jackets", "baseball") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("blue_jackets", "football") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("blue_jackets", "golf") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("blue_jackets", "basketball") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #1, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #1, null' and covering 88.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.147, precision = 0.999, and F1 = 0.256 - learned after 4 total and 2 acceptable nodes.  Node score = -121.87500122999863
+
+ FOR teamplayssport(a, b) IF (plays(anon24855, a)) THEN output = -0.142973 ELSE output = 0.247652;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #1, null' and covering 319.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.532, precision = 1.000, and F1 = 0.694 - learned after 2 total and 0 acceptable nodes.  Node score = -136.91845849491887
+
+ FOR teamplayssport(a, b) IF (athleteplaysforteam(anon57027, a)) THEN output = 0.008834 ELSE output = 0.224125;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #1, null' and covering 434.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.723, precision = 1.000, and F1 = 0.839 - learned after 6 total and 4 acceptable nodes.  Node score = -140.6151264913693
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon57037)) THEN output = 0.006687 ELSE output = 0.211905;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #1, null' and covering 467.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.778, precision = 1.000, and F1 = 0.875 - learned after 5 total and 3 acceptable nodes.  Node score = -102.13698728036692
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103)) THEN output = 0.020541 ELSE output = -0.126813;
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #1, null' and covering 538.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.897, precision = 1.000, and F1 = 0.945 - learned after 3 total and 1 acceptable nodes.  Node score = -142.3259703816625
+
+ FOR teamplayssport(a, b) IF (athleteplayssport(anon57029, b)) THEN output = 0.000212 ELSE output = -0.149540;
+      /* FALSE NEG: teamplayssport("chicago_bulls", "softball") Actual Bool=false Prob=0.14954038419264482 Output=-0.14954038419264482 */
+      /* FALSE NEG: teamplayssport("charlotte_bobcats", "softball") Actual Bool=false Prob=0.14954038419264482 Output=-0.14954038419264482 */
+      /* FALSE NEG: teamplayssport("dallas_stars", "softball") Actual Bool=false Prob=0.14954038419264482 Output=-0.14954038419264482 */
+      /* FALSE NEG: teamplayssport("bucks", "softball") Actual Bool=false Prob=0.14954038419264482 Output=-0.14954038419264482 */
+      /* FALSE NEG: teamplayssport("columbia_university", "softball") Actual Bool=false Prob=0.14954038419264482 Output=-0.14954038419264482 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #2, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #2, null' and covering 57.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.122, precision = 0.998, and F1 = 0.217 - learned after 5 total and 1 acceptable nodes.  Node score = -90.04106647769811
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), plays(anon57179, a)) THEN output = -0.009114 ELSE output = 0.022997;
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #2, null' and covering 115.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.246, precision = 0.999, and F1 = 0.395 - learned after 8 total and 3 acceptable nodes.  Node score = -97.33848041255776
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon57033, a)) THEN output = 0.196916 ELSE output = 0.015181;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #2, null' and covering 246.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.527, precision = 1.000, and F1 = 0.690 - learned after 2 total and 0 acceptable nodes.  Node score = -107.13737196340126
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57175, a)) THEN output = 0.001244 ELSE output = 0.023443;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #2, null' and covering 325.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.696, precision = 1.000, and F1 = 0.820 - learned after 9 total and 4 acceptable nodes.  Node score = -111.99112097733352
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon57183, a)) THEN output = 0.000973 ELSE output = 0.020899;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #2, null' and covering 337.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.721, precision = 1.000, and F1 = 0.838 - learned after 11 total and 5 acceptable nodes.  Node score = -111.66985805616287
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(a, anon57185)) THEN output = 0.000913 ELSE output = 0.022363;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #2, null' and covering 357.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.764, precision = 1.000, and F1 = 0.866 - learned after 12 total and 5 acceptable nodes.  Node score = -100.13426420179313
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103), teamplaysinleague(a, anon1275)) THEN output = 0.020846 ELSE output = 0.019654;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #2, null' and covering 8,200.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.801, precision = 1.000, and F1 = 0.889 - learned after 4 total and 2 acceptable nodes.  Node score = -718360.6609931107
+
+ FOR teamplayssport(a, b) IF (plays(b, anon81957)) THEN output = 0.464237 ELSE output = -2.516660;
+      /* FALSE NEG: teamplayssport("charlotte_bobcats", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("dc_united", "soccer") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("chicago_fire", "soccer") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("chicago_white_sox", "soccer") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("dallas_stars", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #2, null' and covering 9,280.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.906, precision = 1.000, and F1 = 0.951 - learned after 3 total and 1 acceptable nodes.  Node score = -1103323.5042558212
+
+ FOR teamplayssport(a, b) IF (athleteplayssport(anon81953, b)) THEN output = 0.005377 ELSE output = -2.908817;
+      /* FALSE NEG: teamplayssport("chicago_bulls", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("charlotte_bobcats", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("dallas_stars", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("bucks", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("columbia_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #3, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #3, null' and covering 7.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.061, precision = 0.986, and F1 = 0.115 - learned after 5 total and 2 acceptable nodes.  Node score = -32.59898603782567
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon73635, a), plays(anon74073, a)) THEN output = -0.080564 ELSE output = 0.204302;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #3, null' and covering 1,000.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.183, precision = 1.000, and F1 = 0.310 - learned after 3 total and 0 acceptable nodes.  Node score = -214862.23761987925
+
+ FOR teamplayssport(a, b) IF (athleteplaysforteam(anon81951, a), athleteplayssport(anon81951, b)) THEN output = 1.304173 ELSE output = -0.032174;
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #3, null' and covering 101.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.246, precision = 0.999, and F1 = 0.395 - learned after 6 total and 1 acceptable nodes.  Node score = -90.30283068221298
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(a, anon57033)) THEN output = 0.198653 ELSE output = 0.017761;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #3, null' and covering 108.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.263, precision = 0.999, and F1 = 0.417 - learned after 7 total and 2 acceptable nodes.  Node score = -89.77875407837637
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon57033, a)) THEN output = 0.203047 ELSE output = 0.017942;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #3, null' and covering 216.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.527, precision = 1.000, and F1 = 0.690 - learned after 2 total and 0 acceptable nodes.  Node score = -98.45174153833834
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57471, a)) THEN output = 0.001456 ELSE output = 0.026381;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #3, null' and covering 3,340.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.612, precision = 1.000, and F1 = 0.759 - learned after 5 total and 2 acceptable nodes.  Node score = -347307.13509909855
+
+ FOR teamplayssport(a, b) IF (athleteplaysforteam(anon81951, a), athleteplayssport(anon81951, anon82099)) THEN output = 0.225430 ELSE output = 0.977903;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #3, null' and covering 292.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.712, precision = 1.000, and F1 = 0.832 - learned after 8 total and 3 acceptable nodes.  Node score = -101.84409795211998
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon57479, a)) THEN output = 0.001162 ELSE output = 0.024357;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #3, null' and covering 91.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.791, precision = 0.999, and F1 = 0.883 - learned after 2 total and 0 acceptable nodes.  Node score = -47.41402127394798
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, a)) THEN output = 0.006673 ELSE output = 0.320528;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #3, null' and covering 97.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.843, precision = 0.999, and F1 = 0.914 - learned after 6 total and 2 acceptable nodes.  Node score = -33.73523772856017
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), teamplaysagainstteam(a, anon52823)) THEN output = 0.203971 ELSE output = 0.519908;
+      /* FALSE NEG: teamplayssport("philadelphia_phillies", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("cincinnati_reds", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("san_diego_padres", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("lsu", "golf") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("calgary_flames", "hockey") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #3, null' and covering 101.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.877, precision = 0.999, and F1 = 0.934 - learned after 11 total and 3 acceptable nodes.  Node score = -33.80801070550683
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), teamplaysinleague(a, anon53269)) THEN output = 0.193334 ELSE output = 0.231974;
+      /* FALSE NEG: teamplayssport("bills", "football") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("texans", "hockey") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("hokies", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("saints", "football") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("germany", "golf") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #3, null' and covering 4,920.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.901, precision = 1.000, and F1 = 0.948 - learned after 4 total and 1 acceptable nodes.  Node score = -555032.0496562102
+
+ FOR teamplayssport(a, b) IF (athleteplaysforteam(anon81951, a), athleteplayssport(anon82097, b)) THEN output = 0.000343 ELSE output = -0.156717;
+      /* FALSE NEG: teamplayssport("chicago_bulls", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("charlotte_bobcats", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("dallas_stars", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("chowan_braves", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("bucks", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #3, null' and covering 112.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.973, precision = 0.999, and F1 = 0.986 - learned after 3 total and 1 acceptable nodes.  Node score = -29.850616237377817
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823)) THEN output = 0.021564 ELSE output = 0.853241;
+      /* FALSE NEG: teamplayssport("spartans", "golf") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("florida_gators", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("lsu", "golf") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #4, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #4, null' and covering 7.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.062, precision = 0.986, and F1 = 0.117 - learned after 7 total and 2 acceptable nodes.  Node score = -28.113356045495088
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon73635, a), athleteplaysforteam(anon74069, anon73635), plays(anon74361, a)) THEN output = -0.006418 ELSE output = 0.022484;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #4, null' and covering 15.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.163, precision = 0.993, and F1 = 0.280 - learned after 6 total and 1 acceptable nodes.  Node score = -20.989811002484647
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(a, anon57033)) THEN output = 0.206678 ELSE output = 0.019639;
+
+// Best in (weighted) recall bin #6, (0.3, 0.35], from 'outerLoop #4, null' and covering 29.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.315, precision = 0.997, and F1 = 0.479 - learned after 2 total and 0 acceptable nodes.  Node score = -20.786871617281598
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a)) THEN output = 0.002788 ELSE output = 0.025105;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #4, null' and covering 39.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.423, precision = 0.997, and F1 = 0.595 - learned after 10 total and 4 acceptable nodes.  Node score = -21.515745860897702
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(a, anon57773)) THEN output = 0.001680 ELSE output = 0.023338;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #4, null' and covering 87.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.776, precision = 0.999, and F1 = 0.873 - learned after 4 total and 1 acceptable nodes.  Node score = -43.0023360275786
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), athleteplayssport(anon53257, b)) THEN output = 0.029657 ELSE output = 0.019190;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #4, null' and covering 95.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.847, precision = 0.999, and F1 = 0.917 - learned after 8 total and 2 acceptable nodes.  Node score = -30.6178095564323
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysagainstteam(a, anon52823)) THEN output = 0.021459 ELSE output = 0.044332;
+      /* FALSE NEG: teamplayssport("philadelphia_phillies", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("toronto_blue_jays", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("cincinnati_reds", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("san_diego_padres", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("calgary_flames", "hockey") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #4, null' and covering 98.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.874, precision = 0.999, and F1 = 0.932 - learned after 13 total and 3 acceptable nodes.  Node score = -29.79911264079522
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(a, anon53541)) THEN output = 0.021255 ELSE output = 0.023797;
+      /* FALSE NEG: teamplayssport("bills", "football") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("texans", "hockey") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("hokies", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("saints", "football") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("germany", "golf") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #4, null' and covering 109.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.972, precision = 0.999, and F1 = 0.986 - learned after 14 total and 4 acceptable nodes.  Node score = -29.154496511158545
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541)) THEN output = 0.021415 ELSE output = 0.189609;
+      /* FALSE NEG: teamplayssport("france", "golf") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("bucks", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("germany", "golf") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #5, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #5, null' and covering 6.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.206, precision = 0.984, and F1 = 0.341 - learned after 4 total and 0 acceptable nodes.  Node score = -5.834219388502332
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), athleteplayssport(anon57763, b)) THEN output = 0.011680 ELSE output = 0.000240;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #5, null' and covering 11.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.378, precision = 0.991, and F1 = 0.547 - learned after 9 total and 3 acceptable nodes.  Node score = -5.7666353199092235
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), teamplaysagainstteam(anon57033, a)) THEN output = 0.030454 ELSE output = -0.000478;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #5, null' and covering 12.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.412, precision = 0.992, and F1 = 0.583 - learned after 8 total and 2 acceptable nodes.  Node score = -5.447207802842516
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), teamplaysagainstteam(a, anon57033)) THEN output = 0.026508 ELSE output = -0.000563;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #5, null' and covering 19.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.653, precision = 0.995, and F1 = 0.788 - learned after 6 total and 1 acceptable nodes.  Node score = -7.801090990544419
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), athleteplayssport(anon57763, anon58031)) THEN output = 0.003293 ELSE output = 0.005315;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #5, null' and covering 79.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.724, precision = 0.999, and F1 = 0.840 - learned after 13 total and 3 acceptable nodes.  Node score = -28.83815141719944
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), teamplaysinleague(a, anon53541)) THEN output = 0.021955 ELSE output = 0.019547;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #5, null' and covering 86.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.788, precision = 0.999, and F1 = 0.881 - learned after 4 total and 1 acceptable nodes.  Node score = -42.25746090812005
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), athleteplayssport(anon53257, b)) THEN output = 0.028843 ELSE output = 0.016798;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #5, null' and covering 85.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.809, precision = 0.999, and F1 = 0.894 - learned after 4 total and 1 acceptable nodes.  Node score = -42.29552603216991
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon73635, a), athleteplaysforteam(anon74069, anon73635), athleteplayssport(anon74069, b)) THEN output = 0.029988 ELSE output = 0.026974;
+      /* FALSE NEG: teamplayssport("texans", "hockey") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("tar_heels", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("ohio_state_university", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("hokies", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("germany", "golf") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #5, null' and covering 91.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.866, precision = 0.999, and F1 = 0.928 - learned after 13 total and 3 acceptable nodes.  Node score = -28.039000907397106
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon73635, a), athleteplaysforteam(anon74069, anon73635), teamplaysinleague(a, anon74771)) THEN output = 0.022288 ELSE output = 0.023847;
+      /* FALSE NEG: teamplayssport("bills", "football") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("texans", "hockey") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("hokies", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("saints", "football") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("germany", "golf") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #5, null' and covering 102.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.971, precision = 0.999, and F1 = 0.985 - learned after 14 total and 4 acceptable nodes.  Node score = -27.377525532957986
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon73635, a), athleteplaysforteam(anon74069, anon73635), teamplaysinleague(anon73635, anon74771)) THEN output = 0.022350 ELSE output = 0.189997;
+      /* FALSE NEG: teamplayssport("france", "golf") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("bucks", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("germany", "golf") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #6, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #6, null' and covering 2,120.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.444, precision = 1.000, and F1 = 0.614 - learned after 4 total and 2 acceptable nodes.  Node score = -261185.42923441713
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665)) THEN output = 0.468935 ELSE output = 5.963364;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #6, null' and covering 6.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.496, precision = 0.984, and F1 = 0.659 - learned after 4 total and 0 acceptable nodes.  Node score = -4.254875118832533
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), teamplaysagainstteam(a, anon57033), athleteplayssport(anon57763, b)) THEN output = 0.025387 ELSE output = 0.068791;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #6, null' and covering 18.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.598, precision = 0.994, and F1 = 0.747 - learned after 14 total and 3 acceptable nodes.  Node score = -8.269104383915996
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), teamplaysinleague(a, anon54415)) THEN output = 0.015310 ELSE output = 0.023112;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #6, null' and covering 19.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.631, precision = 0.995, and F1 = 0.772 - learned after 4 total and 1 acceptable nodes.  Node score = -8.222624201998741
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), athleteplayssport(anon53257, b)) THEN output = 0.027242 ELSE output = 0.064486;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #6, null' and covering 3,320.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.695, precision = 1.000, and F1 = 0.820 - learned after 5 total and 3 acceptable nodes.  Node score = -329852.84700569016
+
+ FOR teamplayssport(a, b) IF (teamplaysinleague(a, anon82667)) THEN output = 5.404436 ELSE output = 6.954197;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #6, null' and covering 9.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.744, precision = 0.989, and F1 = 0.849 - learned after 6 total and 1 acceptable nodes.  Node score = -3.397909691496406
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), athleteplaysforteam(anon57763, a), teamplaysagainstteam(a, anon57033), athleteplayssport(anon57763, anon58387)) THEN output = 0.025752 ELSE output = 0.190920;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #6, null' and covering 24.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.797, precision = 0.996, and F1 = 0.886 - learned after 2 total and 0 acceptable nodes.  Node score = -11.554151022266895
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), athleteplaysforteam(anon54399, a)) THEN output = 0.000728 ELSE output = 0.037277;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #6, null' and covering 84.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.823, precision = 0.999, and F1 = 0.902 - learned after 4 total and 1 acceptable nodes.  Node score = -41.62921586318402
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon73635, a), athleteplaysforteam(anon74069, anon73635), teamplaysinleague(anon73635, anon74771), athleteplayssport(anon74069, b)) THEN output = 0.029170 ELSE output = 0.024128;
+      /* FALSE NEG: teamplayssport("boise_state_broncos", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("texans", "hockey") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("tar_heels", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("ohio_state_university", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("hokies", "basketball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #6, null' and covering 27.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.897, precision = 0.996, and F1 = 0.944 - learned after 9 total and 2 acceptable nodes.  Node score = -8.11081620188178
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), teamplaysagainstteam(a, anon52823)) THEN output = 0.019162 ELSE output = 0.072582;
+      /* FALSE NEG: teamplayssport("nets", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("mavericks", "basketball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("connecticut_huskies", "football") Actual Bool=false Prob=0.14675863018367732 Output=-0.14675863018367732 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #6, null' and covering 4,360.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.912, precision = 1.000, and F1 = 0.954 - learned after 2 total and 0 acceptable nodes.  Node score = -581980.7119029425
+
+ FOR teamplayssport(a, b) IF (athleteplayssport(anon82657, b)) THEN output = 0.005477 ELSE output = -2.908817;
+      /* FALSE NEG: teamplayssport("baltimore_orioles", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("brown_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("chicago_blackhawks", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("columbia_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("buccaneers", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #7, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #7, null' and covering 50.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.142, precision = 0.998, and F1 = 0.249 - learned after 5 total and 1 acceptable nodes.  Node score = -57.690817231161596
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), plays(anon75577, a)) THEN output = -0.009379 ELSE output = 0.018184;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #7, null' and covering 400.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.189, precision = 1.000, and F1 = 0.317 - learned after 4 total and 2 acceptable nodes.  Node score = -42715.62393349597
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), plays(b, anon82665)) THEN output = 8.011492 ELSE output = 0.120206;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #7, null' and covering 94.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.296, precision = 0.999, and F1 = 0.456 - learned after 7 total and 2 acceptable nodes.  Node score = -68.1526642230154
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysinleague(a, anon57483), teamplaysagainstteam(anon57033, a)) THEN output = 0.199371 ELSE output = 0.017219;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #7, null' and covering 155.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.440, precision = 0.999, and F1 = 0.611 - learned after 2 total and 0 acceptable nodes.  Node score = -56.07092095910271
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), athleteplaysforteam(anon75573, a)) THEN output = -0.000235 ELSE output = 0.022112;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #7, null' and covering 155.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.487, precision = 0.999, and F1 = 0.655 - learned after 12 total and 5 acceptable nodes.  Node score = -39.53663561394217
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysinleague(a, anon57483), teamplaysinleague(anon57033, anon57483)) THEN output = 0.121194 ELSE output = 0.001818;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #7, null' and covering 210.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.596, precision = 1.000, and F1 = 0.747 - learned after 7 total and 2 acceptable nodes.  Node score = -63.93654174001525
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon75581, a)) THEN output = 0.000178 ELSE output = 0.021122;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #7, null' and covering 222.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.631, precision = 1.000, and F1 = 0.773 - learned after 9 total and 3 acceptable nodes.  Node score = -62.090644400212426
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(a, anon75583)) THEN output = 0.000145 ELSE output = 0.022583;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #7, null' and covering 256.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.727, precision = 1.000, and F1 = 0.842 - learned after 11 total and 4 acceptable nodes.  Node score = -63.38647804718491
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75585)) THEN output = 0.014983 ELSE output = 0.016349;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #7, null' and covering 62.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.784, precision = 0.998, and F1 = 0.878 - learned after 2 total and 0 acceptable nodes.  Node score = -31.291189408539307
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), teamplaysinleague(a, anon53541), athleteplaysforteam(anon54849, a)) THEN output = 0.000660 ELSE output = 0.033569;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #7, null' and covering 66.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.834, precision = 0.998, and F1 = 0.909 - learned after 8 total and 2 acceptable nodes.  Node score = -21.39485696471306
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon52823, a), athleteplaysforteam(anon53257, anon52823), teamplaysinleague(anon52823, anon53541), teamplaysinleague(a, anon53541), teamplaysagainstteam(a, anon52823)) THEN output = 0.022043 ELSE output = 0.039162;
+      /* FALSE NEG: teamplayssport("philadelphia_phillies", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("toronto_blue_jays", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("cincinnati_reds", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("san_diego_padres", "baseball") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+      /* FALSE NEG: teamplayssport("calgary_flames", "hockey") Actual Bool=true Prob=0.14675863018367732 Output=0.8532413698163227 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #7, null' and covering 1,920.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.906, precision = 1.000, and F1 = 0.950 - learned after 12 total and 7 acceptable nodes.  Node score = -213572.20681183357
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), teamplaysinleague(a, anon82797)) THEN output = 0.424952 ELSE output = 3.038586;
+      /* FALSE NEG: teamplayssport("timberwolves", "basketball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("st___louis_browns", "baseball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("boston_braves", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("montreal_alouettes", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("hokies", "basketball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #7, null' and covering 2,060.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.972, precision = 1.000, and F1 = 0.986 - learned after 2 total and 0 acceptable nodes.  Node score = -240828.44007565646
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), athleteplaysforteam(anon82785, anon82665)) THEN output = 0.030429 ELSE output = 7.324793;
+      /* FALSE NEG: teamplayssport("montreal_alouettes", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("harvard_school_of_dental_medicine", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("fresno_state_bulldogs", "baseball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #8, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #0, (-Infinity, 0.05], from 'outerLoop #8, null' and covering 3.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.048, precision = 0.968, and F1 = 0.091 - learned after 5 total and 0 acceptable nodes.  Node score = -12.54422961306259
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysagainstteam(a, anon45437)) THEN output = 0.850961 ELSE output = 0.024361;
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #8, null' and covering 50.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.142, precision = 0.998, and F1 = 0.249 - learned after 5 total and 1 acceptable nodes.  Node score = -57.61436515418268
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103), plays(anon3481, a)) THEN output = -0.009175 ELSE output = 0.018353;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #8, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.158, precision = 0.990, and F1 = 0.273 - learned after 9 total and 3 acceptable nodes.  Node score = -13.943732567361202
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysagainstteam(a, anon47445)) THEN output = 0.005900 ELSE output = 0.023361;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #8, null' and covering 59.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.299, precision = 0.998, and F1 = 0.461 - learned after 5 total and 0 acceptable nodes.  Node score = -40.94784114783222
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(anon75845, a)) THEN output = 0.002358 ELSE output = 0.021819;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #8, null' and covering 71.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.360, precision = 0.999, and F1 = 0.529 - learned after 7 total and 1 acceptable nodes.  Node score = -39.63144788495124
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysagainstteam(a, anon75847)) THEN output = 0.002250 ELSE output = 0.023204;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #8, null' and covering 155.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.440, precision = 0.999, and F1 = 0.611 - learned after 2 total and 0 acceptable nodes.  Node score = -56.0407122554537
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103), athleteplaysforteam(anon3477, a)) THEN output = -0.000215 ELSE output = 0.022274;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #8, null' and covering 1,400.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.526, precision = 1.000, and F1 = 0.690 - learned after 4 total and 2 acceptable nodes.  Node score = -143403.1746044048
+
+ FOR teamplayssport(a, b) IF (teamplaysinleague(a, anon83071)) THEN output = 5.662612 ELSE output = 6.297533;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #8, null' and covering 210.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.596, precision = 1.000, and F1 = 0.747 - learned after 7 total and 2 acceptable nodes.  Node score = -63.91138394189182
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(anon55237, a)) THEN output = 0.000171 ELSE output = 0.021036;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #8, null' and covering 121.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.614, precision = 0.999, and F1 = 0.761 - learned after 9 total and 2 acceptable nodes.  Node score = -36.421576340556754
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849)) THEN output = 0.023408 ELSE output = 0.020278;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #8, null' and covering 256.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.727, precision = 1.000, and F1 = 0.842 - learned after 11 total and 4 acceptable nodes.  Node score = -63.29606888189817
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103), teamplaysinleague(a, anon3489)) THEN output = 0.015161 ELSE output = 0.016511;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #8, null' and covering 2,200.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.827, precision = 1.000, and F1 = 0.905 - learned after 3 total and 1 acceptable nodes.  Node score = -153617.55641492407
+
+ FOR teamplayssport(a, b) IF (plays(b, anon83065)) THEN output = 0.516812 ELSE output = -2.908817;
+      /* FALSE NEG: teamplayssport("birmingham_southern_college", "soccer") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("brown_university", "soccer") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("brown_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("columbia_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("buffalo_braves", "soccer") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #8, null' and covering 2,420.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.910, precision = 1.000, and F1 = 0.953 - learned after 2 total and 0 acceptable nodes.  Node score = -348390.05924015224
+
+ FOR teamplayssport(a, b) IF (athleteplayssport(anon83061, b)) THEN output = 0.003275 ELSE output = -2.908817;
+      /* FALSE NEG: teamplayssport("birmingham_southern_college", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("brown_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("clemson_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("buffalo_braves", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("columbia_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #9, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #9, null' and covering 8.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.133, precision = 0.988, and F1 = 0.235 - learned after 5 total and 0 acceptable nodes.  Node score = -11.637837469096581
+
+ FOR teamplayssport(a, b) IF (plays(b, anon17089), teamplaysagainstteam(anon19359, a)) THEN output = 0.031778 ELSE output = 0.023201;
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #9, null' and covering 16.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.210, precision = 0.994, and F1 = 0.347 - learned after 4 total and 0 acceptable nodes.  Node score = -12.63644212721977
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), plays(anon76089, a)) THEN output = -0.009250 ELSE output = 0.024553;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #9, null' and covering 3.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.270, precision = 0.968, and F1 = 0.423 - learned after 5 total and 1 acceptable nodes.  Node score = -1.0012559998374844
+
+ FOR teamplayssport(a, b) IF (plays(b, anon9105), teamplaysagainstteam(anon11163, a), plays(b, anon11163)) THEN output = 0.036293 ELSE output = 0.031854;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #9, null' and covering 71.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.360, precision = 0.999, and F1 = 0.529 - learned after 7 total and 1 acceptable nodes.  Node score = -39.62447009104613
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysagainstteam(a, anon55503)) THEN output = 0.002237 ELSE output = 0.023119;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #9, null' and covering 75.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.484, precision = 0.999, and F1 = 0.652 - learned after 7 total and 3 acceptable nodes.  Node score = -34.54157298366744
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), teamplaysagainstteam(anon69253, a)) THEN output = 0.195179 ELSE output = 0.135288;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #9, null' and covering 81.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.522, precision = 0.999, and F1 = 0.686 - learned after 2 total and 0 acceptable nodes.  Node score = -48.54291695227752
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), athleteplaysforteam(anon71459, a)) THEN output = 0.005292 ELSE output = 0.124129;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #9, null' and covering 7.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.631, precision = 0.986, and F1 = 0.769 - learned after 10 total and 5 acceptable nodes.  Node score = -1.762228012921933
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon59087, a), teamplaysagainstteam(anon57033, anon59087)) THEN output = 0.066631 ELSE output = 0.032371;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #9, null' and covering 7.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.693, precision = 0.986, and F1 = 0.814 - learned after 9 total and 4 acceptable nodes.  Node score = -2.1641116759724532
+
+ FOR teamplayssport(a, b) IF (plays(b, anon61085), teamplaysagainstteam(a, anon63141), teamplaysagainstteam(anon61085, anon63141)) THEN output = 0.055110 ELSE output = 0.031752;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #9, null' and covering 8.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.721, precision = 0.988, and F1 = 0.833 - learned after 11 total and 6 acceptable nodes.  Node score = -2.239310720837136
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysagainstteam(anon59087, a), teamplaysagainstteam(anon59087, anon57033)) THEN output = 0.080079 ELSE output = 0.032203;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #9, null' and covering 122.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.787, precision = 0.999, and F1 = 0.880 - learned after 8 total and 4 acceptable nodes.  Node score = -51.42986797722253
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), teamplaysagainstteam(anon71467, a)) THEN output = 0.004238 ELSE output = 0.154362;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #9, null' and covering 128.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.825, precision = 0.999, and F1 = 0.904 - learned after 3 total and 1 acceptable nodes.  Node score = -35.446591035810414
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), athleteplaysforteam(anon71459, anon69253)) THEN output = 0.014710 ELSE output = 0.216252;
+      /* FALSE NEG: teamplayssport("oregon_state_beavers", "football") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("virginia_tech", "football") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("ohio_state_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("georgetown_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("michigan_state_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #9, null' and covering 139.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.896, precision = 0.999, and F1 = 0.945 - learned after 9 total and 5 acceptable nodes.  Node score = -38.27036791059883
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), teamplaysagainstteam(anon71467, anon69253)) THEN output = 0.006797 ELSE output = 0.242456;
+      /* FALSE NEG: teamplayssport("stanford_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("brown_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("ohio_state_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("georgetown_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("michigan_state_university", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #9, null' and covering 1,160.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.921, precision = 1.000, and F1 = 0.959 - learned after 2 total and 0 acceptable nodes.  Node score = -166060.62565642566
+
+ FOR teamplayssport(a, b) IF (athleteplayssport(anon83177, b)) THEN output = 0.005787 ELSE output = -2.908817;
+      /* FALSE NEG: teamplayssport("atlanta_flames", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("drake_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("clemson_university", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("chicago_black_hawks", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("baltimore_bullets", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #10, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #10, null' and covering 16.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.210, precision = 0.994, and F1 = 0.347 - learned after 4 total and 0 acceptable nodes.  Node score = -12.63622031316251
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), plays(anon55745, a)) THEN output = -0.009361 ELSE output = 0.024470;
+
+// Best in (weighted) recall bin #6, (0.3, 0.35], from 'outerLoop #10, null' and covering 57.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.333, precision = 0.998, and F1 = 0.500 - learned after 5 total and 0 acceptable nodes.  Node score = -35.885802640300994
+
+ FOR teamplayssport(a, b) IF (plays(b, anon41493), teamplaysagainstteam(anon44355, a)) THEN output = 0.002426 ELSE output = 0.025384;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #10, null' and covering 61.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.357, precision = 0.998, and F1 = 0.525 - learned after 7 total and 1 acceptable nodes.  Node score = -35.516113027265284
+
+ FOR teamplayssport(a, b) IF (plays(b, anon41493), teamplaysagainstteam(a, anon44357)) THEN output = 0.002447 ELSE output = 0.025802;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #10, null' and covering 75.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.484, precision = 0.999, and F1 = 0.652 - learned after 7 total and 3 acceptable nodes.  Node score = -34.38177230910347
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysinleague(a, anon45839), teamplaysinleague(anon45437, anon45839), teamplaysagainstteam(anon45437, a)) THEN output = 0.194416 ELSE output = 0.134776;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #10, null' and covering 81.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.522, precision = 0.999, and F1 = 0.686 - learned after 2 total and 0 acceptable nodes.  Node score = -48.2766715851237
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysinleague(a, anon45839), teamplaysinleague(anon45437, anon45839), athleteplaysforteam(anon47865, a)) THEN output = 0.005271 ELSE output = 0.123663;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #10, null' and covering 111.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.649, precision = 0.999, and F1 = 0.787 - learned after 9 total and 2 acceptable nodes.  Node score = -31.400607332382574
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103), teamplaysinleague(a, anon4001)) THEN output = 0.025372 ELSE output = 0.024704;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #10, null' and covering 57.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.759, precision = 0.998, and F1 = 0.862 - learned after 2 total and 0 acceptable nodes.  Node score = -32.61232415878342
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), teamplaysagainstteam(anon69253, a), athleteplaysforteam(anon71795, a)) THEN output = 0.005897 ELSE output = 0.319741;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #10, null' and covering 128.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.825, precision = 0.999, and F1 = 0.904 - learned after 3 total and 1 acceptable nodes.  Node score = -35.28187691380876
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysinleague(a, anon45839), teamplaysinleague(anon45437, anon45839), athleteplaysforteam(anon47865, anon45437)) THEN output = 0.014656 ELSE output = 0.215089;
+      /* FALSE NEG: teamplayssport("oregon_state_beavers", "football") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("virginia_tech", "football") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("ohio_state_university", "basketball") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("georgetown_university", "basketball") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("michigan_state_university", "basketball") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #10, null' and covering 65.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.866, precision = 0.998, and F1 = 0.927 - learned after 6 total and 1 acceptable nodes.  Node score = -23.937657846572417
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), teamplaysagainstteam(anon69253, a), teamplaysagainstteam(a, anon69253)) THEN output = 0.205208 ELSE output = 0.553878;
+      /* FALSE NEG: teamplayssport("philadelphia_phillies", "baseball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("toronto_blue_jays", "baseball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("cincinnati_reds", "baseball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("san_diego_padres", "baseball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+      /* FALSE NEG: teamplayssport("calgary_flames", "hockey") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #11, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #11, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.083, precision = 0.990, and F1 = 0.152 - learned after 4 total and 0 acceptable nodes.  Node score = -18.93256807442797
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849), plays(anon76463, a)) THEN output = -0.009622 ELSE output = 0.025210;
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #11, null' and covering 8.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.133, precision = 0.988, and F1 = 0.235 - learned after 5 total and 0 acceptable nodes.  Node score = -11.637372046259255
+
+ FOR teamplayssport(a, b) IF (plays(b, anon1103), teamplaysagainstteam(anon4245, a)) THEN output = 0.031929 ELSE output = 0.023354;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #11, null' and covering 24.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.300, precision = 0.996, and F1 = 0.461 - learned after 2 total and 0 acceptable nodes.  Node score = -16.080105503451385
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), athleteplaysforteam(anon72081, a)) THEN output = 0.031911 ELSE output = 0.134530;
+
+// Best in (weighted) recall bin #6, (0.3, 0.35], from 'outerLoop #11, null' and covering 540.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.314, precision = 1.000, and F1 = 0.478 - learned after 4 total and 2 acceptable nodes.  Node score = -44360.15930457325
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), plays(anon83417, anon82665)) THEN output = -0.048396 ELSE output = 0.587932;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #11, null' and covering 50.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.413, precision = 0.998, and F1 = 0.584 - learned after 6 total and 1 acceptable nodes.  Node score = -23.55435760147182
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849), teamplaysagainstteam(anon76467, a)) THEN output = 0.002178 ELSE output = 0.024930;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #11, null' and covering 56.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.462, precision = 0.998, and F1 = 0.632 - learned after 10 total and 3 acceptable nodes.  Node score = -15.51892040323971
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849), teamplaysinleague(anon73635, anon75849)) THEN output = 0.134292 ELSE output = 0.005493;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #11, null' and covering 63.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.520, precision = 0.998, and F1 = 0.684 - learned after 8 total and 2 acceptable nodes.  Node score = -22.385272097077333
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849), teamplaysagainstteam(a, anon76469)) THEN output = 0.002092 ELSE output = 0.027998;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #11, null' and covering 47.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.587, precision = 0.998, and F1 = 0.739 - learned after 6 total and 2 acceptable nodes.  Node score = -15.381058341810922
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), teamplaysagainstteam(anon72089, a)) THEN output = 0.016740 ELSE output = 0.154362;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #11, null' and covering 54.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.674, precision = 0.998, and F1 = 0.805 - learned after 3 total and 1 acceptable nodes.  Node score = -21.47150939452437
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), athleteplaysforteam(anon72081, anon69253)) THEN output = 0.015362 ELSE output = 0.212057;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #11, null' and covering 1,280.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.744, precision = 1.000, and F1 = 0.853 - learned after 5 total and 3 acceptable nodes.  Node score = -137748.35844040467
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), plays(b, anon83419)) THEN output = 0.044362 ELSE output = -0.197904;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #11, null' and covering 64.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.799, precision = 0.998, and F1 = 0.888 - learned after 7 total and 3 acceptable nodes.  Node score = -20.500469558588968
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysinleague(anon69253, anon69721), teamplaysagainstteam(anon72089, anon69253)) THEN output = 0.008290 ELSE output = 0.242456;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #11, null' and covering 128.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.825, precision = 0.999, and F1 = 0.904 - learned after 3 total and 1 acceptable nodes.  Node score = -35.253665182239146
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysinleague(a, anon57483), teamplaysinleague(anon57033, anon57483), athleteplaysforteam(anon59837, anon57033)) THEN output = 0.014647 ELSE output = 0.214889;
+      /* FALSE NEG: teamplayssport("oregon_state_beavers", "football") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("virginia_tech", "football") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("ohio_state_university", "basketball") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("georgetown_university", "basketball") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("michigan_state_university", "basketball") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #11, null' and covering 65.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.866, precision = 0.998, and F1 = 0.927 - learned after 6 total and 1 acceptable nodes.  Node score = -23.814311680471537
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysinleague(a, anon45839), teamplaysinleague(anon45437, anon45839), teamplaysagainstteam(anon45437, a), teamplaysagainstteam(a, anon45437)) THEN output = 0.204412 ELSE output = 0.550961;
+      /* FALSE NEG: teamplayssport("philadelphia_phillies", "baseball") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("toronto_blue_jays", "baseball") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("cincinnati_reds", "baseball") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("san_diego_padres", "baseball") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+      /* FALSE NEG: teamplayssport("calgary_flames", "hockey") Actual Bool=true Prob=0.149039320646854 Output=0.850960679353146 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #11, null' and covering 1,580.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.919, precision = 1.000, and F1 = 0.958 - learned after 11 total and 6 acceptable nodes.  Node score = -137877.23534798212
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), teamplaysinleague(a, anon83425)) THEN output = 0.097681 ELSE output = 4.259877;
+      /* FALSE NEG: teamplayssport("st___louis_browns", "baseball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("boston_braves", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("boston_braves", "golf") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("montreal_alouettes", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("texas_christian_university", "baseball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #11, null' and covering 1,660.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.965, precision = 1.000, and F1 = 0.982 - learned after 2 total and 0 acceptable nodes.  Node score = -144218.5139576284
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), athleteplaysforteam(anon83413, anon82665)) THEN output = 0.004981 ELSE output = 7.324793;
+      /* FALSE NEG: teamplayssport("montreal_alouettes", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("harvard_school_of_dental_medicine", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("fresno_state_bulldogs", "baseball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #12, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #12, null' and covering 5.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.062, precision = 0.980, and F1 = 0.117 - learned after 6 total and 2 acceptable nodes.  Node score = -9.629769185734304
+
+ FOR teamplayssport(a, b) IF (plays(b, anon49107), teamplaysinleague(a, anon49557), teamplaysinleague(anon49107, anon49557), teamplaysagainstteam(a, anon49107)) THEN output = 0.852109 ELSE output = 0.134432;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #12, null' and covering 24.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.300, precision = 0.996, and F1 = 0.461 - learned after 2 total and 0 acceptable nodes.  Node score = -16.01143354784318
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysinleague(a, anon45839), teamplaysinleague(anon45437, anon45839), athleteplaysforteam(anon48487, a)) THEN output = 0.031800 ELSE output = 0.134003;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #12, null' and covering 21.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.374, precision = 0.995, and F1 = 0.544 - learned after 5 total and 1 acceptable nodes.  Node score = -9.769693453227749
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849), teamplaysinleague(anon73635, anon75849), teamplaysagainstteam(anon76789, a)) THEN output = 0.016724 ELSE output = 0.152851;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #12, null' and covering 23.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.410, precision = 0.996, and F1 = 0.581 - learned after 7 total and 3 acceptable nodes.  Node score = -9.741246980828292
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849), teamplaysinleague(anon73635, anon75849), teamplaysagainstteam(a, anon76791)) THEN output = 0.017541 ELSE output = 0.154579;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #12, null' and covering 54.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.486, precision = 0.998, and F1 = 0.654 - learned after 9 total and 2 acceptable nodes.  Node score = -14.927295055073795
+
+ FOR teamplayssport(a, b) IF (plays(b, anon41493), teamplaysinleague(a, anon44359), teamplaysinleague(anon41493, anon44359)) THEN output = 0.134938 ELSE output = 0.007674;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #12, null' and covering 63.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.520, precision = 0.998, and F1 = 0.684 - learned after 8 total and 2 acceptable nodes.  Node score = -22.3798340774251
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysinleague(a, anon55505), teamplaysagainstteam(a, anon56093)) THEN output = 0.002080 ELSE output = 0.027914;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #12, null' and covering 47.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.587, precision = 0.998, and F1 = 0.739 - learned after 6 total and 2 acceptable nodes.  Node score = -15.310719077013967
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysinleague(a, anon45839), teamplaysinleague(anon45437, anon45839), teamplaysagainstteam(anon48495, a)) THEN output = 0.016678 ELSE output = 0.153791;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #12, null' and covering 106.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.650, precision = 0.999, and F1 = 0.788 - learned after 2 total and 0 acceptable nodes.  Node score = -17.16888187934283
+
+ FOR teamplayssport(a, b) IF (plays(b, anon33181), teamplaysinleague(a, anon33649), athleteplaysforteam(anon36289, a)) THEN output = -0.000208 ELSE output = 0.007802;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #12, null' and covering 54.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.674, precision = 0.998, and F1 = 0.805 - learned after 3 total and 1 acceptable nodes.  Node score = -21.3738046355954
+
+ FOR teamplayssport(a, b) IF (plays(b, anon45437), teamplaysinleague(a, anon45839), teamplaysinleague(anon45437, anon45839), athleteplaysforteam(anon48487, anon45437)) THEN output = 0.015307 ELSE output = 0.210906;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #12, null' and covering 41.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.731, precision = 0.998, and F1 = 0.844 - learned after 6 total and 2 acceptable nodes.  Node score = -14.329886424809358
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), teamplaysinleague(a, anon75849), teamplaysinleague(anon73635, anon75849), teamplaysagainstteam(anon76789, anon73635)) THEN output = 0.007351 ELSE output = 0.239169;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #12, null' and covering 130.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.797, precision = 0.999, and F1 = 0.887 - learned after 6 total and 1 acceptable nodes.  Node score = -17.491147360663398
+
+ FOR teamplayssport(a, b) IF (plays(b, anon33181), teamplaysinleague(a, anon33649), teamplaysagainstteam(anon36297, a)) THEN output = 0.000116 ELSE output = 0.004799;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #12, null' and covering 136.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.834, precision = 0.999, and F1 = 0.909 - learned after 8 total and 2 acceptable nodes.  Node score = -17.554485958983644
+
+ FOR teamplayssport(a, b) IF (plays(b, anon33181), teamplaysinleague(a, anon33649), teamplaysagainstteam(a, anon36299)) THEN output = 0.000149 ELSE output = 0.000842;
+      /* FALSE NEG: teamplayssport("florida_state_university", "football") Actual Bool=true Prob=0.1446070658022113 Output=0.8553929341977887 */
+      /* FALSE NEG: teamplayssport("harvard_crimson", "hockey") Actual Bool=true Prob=0.1446070658022113 Output=0.8553929341977887 */
+      /* FALSE NEG: teamplayssport("charlotte_hornets", "football") Actual Bool=false Prob=0.1446070658022113 Output=-0.1446070658022113 */
+      /* FALSE NEG: teamplayssport("columbia_university", "football") Actual Bool=true Prob=0.1446070658022113 Output=0.8553929341977887 */
+      /* FALSE NEG: teamplayssport("birmingham_southern_college", "hockey") Actual Bool=false Prob=0.1446070658022113 Output=-0.1446070658022113 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #12, null' and covering 65.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.866, precision = 0.998, and F1 = 0.927 - learned after 6 total and 1 acceptable nodes.  Node score = -23.7931701009007
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysinleague(a, anon57483), teamplaysinleague(anon57033, anon57483), teamplaysagainstteam(anon57033, a), teamplaysagainstteam(a, anon57033)) THEN output = 0.204276 ELSE output = 0.550460;
+      /* FALSE NEG: teamplayssport("philadelphia_phillies", "baseball") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("toronto_blue_jays", "baseball") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("cincinnati_reds", "baseball") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("san_diego_padres", "baseball") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+      /* FALSE NEG: teamplayssport("calgary_flames", "hockey") Actual Bool=true Prob=0.14954038419264482 Output=0.8504596158073552 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #12, null' and covering 1,080.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.915, precision = 1.000, and F1 = 0.956 - learned after 3 total and 1 acceptable nodes.  Node score = -109138.89712372237
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), athleteplayssport(anon83683, b)) THEN output = 0.000948 ELSE output = -0.507041;
+      /* FALSE NEG: teamplayssport("akron_zips", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("arkansas_razorbacks", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("boston_college", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("baltimore_colts", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+      /* FALSE NEG: teamplayssport("connecticut_huskies", "softball") Actual Bool=false Prob=0.14185106490048777 Output=-2.908816657319749 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #12, null' and covering 1,140.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.966, precision = 1.000, and F1 = 0.983 - learned after 2 total and 0 acceptable nodes.  Node score = -Infinity
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), athleteplaysforteam(anon83681, anon82665)) THEN output = 0.037956 ELSE output = 6.573532;
+      /* FALSE NEG: teamplayssport("montreal_alouettes", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("harvard_school_of_dental_medicine", "football") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #13, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #13, null' and covering 5.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.062, precision = 0.980, and F1 = 0.117 - learned after 6 total and 2 acceptable nodes.  Node score = -9.63487220091018
+
+ FOR teamplayssport(a, b) IF (plays(b, anon65161), teamplaysinleague(a, anon65629), teamplaysinleague(anon65161, anon65629), teamplaysagainstteam(a, anon65161)) THEN output = 0.852754 ELSE output = 0.134545;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #13, null' and covering 24.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.155, precision = 0.996, and F1 = 0.268 - learned after 7 total and 2 acceptable nodes.  Node score = -19.313197174292203
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), athleteplaysforteam(anon75573, a), plays(anon77059, a)) THEN output = -0.001144 ELSE output = -0.000063;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #13, null' and covering 24.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.300, precision = 0.996, and F1 = 0.461 - learned after 2 total and 0 acceptable nodes.  Node score = -15.999683026976736
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysinleague(a, anon57483), teamplaysinleague(anon57033, anon57483), athleteplaysforteam(anon60459, a)) THEN output = 0.031780 ELSE output = 0.133912;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #13, null' and covering 21.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.374, precision = 0.995, and F1 = 0.544 - learned after 5 total and 1 acceptable nodes.  Node score = -9.748324491322174
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysinleague(a, anon55505), teamplaysinleague(anon52823, anon55505), teamplaysagainstteam(anon56413, a)) THEN output = 0.016685 ELSE output = 0.152504;
+
+// Best in (weighted) recall bin #8, (0.4, 0.45], from 'outerLoop #13, null' and covering 23.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.410, precision = 0.996, and F1 = 0.581 - learned after 7 total and 3 acceptable nodes.  Node score = -9.71867745770634
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysinleague(a, anon55505), teamplaysinleague(anon52823, anon55505), teamplaysagainstteam(a, anon56415)) THEN output = 0.017499 ELSE output = 0.154238;
+
+// Best in (weighted) recall bin #9, (0.45, 0.5], from 'outerLoop #13, null' and covering 28.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.490, precision = 0.996, and F1 = 0.657 - learned after 5 total and 0 acceptable nodes.  Node score = -7.33920831221128
+
+ FOR teamplayssport(a, b) IF (plays(b, anon33181), teamplaysinleague(a, anon33649), teamplaysagainstteam(anon36605, a)) THEN output = -0.000180 ELSE output = 0.009062;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #13, null' and covering 33.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.578, precision = 0.997, and F1 = 0.732 - learned after 7 total and 1 acceptable nodes.  Node score = -7.486601231985649
+
+ FOR teamplayssport(a, b) IF (plays(b, anon33181), teamplaysinleague(a, anon33649), teamplaysagainstteam(a, anon36607)) THEN output = 0.000537 ELSE output = 0.005259;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #13, null' and covering 95.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.613, precision = 0.999, and F1 = 0.759 - learned after 6 total and 1 acceptable nodes.  Node score = -19.354650969454795
+
+ FOR teamplayssport(a, b) IF (plays(b, anon24857), athleteplaysforteam(anon27255, a), athleteplayssport(anon27255, anon28449)) THEN output = -0.000422 ELSE output = 0.001386;
+
+// Best in (weighted) recall bin #13, (0.65, 0.7], from 'outerLoop #13, null' and covering 54.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.674, precision = 0.998, and F1 = 0.805 - learned after 3 total and 1 acceptable nodes.  Node score = -21.357069726625493
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysinleague(a, anon57483), teamplaysinleague(anon57033, anon57483), athleteplaysforteam(anon60459, anon57033)) THEN output = 0.015298 ELSE output = 0.210708;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #13, null' and covering 41.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.731, precision = 0.998, and F1 = 0.844 - learned after 6 total and 2 acceptable nodes.  Node score = -14.289379228243194
+
+ FOR teamplayssport(a, b) IF (plays(b, anon52823), teamplaysinleague(a, anon55505), teamplaysinleague(anon52823, anon55505), teamplaysagainstteam(anon56413, anon52823)) THEN output = 0.007335 ELSE output = 0.238543;
+
+// Best in (weighted) recall bin #15, (0.75, 0.8], from 'outerLoop #13, null' and covering 64.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.799, precision = 0.998, and F1 = 0.888 - learned after 7 total and 3 acceptable nodes.  Node score = -20.378354890255885
+
+ FOR teamplayssport(a, b) IF (plays(b, anon57033), teamplaysinleague(a, anon57483), teamplaysinleague(anon57033, anon57483), teamplaysagainstteam(anon60467, anon57033)) THEN output = 0.008255 ELSE output = 0.241236;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #13, null' and covering 340.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.850, precision = 1.000, and F1 = 0.919 - learned after 10 total and 2 acceptable nodes.  Node score = -29498.174691781827
+
+ FOR teamplayssport(a, b) IF (teamplaysagainstteam(a, anon82665), plays(b, anon82665), teamplaysinleague(a, anon83939)) THEN output = 7.564950 ELSE output = 17.091183;
+      /* FALSE NEG: teamplayssport("timberwolves", "basketball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("montreal_maroons", "hockey") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+      /* FALSE NEG: teamplayssport("hokies", "basketball") Actual Bool=true Prob=0.14185106490048777 Output=17.09118334268025 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #13, null' and covering 135.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.870, precision = 0.999, and F1 = 0.930 - learned after 13 total and 5 acceptable nodes.  Node score = -19.507554522021533
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), athleteplaysforteam(anon75573, a), teamplaysinleague(a, anon77067)) THEN output = -0.000208 ELSE output = -0.000505;
+      /* FALSE NEG: teamplayssport("blue_jays", "hockey") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("vols", "golf") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("blue_jays", "baseball") Actual Bool=true Prob=0.14501473276222845 Output=0.8549852672377716 */
+      /* FALSE NEG: teamplayssport("ball_state_university", "baseball") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("brazil", "hockey") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+
+// Best in (weighted) recall bin #18, (0.9, 0.95], from 'outerLoop #13, null' and covering 12.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.916, precision = 0.992, and F1 = 0.952 - learned after 8 total and 2 acceptable nodes.  Node score = -Infinity
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), teamplaysinleague(a, anon69721), teamplaysagainstteam(anon69253, a), teamplaysagainstteam(anon72715, anon69253)) THEN output = 0.006392 ELSE output = 0.853878;
+      /* FALSE NEG: teamplayssport("florida_gators", "basketball") Actual Bool=true Prob=0.14612243487467558 Output=0.8538775651253244 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #13, null' and covering 151.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.974, precision = 0.999, and F1 = 0.986 - learned after 9 total and 3 acceptable nodes.  Node score = -19.30729117759276
+
+ FOR teamplayssport(a, b) IF (plays(b, anon73635), athleteplaysforteam(anon75573, a), teamplaysagainstteam(anon77063, a)) THEN output = -0.000020 ELSE output = -0.002559;
+      /* FALSE NEG: teamplayssport("blue_jackets", "baseball") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("blue_jackets", "football") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("blue_jackets", "golf") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+      /* FALSE NEG: teamplayssport("blue_jackets", "basketball") Actual Bool=false Prob=0.14501473276222845 Output=-0.14501473276222845 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #14, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #14, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.585, precision = 0.990, and F1 = 0.735 - learned after 5 total and 0 acceptable nodes.  Node score = -1.5719532286136817
+
+ FOR teamplayssport(a, b) IF (plays(b, anon69253), athleteplaysforteam(anon70001, a), athleteplayssport(anon70001, anon72977)) THEN output = -0.001284 ELSE output = 0.003010;
+

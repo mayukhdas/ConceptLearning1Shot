@@ -1,0 +1,18 @@
+setParam: stringsAreCaseSensitive = true.
+
+useStdLogicNotation: true.
+
+
+(plays(b, uniqueVar148) ^ teamplaysagainstteam(uniqueVar148, a) ^ athleteplaysforteam(_, uniqueVar148) ^ teamplaysinleague(uniqueVar148, uniqueVar149) ^ teamplaysinleague(a, uniqueVar149) ^ teamplaysagainstteam(a, uniqueVar148) => teamplayssport(a, b, 0.022042764431744827)).
+(plays(b, uniqueVar150) ^ teamplaysagainstteam(uniqueVar150, a) ^ athleteplaysforteam(_, uniqueVar150) ^ teamplaysinleague(uniqueVar150, uniqueVar151) ^ teamplaysinleague(a, uniqueVar151) ^ ! => teamplayssport(a, b, 0.03916245256005481)).
+(plays(b, uniqueVar152) ^ teamplaysagainstteam(uniqueVar152, a) ^ athleteplaysforteam(_, uniqueVar152) ^ teamplaysinleague(uniqueVar152, _) ^ teamplaysagainstteam(a, uniqueVar152) ^ ! => teamplayssport(a, b, 0.019161674014413033)).
+(plays(b, uniqueVar153) ^ teamplaysagainstteam(uniqueVar153, a) ^ athleteplaysforteam(_, uniqueVar153) ^ teamplaysinleague(uniqueVar153, _) ^ ! => teamplayssport(a, b, 0.07258237442403585)).
+(plays(b, uniqueVar154) ^ teamplaysagainstteam(uniqueVar154, a) ^ athleteplaysforteam(_, uniqueVar154) ^ ! => teamplayssport(a, b, 0.18960919329251616)).
+(plays(b, uniqueVar155) ^ teamplaysagainstteam(uniqueVar155, a) ^ ! => teamplayssport(a, b, 0.8532413698163227)).
+(plays(b, _) ^ athleteplaysforteam(_, a) ^ ! => teamplayssport(a, b, -2.459453600120283E-4)).
+(plays(b, uniqueVar156) ^ teamplaysinleague(a, uniqueVar157) ^ teamplaysinleague(uniqueVar156, uniqueVar157) ^ teamplaysagainstteam(a, _) ^ ! => teamplayssport(a, b, 0.017499283321918014)).
+(plays(b, uniqueVar158) ^ teamplaysinleague(a, uniqueVar159) ^ teamplaysinleague(uniqueVar158, uniqueVar159) ^ ! => teamplayssport(a, b, 0.15423750186602286)).
+(plays(b, _) ^ teamplaysinleague(a, _) ^ ! => teamplayssport(a, b, 0.005356545740255411)).
+(plays(b, _) ^ plays(_, a) ^ ! => teamplayssport(a, b, -0.009361147192786003)).
+(plays(a, _) ^ ! => teamplayssport(_, a, 0.024469622530451953)).
+(! => teamplayssport(_, _, -0.131721036198715)).
