@@ -1,11 +1,11 @@
 Row(a).
 Length(a, 6).
 Column(b).
-Height(b, 5).
+Height(b, 9).
 Contains(s, a).
 Contains(s, b).
 SpRel(top-left, b, a).
-Height(s, 6).
+Height(s, 10).
 Base(s, 6).
 Row(c).
 Length(c, 6).
@@ -16,3 +16,5 @@ Contains(r, b).
 SpRel(top-left, b, a).
 Height(r, 8).
 Base(r, 6).
+Contains(v, x).
+Contains(u, y).
