@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Row(Shape).
 Length(Shape,Value).
 Column(Shape).
@@ -7,7 +6,6 @@ Contains(Shape, Shape, Shape).
 SpRel(Rel, Shape, Shape).
 Base(Shape, Value).
 Ell(Shape).
-=======
 Row(+Shape).
 Length(+Shape,+Value).
 Column(+Shape).
@@ -15,4 +13,3 @@ Height(+Shape,+Value).
 Contains(+Shape, -Shape, -Shape).
 SpRel(#Rel, +Shape, +Shape).
 Base(+Shape, +Value).
->>>>>>> 6d9d7a0177d234b31d2ce3516c8ebdc29df8ec2e

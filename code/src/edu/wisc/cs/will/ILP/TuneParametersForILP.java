@@ -29,7 +29,7 @@ import edu.wisc.cs.will.stdAIsearch.SearchInterrupted;
 
 public class TuneParametersForILP {
 	protected final static int debugLevel = 2; // Used to control output from this project (0 = no output, 1=some, 2=much, 3=all).
-	
+	public int maxLayers = 10; //revisit
 	private boolean giveItTheCollegeTry = true; // If true, try one last fast run when no good solution can be found.
 	private double  finalMinPrecision   = -1; // If in [0,1) will use this for one last run when no good solution can be found.
 	private int     finalMinPosCoverage = -1;
@@ -576,8 +576,17 @@ public class TuneParametersForILP {
 		int numberOfCombos     = Utils.getSizeSafely(onionLayers);
 		Utils.println("LAYERS ################## " +numberOfCombos); //MD
 		int currentComboNumber = 0;
-		if (numberOfCombos > 0) for (ILPparameterSettings setting : onionLayers) {
-           
+		//if (numberOfCombos > 0) for (ILPparameterSettings setting : onionLayers) {
+		//we need a counter for layers ----
+		int layerCounter = 0;
+		//----------------------------------
+		while (true)
+		{
+			if(layerCounter>=this.maxLayers) //stopping criterion
+				break;
+			
+			
+			ILPparameterSettings setting = new ILPparameterSettings(this.outerLooper, this, null); //revisit MD Nan
 			//Utils.println(setting.toString(true)); //MD
 			//Utils.warning("Asked to wait",60);
             ILPSearchAction action = outerLooper.innerLoopTask.fireOnionLayerStarting(this, setting);
@@ -866,6 +875,7 @@ public class TuneParametersForILP {
                 Utils.println("ILPSearchListener terminated Onion search after prior to layer " + setting.getOnionLayer() + ".");
                 break;
             }
+            layerCounter++; //MD Nan
         }
 		
 		if (debugLevel > 0) {
