@@ -3,6 +3,7 @@ Length(a, 6.0).
 Column(b).
 Contains(s, a, b).
 Height(s, 8.0).
+H(b, 7.0) 
 Base(s, 6.0).
 Row(c).
 Length(c, 6.0).
@@ -10,3 +11,7 @@ Column(d).
 Contains(r, c, d).
 Height(r, 8.0).
 Base(r, 6.0).
+Contains(p, e, d).
+Height(p, 10.0).
+Column(e).
+Height(e, 4.0).

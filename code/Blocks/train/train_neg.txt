@@ -1,0 +1,3 @@
+Ell(r).
+Ell(p).
+Ell(q).

@@ -8,6 +8,7 @@ mode: Row(+part1).
 mode: Length(+part1,#Float).
 mode: Column(+part2).
 mode: Height(+Shape,#Float).
+mode: H(+part2, #Float).
 mode: Contains(+Shape, -part1,-part2) max=1.
 mode: Base(+Shape,#Float).
 mode: Ell(+Shape).
