@@ -1,0 +1,29 @@
+////// Learned from a dataset containing 3 positive (3.0 weighted sum) and 1 negative (1.0 wgt'ed) examples.
+////// The minimal (wgt'ed) coverage = 4.90e-324, the maximal (wgt'ed) NEG coverage = 10,000.000, and the minimal (wgt'ed) precision = 0.000 (using m = 0.01)
+
+usePrologVariables: true.
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: allPossibleMarkers
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, ONION Layer #6, flipped, minPrec=0.99, maxC=1, maxL=7' and covering 3.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.997, precision = 0.997, and F1 = 0.997 - learned after 14 total and 7 acceptable nodes.  Node score = 0.9966761408637874
+not_Ell(A) :- 
+   not_single_piece_advice5210(A). // ONION Layer #6, flipped, minPrec=0.99, maxC=1, maxL=7
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #1_fold0, ONION Layer #6, flipped, minPrec=0.99, maxC=1, maxL=7
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, ONION Layer #6, flipped, minPrec=0.99, maxC=1, maxL=7' and covering 3.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.997, precision = 0.997, and F1 = 0.997 - learned after 14 total and 7 acceptable nodes.  Node score = 0.9966761408637874
+not_Ell(A) :- 
+   not_single_piece_advice5210(A). // ONION Layer #6, flipped, minPrec=0.99, maxC=1, maxL=7
+

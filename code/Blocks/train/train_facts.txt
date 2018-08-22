@@ -1,20 +1,12 @@
 Row(a).
-Length(a, 6).
+Length(a, 6.0).
 Column(b).
-Height(b, 9).
-Contains(s, a).
-Contains(s, b).
-SpRel(top-left, b, a).
-Height(s, 10).
-Base(s, 6).
+Contains(s, a, b).
+Height(s, 8.0).
+Base(s, 6.0).
 Row(c).
-Length(c, 6).
+Length(c, 6.0).
 Column(d).
-Height(d, 7).
-Contains(r, a).
-Contains(r, b).
-SpRel(top-left, b, a).
-Height(r, 8).
-Base(r, 6).
-Contains(v, x).
-Contains(u, y).
+Contains(r, c, d).
+Height(r, 8.0).
+Base(r, 6.0).

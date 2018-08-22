@@ -1,3 +1,0 @@
-Ell(u).
-Ell(v).
-Ell(w).

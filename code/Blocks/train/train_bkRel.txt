@@ -1,15 +1,7 @@
-Row(Shape).
-Length(Shape,Value).
-Column(Shape).
-Height(Shape,Value).
-Contains(Shape, Shape, Shape).
-SpRel(Rel, Shape, Shape).
-Base(Shape, Value).
-Ell(Shape).
-Row(+Shape).
-Length(+Shape,+Value).
-Column(+Shape).
-Height(+Shape,+Value).
-Contains(+Shape, -Shape, -Shape).
-SpRel(#Rel, +Shape, +Shape).
-Base(+Shape, +Value).
+setParameter: stringsAreCaseSensitive = true;
+
+
+relevantClause: Ell(s) : (Column(unknownVar2),Row(unknownVar3),Length(unknownVar3,unknownVar0),Height(s,unknownVar1),Base(s,unknownVar0),Contains(s,unknownVar3,unknownVar2)), VERY_STRONGLY_RELEVANT.
+
+
+

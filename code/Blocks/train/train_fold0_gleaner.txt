@@ -1,5 +1,5 @@
-////// Learned from a dataset containing 2 positive (2.0 weighted sum) and 3 negative (3.0 wgt'ed) examples.
-////// The minimal (wgt'ed) coverage = 0.990 and the minimal (wgt'ed) precision = 0.990 (using m = 0.01)
+////// Learned from a dataset containing 1 positive (1.0 weighted sum) and 0 negative (0.0 wgt'ed) examples.
+////// The minimal (wgt'ed) coverage = 1.000 and the minimal (wgt'ed) precision = 0.500 (using m = 0.01)
 
 usePrologVariables: true.
 
@@ -10,22 +10,18 @@ usePrologVariables: true.
 ////
 ////////////////////////////////////////////////////////////////////////////////
 
-// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, ONION Layer #1, minPrec=0.99, maxC=1, maxL=1' and covering 2.0 wgt'ed positive and 0.0 wgt'ed negative examples:
-//    Wgt'ed recall = 0.995, precision = 0.995, and F1 = 0.995 - learned after 3 total and 0 acceptable nodes.  Node score = 0.9950046756218907
-Ell(A) :- 
-   Contains(A, B),
-   Row(B). // ONION Layer #1, minPrec=0.99, maxC=1, maxL=1
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, null' and covering 1.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.990, precision = 0.990, and F1 = 0.990 - learned after 1 total and 0 acceptable nodes.  Node score = 0.9900979099009901
+Ell(_).
 
 
 ////////////////////////////////////////////////////////////////////////////////
 ////
-////     Gleaner for: outerLoop #1_fold0, ONION Layer #1, minPrec=0.99, maxC=1, maxL=1
+////     Gleaner for: outerLoop #1_fold0, null
 ////
 ////////////////////////////////////////////////////////////////////////////////
 
-// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, ONION Layer #1, minPrec=0.99, maxC=1, maxL=1' and covering 2.0 wgt'ed positive and 0.0 wgt'ed negative examples:
-//    Wgt'ed recall = 0.995, precision = 0.995, and F1 = 0.995 - learned after 3 total and 0 acceptable nodes.  Node score = 0.9950046756218907
-Ell(A) :- 
-   Contains(A, B),
-   Row(B). // ONION Layer #1, minPrec=0.99, maxC=1, maxL=1
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, null' and covering 1.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.990, precision = 0.990, and F1 = 0.990 - learned after 1 total and 0 acceptable nodes.  Node score = 0.9900979099009901
+Ell(_).
 

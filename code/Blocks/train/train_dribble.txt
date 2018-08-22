@@ -1,4 +1,4 @@
-% Running on host: BL-SOIC-30ZND42
+% Running on host: DESKTOP-A7D8Q9H
 
 % Creating string handler #1.
 
@@ -7,17 +7,17 @@
 
 % Unset'ing VarIndicator.
 
-% getInputArgWithDefaultValue: args=[.\Blocks\train/train_pos.txt, .\Blocks\train/train_neg.txt, .\Blocks\train/train_bk.txt, .\Blocks\train/train_facts.txt]
-%  for N=0: args[N]=.\Blocks\train/train_pos.txt
+% getInputArgWithDefaultValue: args=[C:\Users\Nandini\Dropbox\Blocks\train/train_pos.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_neg.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_bk.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_facts.txt]
+%  for N=0: args[N]=C:\Users\Nandini\Dropbox\Blocks\train/train_pos.txt
 
-% getInputArgWithDefaultValue: args=[.\Blocks\train/train_pos.txt, .\Blocks\train/train_neg.txt, .\Blocks\train/train_bk.txt, .\Blocks\train/train_facts.txt]
-%  for N=1: args[N]=.\Blocks\train/train_neg.txt
+% getInputArgWithDefaultValue: args=[C:\Users\Nandini\Dropbox\Blocks\train/train_pos.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_neg.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_bk.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_facts.txt]
+%  for N=1: args[N]=C:\Users\Nandini\Dropbox\Blocks\train/train_neg.txt
 
-% getInputArgWithDefaultValue: args=[.\Blocks\train/train_pos.txt, .\Blocks\train/train_neg.txt, .\Blocks\train/train_bk.txt, .\Blocks\train/train_facts.txt]
-%  for N=2: args[N]=.\Blocks\train/train_bk.txt
+% getInputArgWithDefaultValue: args=[C:\Users\Nandini\Dropbox\Blocks\train/train_pos.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_neg.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_bk.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_facts.txt]
+%  for N=2: args[N]=C:\Users\Nandini\Dropbox\Blocks\train/train_bk.txt
 
-% getInputArgWithDefaultValue: args=[.\Blocks\train/train_pos.txt, .\Blocks\train/train_neg.txt, .\Blocks\train/train_bk.txt, .\Blocks\train/train_facts.txt]
-%  for N=3: args[N]=.\Blocks\train/train_facts.txt
+% getInputArgWithDefaultValue: args=[C:\Users\Nandini\Dropbox\Blocks\train/train_pos.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_neg.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_bk.txt, C:\Users\Nandini\Dropbox\Blocks\train/train_facts.txt]
+%  for N=3: args[N]=C:\Users\Nandini\Dropbox\Blocks\train/train_facts.txt
 
 % Welcome to the WILL ILP/SRL systems.
 
@@ -37,15 +37,25 @@
 ***** Warning: % Since this is the first setting of the notation for variables, will keep:
 %   variableIndicator = uppercase *****
 
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
 % LoadAllModes() called.  Currently loaded modes: []
-% LoadAllLibraries() called.  Currently loaded libraries: [listsInLogic, differentInLogic, modes_arithmeticInLogic, inlines_comparisonInLogic, modes_listsInLogic, inlines_differentInLogic, modes_differentInLogic, arithmeticInLogic, inlines_listsInLogic, modes_comparisonInLogic, comparisonInLogic, inlines_arithmeticInLogic]
+% LoadAllLibraries() called.  Currently loaded libraries: [listsInLogic, differentInLogic, modes_listsInLogic, modes_differentInLogic, comparisonInLogic, bootstrapBKinLogic, modes_arithmeticInLogic, inlines_comparisonInLogic, inlines_differentInLogic, arithmeticInLogic, inlines_listsInLogic, modes_comparisonInLogic, inlines_arithmeticInLogic]
 
 %  Read the facts.
-%  Have read 20 facts.
-% Have read 2 examples from '.\Blocks\train' [.\Blocks\train/train*].
-% Have read 3 examples from '.\Blocks\train' [.\Blocks\train/train*].
+%  Have read 12 facts.
+% Have read 1 examples from 'C:\Users\Nandini\Dropbox\Blocks\train' [C:\Users\Nandini\Dropbox\Blocks\train/train*].
+% Have read 0 examples from 'C:\Users\Nandini\Dropbox\Blocks\train' [C:\Users\Nandini\Dropbox\Blocks\train/train*].
 
 %  LearnOneClause initialized.
+
+***** Warning: % Should not set minPosCoverage (2.0) to more than the total weight on the positive examples (1.0).  Will use the maximum possible value. *****
+
+% Reading background theory from dir: C:\Users\Nandini\Dropbox\Blocks\train
+% Have read the relevance files.
+
 
 % NEW target:                 Ell(D)
 %  targetPred:                Ell/1
@@ -60,740 +70,160 @@
 % Collecting the types of constants.
 
 % Looking at the training examples to see if any types of new constants can be inferred.
-% Time to collect constants: 2 milliseconds
+% Time to collect constants: 0 seconds
 % Time to collect examples: 0 seconds
 
-% Read 2 pos examples and 3 neg examples.
-% Time to init learnOneClause: 7 milliseconds
-%   Add combo #1.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(101)/MinPos(0.99)/MaxNegs(-1.00)
-%   Add combo #2.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(101)/MinPos(0.99)/MaxNegs(-1.00)
-%   Add combo #3.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(101)/MinPos(0.99)/MaxNegs(-1.00)
-%   Add combo #4.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(101)/MinPos(0.99)/MaxNegs(-1.00)
-%   Add combo #5.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(101)/MinPos(0.99)/MaxNegs(-1.00)
-%   Add combo #6.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(101)/MinPos(0.99)/MaxNegs(-1.00)
-%   Add combo #7.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9940)/MaxExpands(10)/MaxCreates(100)/MinPos(0.14)/MaxNegs(-1.00)
-%   Add combo #8.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9957)/MaxExpands(10)/MaxCreates(100)/MinPos(0.14)/MaxNegs(-1.00)
-%   Add combo #9.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9940)/MaxExpands(10)/MaxCreates(100)/MinPos(0.14)/MaxNegs(-1.00)
-%   Add combo #10.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9957)/MaxExpands(10)/MaxCreates(100)/MinPos(0.14)/MaxNegs(-1.00)
-%   Add combo #11.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9940)/MaxExpands(10)/MaxCreates(100)/MinPos(0.14)/MaxNegs(-1.00)
-%   Add combo #12.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9957)/MaxExpands(10)/MaxCreates(100)/MinPos(0.14)/MaxNegs(-1.00)
-%   Add combo #13.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9940)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%   Add combo #14.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9957)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%   Add combo #15.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9940)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%   Add combo #16.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9957)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%   Add combo #17.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9940)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%   Add combo #18.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9957)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #19.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(10)/MaxCreates(110)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #20.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(10)/MaxCreates(110)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #21.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(10)/MaxCreates(110)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #22.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(10)/MaxCreates(110)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #23.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(10)/MaxCreates(110)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #24.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(10)/MaxCreates(110)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #25.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(10)/MaxCreates(105)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #26.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(10)/MaxCreates(105)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #27.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(10)/MaxCreates(105)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #28.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(10)/MaxCreates(105)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #29.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(10)/MaxCreates(105)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #30.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(10)/MaxCreates(105)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #31.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #32.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #33.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #34.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #35.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #36.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(10)/MaxCreates(100)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #37.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(100)/MaxCreates(1100)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #38.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(100)/MaxCreates(1100)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #39.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(100)/MaxCreates(1100)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #40.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(100)/MaxCreates(1100)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #41.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(100)/MaxCreates(1100)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #42.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(100)/MaxCreates(1100)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #43.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(100)/MaxCreates(1055)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #44.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(100)/MaxCreates(1055)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #45.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(100)/MaxCreates(1055)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #46.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(100)/MaxCreates(1055)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #47.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(100)/MaxCreates(1055)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #48.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(100)/MaxCreates(1055)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #49.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(100)/MaxCreates(1009)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #50.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(100)/MaxCreates(1009)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #51.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(100)/MaxCreates(1009)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #52.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(100)/MaxCreates(1009)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #53.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(100)/MaxCreates(1009)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #54.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(100)/MaxCreates(1009)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #55.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(1000)/MaxCreates(11000)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #56.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(1000)/MaxCreates(11000)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #57.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(1000)/MaxCreates(11000)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #58.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(1000)/MaxCreates(11000)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #59.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(1000)/MaxCreates(11000)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.9 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #60.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.9000)/MaxExpands(1000)/MaxCreates(11000)/MinPos(0.90)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #61.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(1000)/MaxCreates(10550)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #62.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(1000)/MaxCreates(10550)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #63.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(1000)/MaxCreates(10550)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #64.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(1000)/MaxCreates(10550)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #65.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(1000)/MaxCreates(10550)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.9450000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #66.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.9450)/MaxExpands(1000)/MaxCreates(10550)/MinPos(0.14)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #67.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(1000)/MaxCreates(10099)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #68.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(1000)/MaxCreates(10099)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #69.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(1000)/MaxCreates(10099)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #70.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(1000)/MaxCreates(10099)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #71.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(1000)/MaxCreates(10099)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.9900000000000001 but these should not be different.
-% setMinF1toStop = 0.9
-%   Add combo #72.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.9900)/MaxExpands(1000)/MaxCreates(10099)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #73.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(10)/MaxCreates(125)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #74.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(10)/MaxCreates(125)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #75.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(10)/MaxCreates(125)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #76.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(10)/MaxCreates(125)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #77.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(10)/MaxCreates(125)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #78.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(10)/MaxCreates(125)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #79.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(10)/MaxCreates(121)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #80.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(10)/MaxCreates(121)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #81.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(10)/MaxCreates(121)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #82.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(10)/MaxCreates(121)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #83.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(10)/MaxCreates(121)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #84.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(10)/MaxCreates(121)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #85.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(10)/MaxCreates(117)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #86.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(10)/MaxCreates(117)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #87.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(10)/MaxCreates(117)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #88.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(10)/MaxCreates(117)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #89.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(10)/MaxCreates(117)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #90.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(10)/MaxCreates(117)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #91.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(100)/MaxCreates(1250)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #92.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(100)/MaxCreates(1250)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #93.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(100)/MaxCreates(1250)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #94.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(100)/MaxCreates(1250)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #95.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(100)/MaxCreates(1250)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #96.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(100)/MaxCreates(1250)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #97.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(100)/MaxCreates(1212)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #98.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(100)/MaxCreates(1212)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #99.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(100)/MaxCreates(1212)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #100.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(100)/MaxCreates(1212)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #101.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(100)/MaxCreates(1212)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #102.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(100)/MaxCreates(1212)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #103.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(100)/MaxCreates(1174)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #104.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(100)/MaxCreates(1174)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #105.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(100)/MaxCreates(1174)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #106.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(100)/MaxCreates(1174)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #107.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(100)/MaxCreates(1174)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #108.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(100)/MaxCreates(1174)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #109.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(1000)/MaxCreates(12500)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #110.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(1000)/MaxCreates(12500)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #111.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(1000)/MaxCreates(12500)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #112.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(1000)/MaxCreates(12500)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #113.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(1000)/MaxCreates(12500)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.75 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #114.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.7500)/MaxExpands(1000)/MaxCreates(12500)/MinPos(0.75)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #115.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(1000)/MaxCreates(12124)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #116.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(1000)/MaxCreates(12124)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #117.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(1000)/MaxCreates(12124)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #118.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(1000)/MaxCreates(12124)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #119.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(1000)/MaxCreates(12124)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.7875000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #120.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.7875)/MaxExpands(1000)/MaxCreates(12124)/MinPos(0.11)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #121.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(1000)/MaxCreates(11749)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #122.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(1000)/MaxCreates(11749)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #123.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(1000)/MaxCreates(11749)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #124.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(1000)/MaxCreates(11749)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #125.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(1000)/MaxCreates(11749)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.8250000000000001 but these should not be different.
-% setMinF1toStop = 0.75
-%   Add combo #126.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.8250)/MaxExpands(1000)/MaxCreates(11749)/MinPos(0.08)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #127.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(10)/MaxCreates(135)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #128.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(10)/MaxCreates(136)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #129.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(10)/MaxCreates(135)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #130.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(10)/MaxCreates(136)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #131.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(10)/MaxCreates(135)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #132.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(10)/MaxCreates(136)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #133.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(10)/MaxCreates(132)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #134.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(10)/MaxCreates(133)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #135.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(10)/MaxCreates(132)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #136.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(10)/MaxCreates(133)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #137.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(10)/MaxCreates(132)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #138.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(10)/MaxCreates(133)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #139.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(10)/MaxCreates(129)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #140.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(10)/MaxCreates(129)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #141.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(10)/MaxCreates(129)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #142.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(10)/MaxCreates(129)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #143.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(10)/MaxCreates(129)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #144.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(10)/MaxCreates(129)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #145.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(100)/MaxCreates(1358)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #146.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(100)/MaxCreates(1362)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #147.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(100)/MaxCreates(1358)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #148.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(100)/MaxCreates(1362)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #149.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(100)/MaxCreates(1358)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #150.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(100)/MaxCreates(1362)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #151.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(100)/MaxCreates(1326)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #152.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(100)/MaxCreates(1330)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #153.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(100)/MaxCreates(1326)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #154.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(100)/MaxCreates(1330)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #155.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(100)/MaxCreates(1326)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #156.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(100)/MaxCreates(1330)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #157.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(100)/MaxCreates(1294)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #158.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(100)/MaxCreates(1298)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #159.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(100)/MaxCreates(1294)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #160.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(100)/MaxCreates(1298)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #161.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(100)/MaxCreates(1294)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #162.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(100)/MaxCreates(1298)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #163.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(1000)/MaxCreates(13585)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #164.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(1000)/MaxCreates(13621)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #165.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(1000)/MaxCreates(13585)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #166.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(1000)/MaxCreates(13621)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7001, oldValue = 0.99 and newValue = 0.641434262948207 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #167.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(1)/MinPrec(0.6414)/MaxExpands(1000)/MaxCreates(13585)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007001, oldValue = 0.99 and newValue = 0.6378486055776893 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #168.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(1)/MinPrec(0.6378)/MaxExpands(1000)/MaxCreates(13621)/MinPos(0.64)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #169.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(1000)/MaxCreates(13264)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #170.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(1000)/MaxCreates(13302)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #171.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(1000)/MaxCreates(13264)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #172.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(1000)/MaxCreates(13302)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7003, oldValue = 0.9940298507462688 and newValue = 0.6735059760956175 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #173.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(3)/MinPrec(0.6735)/MaxExpands(1000)/MaxCreates(13264)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007003, oldValue = 0.9956810631229237 and newValue = 0.6697410358565737 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #174.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(3)/MinPrec(0.6697)/MaxExpands(1000)/MaxCreates(13302)/MinPos(0.10)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #175.
-%     MinRelevance(null)/MaxLen(1)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(1000)/MaxCreates(12944)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1001015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #176.
-%     MinRelevance(null)/Flipped(true)/MaxLen(1)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(1000)/MaxCreates(12983)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 3015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #177.
-%     MinRelevance(null)/MaxLen(3)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(1000)/MaxCreates(12944)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1003015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #178.
-%     MinRelevance(null)/Flipped(true)/MaxLen(3)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(1000)/MaxCreates(12983)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 7015, oldValue = 0.9940298507462688 and newValue = 0.7055776892430278 but these should not be different.
-% setMinF1toStop = 0.641434262948207
-%   Add combo #179.
-%     MinRelevance(null)/MaxLen(7)/MaxClauses(15)/MinPrec(0.7056)/MaxExpands(1000)/MaxCreates(12944)/MinPos(0.07)/MaxNegs(-1.00)
-%  setPreviousMinPrecision: for key = 1007015, oldValue = 0.9956810631229237 and newValue = 0.7016334661354583 but these should not be different.
-% setMinF1toStop = 0.6378486055776893
-%   Add combo #180.
-%     MinRelevance(null)/Flipped(true)/MaxLen(7)/MaxClauses(15)/MinPrec(0.7016)/MaxExpands(1000)/MaxCreates(12983)/MinPos(0.07)/MaxNegs(-1.00)
-
-% Have 180 Onion combinations to try.
-LAYERS ################## 180
-
-%----------------------------
-% CONSIDERING Settings #1 (1 of 180).
-% (The ONION has been running for a total of 47.00ms
-%  and has 12.00h left;
-%  36.00m have been allotted for this setting)
-%  The differences from the default settings are:
-%   maxNumberOfCycles  = 2
-%   maxNumberOfClauses = 1
-%   maxBodyLength      = 1
-%   maxNodesToCreate   = 101
-%   maxNodesToConsider = 10
-%   minPosCoverage     = 0.9900
-%   maxNegCoverage     = -1.0000
-%   minPrecision       = 0.9900
-%   mEstimatePos       = 0.0100
-%   mEstimateNeg       = 0.0100
-%   map mode '*' to '-'
-%   modes in use: [Row/1, Length/2, Column/1, Height/2, Contains/2, SpRel/3, Base/2, Ell/1, addList/2, multiplyList/2, abs/2, minus/2, plus/3, minus/3, mult/3, div/3, allNumbers/1, positiveNumber/1, negativeNumber/1, in0toDot001/1, in0toDot01/1, in0toDot1/1, in0to1/1, in0to10/1, in0to100/1, in0to1000/1, equalWithTolerance/3, greaterOrEqualDifference/3, smallerOrEqualDifference/3, isaEqualTolerance/1, lessThan/2, greaterThan/2, lessThanOrEqual/2, greaterThanOrEqual/2, inBetweenOO/3, inBetweenCO/3, inBetweenOC/3, inBetweenCC/3, memberOfList/2, firstInList/2, restOfList/2, positionInList/3, nthInList/3, lengthOfList/2]
-%   all modes:    [Row/1, Length/2, Column/1, Height/2, Contains/2, SpRel/3, Base/2, Ell/1, addList/2, multiplyList/2, abs/2, minus/2, plus/3, minus/3, mult/3, div/3, allNumbers/1, positiveNumber/1, negativeNumber/1, in0toDot001/1, in0toDot01/1, in0toDot1/1, in0to1/1, in0to10/1, in0to100/1, in0to1000/1, equalWithTolerance/3, greaterOrEqualDifference/3, smallerOrEqualDifference/3, isaEqualTolerance/1, lessThan/2, greaterThan/2, lessThanOrEqual/2, greaterThanOrEqual/2, inBetweenOO/3, inBetweenCO/3, inBetweenOC/3, inBetweenCC/3, memberOfList/2, firstInList/2, restOfList/2, positionInList/3, nthInList/3, lengthOfList/2]
-% ILPparameterSettings.helpRun: annotationForSetting = ONION Layer #1, minPrec=0.99, maxC=1, maxL=1
+% Read 1 pos examples and 0 neg examples.
+% Time to init learnOneClause: 0 seconds
 
 % Initializing fold 0.
-%   Number of positive TRAIN examples = 2.
-%   Number of negative TRAIN examples = 3.
+%   Number of positive TRAIN examples = 1.
+%   Number of negative TRAIN examples = 0.
 %   Number of positive EVAL  examples = 0.
 %   Number of negative EVAL  examples = 0.
+% [AdviceProcessor]  Generated 6 clause(s) at relevance level STRONGLY_IRRELEVANT:
+% [AdviceProcessor]   mega_posAnd_notNegOr0(A) :- 
+% [AdviceProcessor]             Column(B), 
+% [AdviceProcessor]             Row(C), 
+% [AdviceProcessor]             Length(C, D), 
+% [AdviceProcessor]             Height(A, E), 
+% [AdviceProcessor]             Base(A, D), 
+% [AdviceProcessor]             Contains(A, C, B)  POSSIBLE_ANSWER
+% [AdviceProcessor]   mega_notPosAnd_negAnd1(A) :- 
+% [AdviceProcessor]             \+(Column(B), 
+% [AdviceProcessor]                Row(C), 
+% [AdviceProcessor]                Length(C, D), 
+% [AdviceProcessor]                Height(A, E), 
+% [AdviceProcessor]                Base(A, D), 
+% [AdviceProcessor]                Contains(A, C, B)
+% [AdviceProcessor]               )  POSSIBLE_ANSWER
+% [AdviceProcessor]   single_example_advice4(A) :- 
+% [AdviceProcessor]             Column(B), 
+% [AdviceProcessor]             Row(C), 
+% [AdviceProcessor]             Length(C, D), 
+% [AdviceProcessor]             Height(A, E), 
+% [AdviceProcessor]             Base(A, D), 
+% [AdviceProcessor]             Contains(A, C, B)  VERY_STRONGLY_RELEVANT
+% [AdviceProcessor]   not_single_example_advice4(A) :- 
+% [AdviceProcessor]             \+(Column(B), 
+% [AdviceProcessor]                Row(C), 
+% [AdviceProcessor]                Length(C, D), 
+% [AdviceProcessor]                Height(A, E), 
+% [AdviceProcessor]                Base(A, D), 
+% [AdviceProcessor]                Contains(A, C, B)
+% [AdviceProcessor]               )  VERY_STRONGLY_RELEVANT_NEG
+% [AdviceProcessor]   single_piece_advice5(A) :- 
+% [AdviceProcessor]             Column(B), 
+% [AdviceProcessor]             Row(C), 
+% [AdviceProcessor]             Length(C, D), 
+% [AdviceProcessor]             Height(A, E), 
+% [AdviceProcessor]             Base(A, D), 
+% [AdviceProcessor]             Contains(A, C, B)  STRONGLY_RELEVANT
+% [AdviceProcessor]   not_single_piece_advice5(A) :- 
+% [AdviceProcessor]             \+(Column(B), 
+% [AdviceProcessor]                Row(C), 
+% [AdviceProcessor]                Length(C, D), 
+% [AdviceProcessor]                Height(A, E), 
+% [AdviceProcessor]                Base(A, D), 
+% [AdviceProcessor]                Contains(A, C, B)
+% [AdviceProcessor]               )  STRONGLY_RELEVANT_NEG
+
+% WARNING #1: Duplicate cost of 'single_piece_advice5/1'.  Had previously said cost = 0.10001 and now saying cost = 0.1.
+% Will use this latest setting.
+
+% WARNING #2: Duplicate cost of 'mega_notPosAnd_negAnd1/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
+% Will use this latest setting.
+
+% WARNING #3: Duplicate cost of 'not_single_example_advice4/1'.  Had previously said cost = 0.015009999999999999 and now saying cost = 0.015.
+% Will use this latest setting.
+
+% WARNING #4: Duplicate cost of 'mega_posAnd_notNegOr0/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
+% Will use this latest setting.
+
+% WARNING #5: Duplicate cost of 'single_example_advice4/1'.  Had previously said cost = 0.01001 and now saying cost = 0.01.
+% Will use this latest setting.
+
+% WARNING #6: Duplicate cost of 'not_single_piece_advice5/1'.  Had previously said cost = 0.15001 and now saying cost = 0.15.
+% Will use this latest setting.
+
 % Have selected pos example #0 as the next seed: Ell(s)
+% [AdviceProcessor] retractRelevanceAdvice: there are 6 assertedRelevanceModes to retract.
+% [AdviceProcessor]  Generated 6 clause(s) at relevance level STRONGLY_IRRELEVANT:
+% [AdviceProcessor]   mega_posAnd_notNegOr6(A) :- 
+% [AdviceProcessor]             Column(B), 
+% [AdviceProcessor]             Row(C), 
+% [AdviceProcessor]             Length(C, D), 
+% [AdviceProcessor]             Height(A, E), 
+% [AdviceProcessor]             Base(A, D), 
+% [AdviceProcessor]             Contains(A, C, B)  POSSIBLE_ANSWER
+% [AdviceProcessor]   mega_notPosAnd_negAnd7(A) :- 
+% [AdviceProcessor]             \+(Column(B), 
+% [AdviceProcessor]                Row(C), 
+% [AdviceProcessor]                Length(C, D), 
+% [AdviceProcessor]                Height(A, E), 
+% [AdviceProcessor]                Base(A, D), 
+% [AdviceProcessor]                Contains(A, C, B)
+% [AdviceProcessor]               )  POSSIBLE_ANSWER
+% [AdviceProcessor]   single_example_advice10(A) :- 
+% [AdviceProcessor]             Column(B), 
+% [AdviceProcessor]             Row(C), 
+% [AdviceProcessor]             Length(C, D), 
+% [AdviceProcessor]             Height(A, E), 
+% [AdviceProcessor]             Base(A, D), 
+% [AdviceProcessor]             Contains(A, C, B)  VERY_STRONGLY_RELEVANT
+% [AdviceProcessor]   not_single_example_advice10(A) :- 
+% [AdviceProcessor]             \+(Column(B), 
+% [AdviceProcessor]                Row(C), 
+% [AdviceProcessor]                Length(C, D), 
+% [AdviceProcessor]                Height(A, E), 
+% [AdviceProcessor]                Base(A, D), 
+% [AdviceProcessor]                Contains(A, C, B)
+% [AdviceProcessor]               )  VERY_STRONGLY_RELEVANT_NEG
+% [AdviceProcessor]   single_piece_advice11(A) :- 
+% [AdviceProcessor]             Column(B), 
+% [AdviceProcessor]             Row(C), 
+% [AdviceProcessor]             Length(C, D), 
+% [AdviceProcessor]             Height(A, E), 
+% [AdviceProcessor]             Base(A, D), 
+% [AdviceProcessor]             Contains(A, C, B)  STRONGLY_RELEVANT
+% [AdviceProcessor]   not_single_piece_advice11(A) :- 
+% [AdviceProcessor]             \+(Column(B), 
+% [AdviceProcessor]                Row(C), 
+% [AdviceProcessor]                Length(C, D), 
+% [AdviceProcessor]                Height(A, E), 
+% [AdviceProcessor]                Base(A, D), 
+% [AdviceProcessor]                Contains(A, C, B)
+% [AdviceProcessor]               )  STRONGLY_RELEVANT_NEG
+
+% WARNING #7: Duplicate cost of 'mega_posAnd_notNegOr6/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
+% Will use this latest setting.
+
+% WARNING #8: Duplicate cost of 'single_piece_advice11/1'.  Had previously said cost = 0.10001 and now saying cost = 0.1.
+% Will use this latest setting.
+
+% WARNING #9: Duplicate cost of 'not_single_piece_advice11/1'.  Had previously said cost = 0.15001 and now saying cost = 0.15.
+% Will use this latest setting.
+
+% WARNING #10: Duplicate cost of 'mega_notPosAnd_negAnd7/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
+% Will use this latest setting.
+
+% WARNING #11: Duplicate cost of 'single_example_advice10/1'.  Had previously said cost = 0.01001 and now saying cost = 0.01.
+% Will use this latest setting.
+
+% WARNING #12: Duplicate cost of 'not_single_example_advice10/1'.  Had previously said cost = 0.015009999999999999 and now saying cost = 0.015.
+% Will use this latest setting.
+
 
 % LearnOneClause Parameters:
 %   Targets (1):
 %    Ell(+Shape)
-%  Modes (45):
-%    Row(+Shape),
-%    Length(+Shape, +Value),
-%    Column(+Shape),
-%    Height(+Shape, +Value),
-%    Contains(+Shape, -Shape),
-%    Contains(-Shape, +Shape),
-%    SpRel(#Rel, -Shape, +Shape),
-%    SpRel(#Rel, +Shape, -Shape),
-%    Base(+Shape, +Value),
+%  Modes (48):
+%    Row(+part1),
+%    Length(+part1, #Float),
+%    Column(+part2),
+%    Height(+Shape, #Float),
+%    Contains(+Shape, -part1, -part2),
+%    Base(+Shape, #Float),
 %    addList(+willList, #willNumber),
 %    multiplyList(+willList, #willNumber),
 %    abs(+willNumber, &willNumber),
@@ -829,35 +259,30 @@ LAYERS ################## 180
 %    restOfList(+willList, &willList),
 %    positionInList(+willAnything, +willList, &willNumber),
 %    nthInList(+willNumber, +willList, &willAnything),
-%    lengthOfList(+willList, &willNumber)
+%    lengthOfList(+willList, &willNumber),
+%    mega_posAnd_notNegOr6(+Shape),
+%    single_piece_advice11(+Shape),
+%    not_single_piece_advice11(+Shape),
+%    mega_notPosAnd_negAnd7(+Shape),
+%    single_example_advice10(+Shape),
+%    not_single_example_advice10(+Shape)
 
 % target           = Ell(D)
-HERE!*************SCORING - MD, CHECK THIS
-% Most-general root: Ell(_).  [covers 2.0/2.0 pos, 3.0/3.0 neg]  score = 0.399
+% Gleaner: New best node found (score = 0.990098): Ell(_).  [covers 1.0/1.0 pos, 0.0/0.0 neg]
+% Most-general root: Ell(_).  [covers 1.0/1.0 pos, 0.0/0.0 neg]  score = 0.990
 
-% Consider expanding [#1 of outerLoop #1_fold0, bodyLen=0] 'Ell(_).  [covers 2.0/2.0 pos, 3.0/3.0 neg]' score=0.39920049680638725
-%  At # nodes expanded = 1, |OPEN| = 0.  Pruned 1 variant children.  Sending 1 items to OPEN for evaluation and possible insertion.
-% Have created 1 valid-on-seeds descendants and have picked up 8 bad extensions.
-HERE!*************SCORING - MD, CHECK THIS
+% Skipping over this 'waitHere': This search will never start for 'LearnOneClause': continueTheSearch = false, |open| = 1
+% [AdviceProcessor] retractRelevanceAdvice: there are 6 assertedRelevanceModes to retract.
 
-% Consider expanding [#2 of outerLoop #1_fold0, bodyLen=0:1] 'Ell(A) :- Contains(A, _).  [covers 2.0/2.0 pos, 2.0/3.0 neg]' score=0.4987419172069826
-HERE!*************SCORING - MD, CHECK THIS
-% Gleaner: New best node found (score = 0.995005): Ell(A) :- Contains(A, B), Row(B).  [covers 2.0/2.0 pos, 0.0/3.0 neg]
-HERE!*************SCORING - MD, CHECK THIS
-HERE!*************SCORING - MD, CHECK THIS
-HERE!*************SCORING - MD, CHECK THIS
-HERE!*************SCORING - MD, CHECK THIS
-HERE!*************SCORING - MD, CHECK THIS
+% The best node found: Ell(_).  [covers 1.0/1.0 pos, 0.0/0.0 neg]
 
-% The best node found: Ell(A) :- Contains(A, B), Row(B).  [covers 2.0/2.0 pos, 0.0/3.0 neg]
-
-% The best node found: Ell(A) :- Contains(A, B), Row(B).  [covers 2.0/2.0 pos, 0.0/3.0 neg]
+% The best node found: Ell(_).  [covers 1.0/1.0 pos, 0.0/0.0 neg]
 
 % On cycle #1, the best clause found is:
-%      Ell(A) :- Contains(A, B), Row(B).  [covers 2.0/2.0 pos, 0.0/3.0 neg]
-% This clause covers 2 positive examples, of which 2 are newly covered.
+%      Ell(_).  [covers 1.0/1.0 pos, 0.0/0.0 neg]
+% This clause covers 1 positive examples, of which 1 are newly covered.
 % It also covers 0 negative examples, of which 0 are newly covered.
-% The current set of 1 best clauses covers 100.0% of the positive examples and 0.0% of the negatives.}
+% The current set of 1 best clauses covers 100.0% of the positive examples and NaN% of the negatives.}
 
 % ******************************************
 
@@ -865,106 +290,24 @@ HERE!*************SCORING - MD, CHECK THIS
 
 % ******************************************
 
-% Finished fold 0 (0.03s):
+% Finished fold 0 (0.05s):
 
-% Created a total of 4 clauses and expanded 2 of them.
-% The collection of best clauses per cycle covers 2 (out of 2) pos and 0 (out of 3) neg examples.
-% A total of 4 search nodes were pruned because they were variant children.
+% Created a total of 1 clauses and expanded 0 of them.
+% The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 0) neg examples.
 
 % % 
 % % Clauses:
 
-% Ell(A) :- 
-%      Contains(A, B), 
-%      Row(B). // Clause #1.
+% Ell(A) :- true. // Clause #1.
 
 
-  initially:  |falseNegatives| = 2 and |trueNegatives| = 3.
-     getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, B), Row(B))
-  currently:  |falseNegatives| = 0 and |trueNegatives| = 3.
-  initially:  |falseNegatives| = 2 and |trueNegatives| = 3.
-     getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, B), Row(B))
-  currently:  |falseNegatives| = 0 and |trueNegatives| = 3.
+  initially:  |falseNegatives| = 1 and |trueNegatives| = 0.
+     getWeightedCoverage: apply this clause (Ell(_) :- true)
+  currently:  |falseNegatives| = 0 and |trueNegatives| = 0.
+  initially:  |falseNegatives| = 1 and |trueNegatives| = 0.
+     getWeightedCoverage: apply this clause (Ell(_) :- true)
+  currently:  |falseNegatives| = 0 and |trueNegatives| = 0.
 
-% Trainset results for
-%  The differences from the default settings are:
-%   maxNumberOfCycles  = 2
-%   maxNumberOfClauses = 1
-%   maxBodyLength      = 1
-%   maxNodesToCreate   = 101
-%   maxNodesToConsider = 10
-%   minPosCoverage     = 0.9900
-%   maxNegCoverage     = -1.0000
-%   minPrecision       = 0.9900
-%   mEstimatePos       = 0.0100
-%   mEstimateNeg       = 0.0100
-%   map mode '*' to '-'
-%   modes in use: [Row/1, Length/2, Column/1, Height/2, Contains/2, SpRel/3, Base/2, Ell/1, addList/2, multiplyList/2, abs/2, minus/2, plus/3, minus/3, mult/3, div/3, allNumbers/1, positiveNumber/1, negativeNumber/1, in0toDot001/1, in0toDot01/1, in0toDot1/1, in0to1/1, in0to10/1, in0to100/1, in0to1000/1, equalWithTolerance/3, greaterOrEqualDifference/3, smallerOrEqualDifference/3, isaEqualTolerance/1, lessThan/2, greaterThan/2, lessThanOrEqual/2, greaterThanOrEqual/2, inBetweenOO/3, inBetweenCO/3, inBetweenOC/3, inBetweenCC/3, memberOfList/2, firstInList/2, restOfList/2, positionInList/3, nthInList/3, lengthOfList/2]
-%   all modes:    [Row/1, Length/2, Column/1, Height/2, Contains/2, SpRel/3, Base/2, Ell/1, addList/2, multiplyList/2, abs/2, minus/2, plus/3, minus/3, mult/3, div/3, allNumbers/1, positiveNumber/1, negativeNumber/1, in0toDot001/1, in0toDot01/1, in0toDot1/1, in0to1/1, in0to10/1, in0to100/1, in0to1000/1, equalWithTolerance/3, greaterOrEqualDifference/3, smallerOrEqualDifference/3, isaEqualTolerance/1, lessThan/2, greaterThan/2, lessThanOrEqual/2, greaterThanOrEqual/2, inBetweenOO/3, inBetweenCO/3, inBetweenOC/3, inBetweenCC/3, memberOfList/2, firstInList/2, restOfList/2, positionInList/3, nthInList/3, lengthOfList/2]
-
- 
-% Clauses:
-
-Ell(A) :- 
-     Contains(A, B), 
-     Row(B). // Clause #1.
-
-
- % Folds = 1, Train: % [TP=2, FP=0, TN=3, FN=0, A=1.00, P=1.00, R=1.00, F1=1.00]
-% precision = 0.995 vs trainset min = 0.990
-% recall    = 0.995 vs trainset min = 0.990
-% accuracy  = 0.996 vs trainset min = 0.990
-% F1        = 0.995 vs trainset min = 0.990
-
-% Can stop because the theory's (weighted) trainset F1 (1.00) reached the minimum specified (0.99).
-
-% ------------------------------------------------
-
-
-% Best Theory Chosen by the Onion:
-    
-%     Clauses:
-
-    Ell(A) :- 
-         Contains(A, B), 
-         Row(B). // Clause #1.
-
-
-
-%              Actual
-%             Pos   Neg Total
-% Model Pos     2     0     2
-%       Neg     0     3     3
-%     Total     2     3
-
-% False Pos mEst  = 0.0100
-% False Neg mEst  = 0.0100
-
-% Accuracy  = 0.9960
-% Precision = 0.9950
-% Recall    = 0.9950
-% F(1)      = 0.9950
-
-
-% Chosen Parameter Settings:
-%   maxNumberOfCycles  = 2
-%   maxNumberOfClauses = 1
-%   maxBodyLength      = 1
-%   maxNodesToCreate   = 101
-%   maxNodesToConsider = 10
-%   minNumberOfNegExamples = 1
-%   minPosCoverage     = 0.9900
-%   maxNegCoverage     = -1.0000
-%   minPrecision       = 0.9900
-%   mEstimatePos       = 0.0100
-%   mEstimateNeg       = 0.0100
-%   minimum strength   = null
-%   map mode '*' to '-'
-%   modes in use: [Row/1, Length/2, Column/1, Height/2, Contains/2, SpRel/3, Base/2, Ell/1, addList/2, multiplyList/2, abs/2, minus/2, plus/3, minus/3, mult/3, div/3, allNumbers/1, positiveNumber/1, negativeNumber/1, in0toDot001/1, in0toDot01/1, in0toDot1/1, in0to1/1, in0to10/1, in0to100/1, in0to1000/1, equalWithTolerance/3, greaterOrEqualDifference/3, smallerOrEqualDifference/3, isaEqualTolerance/1, lessThan/2, greaterThan/2, lessThanOrEqual/2, greaterThanOrEqual/2, inBetweenOO/3, inBetweenCO/3, inBetweenOC/3, inBetweenCC/3, memberOfList/2, firstInList/2, restOfList/2, positionInList/3, nthInList/3, lengthOfList/2]
-%   all modes:    [Row/1, Length/2, Column/1, Height/2, Contains/2, SpRel/3, Base/2, Ell/1, addList/2, multiplyList/2, abs/2, minus/2, plus/3, minus/3, mult/3, div/3, allNumbers/1, positiveNumber/1, negativeNumber/1, in0toDot001/1, in0toDot01/1, in0toDot1/1, in0to1/1, in0to10/1, in0to100/1, in0to1000/1, equalWithTolerance/3, greaterOrEqualDifference/3, smallerOrEqualDifference/3, isaEqualTolerance/1, lessThan/2, greaterThan/2, lessThanOrEqual/2, greaterThanOrEqual/2, inBetweenOO/3, inBetweenCO/3, inBetweenOC/3, inBetweenCC/3, memberOfList/2, firstInList/2, restOfList/2, positionInList/3, nthInList/3, lengthOfList/2]
-
-% ------------------------------------------------
-
-% Took 96 milliseconds.
-% Executed 147 proofs in 0.01 seconds (12139.32 proofs/sec).
-% Performed 261 unifications while proving Horn clauses.
+% Took 63 milliseconds.
+% Executed 3 proofs in 0.00 seconds (3119.46 proofs/sec).
+% Performed 0 unifications while proving Horn clauses.
