@@ -1,5 +1,6 @@
 package edu.wisc.cs.will.ILP;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import edu.wisc.cs.will.Utils.condor.CondorFileOutputStream;
 import java.io.IOException;
@@ -23,9 +24,9 @@ import edu.wisc.cs.will.stdAIsearch.SearchInterrupted;
 import edu.wisc.cs.will.stdAIsearch.SearchMonitor;
 import edu.wisc.cs.will.stdAIsearch.SearchNode;
 import edu.wisc.cs.will.stdAIsearch.StateBasedSearchTask;
-
-
-
+import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 /**
  * Gleaner maintains the best clause (per 'marker') in each bin of recall ranges.
  * See M. Goadrich, L. Oliphant, & J. Shavlik (2006), 
@@ -284,6 +285,22 @@ public class Gleaner extends SearchMonitor implements Serializable {
 		if (clauses.size() == 1) { return clauses.get(0); }
 		if (++countOfWarningsForInliners < 3) { Utils.warning("#" + Utils.comma(countOfWarningsForInliners) + " Gleaner: when handling inliners in: \n   " + c + "\n got multiple clauses:\n   " + clauses); } // TODO figure out to do with these.
 		System.out.println(clauses.get(1));
+		System.out.println("clauses here:: "+clauses.get(1).toString()); // TODO figure out to do with these.
+		BufferedWriter bw1 = null;
+		try {
+			bw1 = new BufferedWriter(new FileWriter(new File("temp.txt")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			bw1.write(clauses.get(1).toString()+"\n");
+			bw1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return c;
 	}
 
