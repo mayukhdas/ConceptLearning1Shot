@@ -283,6 +283,7 @@ public class Gleaner extends SearchMonitor implements Serializable {
 		if (clauses == null) { return c; }
 		if (clauses.size() == 1) { return clauses.get(0); }
 		if (++countOfWarningsForInliners < 3) { Utils.warning("#" + Utils.comma(countOfWarningsForInliners) + " Gleaner: when handling inliners in: \n   " + c + "\n got multiple clauses:\n   " + clauses); } // TODO figure out to do with these.
+		System.out.println(clauses.get(1));
 		return c;
 	}
 

@@ -576,17 +576,17 @@ public class TuneParametersForILP {
 		int numberOfCombos     = Utils.getSizeSafely(onionLayers);
 		Utils.println("LAYERS ################## " +numberOfCombos); //MD
 		int currentComboNumber = 0;
-		//if (numberOfCombos > 0) for (ILPparameterSettings setting : onionLayers) {
+		if (numberOfCombos > 0) for (ILPparameterSettings setting : onionLayers) {
 		//we need a counter for layers ----
-		int layerCounter = 0;
+		//int layerCounter = 0;
 		//----------------------------------
-		while (true)
-		{
-			if(layerCounter>=this.maxLayers) //stopping criterion
-				break;
+		//while (true)
+		//{
+			//if(layerCounter>=this.maxLayers) //stopping criterion
+				//break;
 			
 			
-			ILPparameterSettings setting = new ILPparameterSettings(this.outerLooper, this, null); //revisit MD Nan
+			//ILPparameterSettings setting = new ILPparameterSettings(this.outerLooper, this, null); //revisit MD Nan
 			//Utils.println(setting.toString(true)); //MD
 			//Utils.warning("Asked to wait",60);
             ILPSearchAction action = outerLooper.innerLoopTask.fireOnionLayerStarting(this, setting);
@@ -875,7 +875,7 @@ public class TuneParametersForILP {
                 Utils.println("ILPSearchListener terminated Onion search after prior to layer " + setting.getOnionLayer() + ".");
                 break;
             }
-            layerCounter++; //MD Nan
+            //layerCounter++; //MD Nan
         }
 		
 		if (debugLevel > 0) {

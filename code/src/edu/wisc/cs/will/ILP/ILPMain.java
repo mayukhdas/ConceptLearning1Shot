@@ -134,7 +134,7 @@ public final class ILPMain {
         long start1 = System.currentTimeMillis();
         long end1;
         
-        { //first theory (MD + Nan)
+        /*{ //first theory (MD + Nan)
             ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
             cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
             cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
@@ -143,7 +143,7 @@ public final class ILPMain {
             useOnion = true;
             //Where is the first theory.
             //	ILPCrossValidationResult results = cvLoop.getCrossValidationResults();
-        }
+        }*/
 
         if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
@@ -153,7 +153,7 @@ public final class ILPMain {
             onion.setMaxSecondsToSpend((int) Math.min(Integer.MAX_VALUE, maxTimeInMilliseconds / 1000));
             onion.run();
             bestTheory = onion.getTheoryFromBestFold();
-            Utils.println("\n% ------------------------------------------------");
+            Utils.println("\n% ----------------------------------------------");
             if (bestTheory == null) {
                 Utils.println("\n% The ONION was unable to find an acceptable theory.");
             }
@@ -175,13 +175,15 @@ public final class ILPMain {
             }
             Utils.println("\n% ------------------------------------------------");
         }
-       /* else {
+        else {
             ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
             cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
             cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
             cvLoop.executeCrossValidation();
+            
+            
             //	ILPCrossValidationResult results = cvLoop.getCrossValidationResults();
-        }*/
+        }
 
         end1 = System.currentTimeMillis();
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");
