@@ -197,7 +197,7 @@ public class TuneParametersForILP {
 		this.numberOfFoldsToUse = numberOfFoldsToUse;
 	}
 	
-	// Use some hard-wired default settings.
+	// Use some hard-wired default settings. adding extra comment
 	private void setupDefaultParameterCombinations() {
 		ILPparameterSettings temp  = null;
 		List<RelevanceStrength> relevanceLevelsToTry = new ArrayList<RelevanceStrength>(1);		
