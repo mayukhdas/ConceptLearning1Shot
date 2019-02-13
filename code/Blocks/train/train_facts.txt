@@ -5,13 +5,27 @@ Contains(s, a, b).
 Height(s, 8.0).
 H(b, 7.0).
 Base(s, 6.0).
+SpRel(b,a,"Left-Bottom").
+
 Row(c).
 Length(c, 6.0).
 Column(d).
 Contains(r, c, d).
 Height(r, 8.0).
 Base(r, 6.0).
-Contains(p, e, d).
-Height(p, 10.0).
-Column(e).
-Height(e, 4.0).
+SpRel(d,c,"Left").
+
+Square(e).
+Length(e, 6.0).
+H(e,6.0
+Contains(p, d, e).
+Height(p, 8.0).
+Base(p, 6.0).
+SpRel(e,d,"Right-Top").
+
+Height(q, 10.0).
+Base(q, 3.0).
+Column(g)
+H(g,10.0)
+Contains(q,e,g)
+Contains(
