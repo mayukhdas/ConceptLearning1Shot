@@ -17,15 +17,14 @@ SpRel(d,c,"Left").
 
 Square(e).
 Length(e, 6.0).
-H(e,6.0
-Contains(p, d, e).
+H(e,6.0).
+Contains(p, e, d).
 Height(p, 8.0).
 Base(p, 6.0).
 SpRel(e,d,"Right-Top").
 
 Height(q, 10.0).
 Base(q, 3.0).
-Column(g)
-H(g,10.0)
-Contains(q,e,g)
-Contains(
+Column(g).
+H(g,10.0).
+Contains(q,e,g).
