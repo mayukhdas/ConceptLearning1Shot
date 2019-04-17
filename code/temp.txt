@@ -1,0 +1,1 @@
+(single_example_advice10(A) :- Column(B), Row(C), Length(C, D), H(B, _), Height(A, _), Base(A, D), Contains(A, C, B), SpRel(B, C, _))

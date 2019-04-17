@@ -135,11 +135,11 @@ public final class ILPMain {
         long end1;
         
         ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
-        cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
+        //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
         cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
         cvLoop.executeCrossValidation();
 
-//        if (useOnion) {
+       if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
         	//TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
             onion.setFilter(onionFilter);
@@ -168,7 +168,7 @@ public final class ILPMain {
                 }
             }
             Utils.println("\n% ------------------------------------------------");
-//        }
+       }
 //        else {
 //            cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
 //            cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
