@@ -587,11 +587,11 @@ TESTING BASIC MODES
 %   Other warnings with this predicate and this new type are not reported in order to keep this printout small.  Use dontComplainAboutMultipleTypes to override.
 
 % Looking at the training examples to see if any types of new constants can be inferred.
-% Time to collect constants: 0 seconds
+% Time to collect constants: 4 milliseconds
 % Time to collect examples: 0 seconds
 
 % Read 1 pos examples and 2 neg examples.
-% Time to init learnOneClause: 1 milliseconds
+% Time to init learnOneClause: 15 milliseconds
 
 % Initializing fold 0.
 %   Number of positive TRAIN examples = 1.
@@ -906,7 +906,7 @@ Column(Anon1153), Row(Anon1155), Length(Anon1155, Anon1157), Base(Anon1151, Anon
 
 % ******************************************
 
-% Finished fold 0 (0.10s):
+% Finished fold 0 (0.09s):
 
 % Created a total of 10 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -938,6 +938,7 @@ Column(Anon1153), Row(Anon1155), Length(Anon1155, Anon1157), Base(Anon1151, Anon
   initially:  |falseNegatives| = 1 and |trueNegatives| = 2.
      getWeightedCoverage: apply this clause (Ell(A) :- mega_posAnd_notNegOr6(A))
   currently:  |falseNegatives| = 0 and |trueNegatives| = 2.
+-1.0
 %%% Cross-Validation Average Scores [Folds = 1]:
 
 %%% Average TRAINING Coverage Score:
@@ -976,6 +977,6 @@ mega_posAnd_notNegOr6(A) :-
 
 
 
-% Took 438 milliseconds.
-% Executed 83 proofs in 0.03 seconds (2912.97 proofs/sec).
-% Performed 857 unifications while proving Horn clauses.
+% Took 2.694 seconds.
+% Executed 83 proofs in 0.03 seconds (2653.31 proofs/sec).
+% Performed 902 unifications while proving Horn clauses.

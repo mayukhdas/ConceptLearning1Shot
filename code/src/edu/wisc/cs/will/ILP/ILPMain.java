@@ -9,6 +9,8 @@ import java.io.File;
 import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
 
+import convert.BlocksPlanner;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -168,9 +170,20 @@ public final class ILPMain {
      * This method computes plan compression distance between the current theory
      * and the true theory
      */
-    private double getPlanCompressionDistance()
+    private double getPlanCompressionDistance(String thNew)
     {
-    	return 0.0;
+    	double d = 0.0;
+    	String g1 = "tower(a)^height(a,2)^rectangle(b)^width(b,3)^length(b,4)^right(b,a)^"
+    			+ "block(c)^location(w1)^block-location(c,w1)^right_behind(b,c)^block(d)"
+    			+ "^location(w2)^block-location(d,w2)^bottom_end(a,d)^spatial-rel(top,0,w1,w2)";
+    	String g2 = g1;
+    	try {
+			d = BlocksPlanner.compareNCD(g1, g2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return d;
     }
     
     
@@ -219,6 +232,8 @@ public final class ILPMain {
 	        cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
 	        cvLoop.executeCrossValidation();
 	        results = cvLoop.getCrossValidationResults();
+	        double dist = getPlanCompressionDistance(null); //MD
+        	Utils.println(""+dist); //MD
 	        if(iter<maxTrial)
 	        {
 	        	//String c = getBestConstraint();
