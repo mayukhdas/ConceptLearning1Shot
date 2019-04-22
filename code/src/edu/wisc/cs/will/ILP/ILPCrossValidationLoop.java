@@ -1093,7 +1093,7 @@ public class ILPCrossValidationLoop {
         return cvState.getMaximumCrossValidationTimeInMillisec();
     }
 
-    private void setupAdvice(ILPouterLoop outerLooper) {
+    public void setupAdvice(ILPouterLoop outerLooper) {
         if (outerLooper.innerLoopTask.isRelevanceEnabled()) {
         	Utils.println("Strength:: "+outerLooper.innerLoopTask.getCurrentRelevanceStrength().toString());//MD
             ActiveAdvice activeAdvice = outerLooper.innerLoopTask.getAdviceProcessor().processAdvice(outerLooper.innerLoopTask.getCurrentRelevanceStrength(), outerLooper.getPosExamples(), outerLooper.getNegExamples());
@@ -1101,7 +1101,7 @@ public class ILPCrossValidationLoop {
         }
     }
 
-    protected void unsetAdvice(ILPouterLoop outerLooper) {
+    public void unsetAdvice(ILPouterLoop outerLooper) {
         if (getActiveAdvice(outerLooper) != null) {
             outerLooper.innerLoopTask.getAdviceProcessor().retractRelevanceAdvice();
             setActiveAdvice(outerLooper, null);

@@ -4,14 +4,22 @@
  */
 package edu.wisc.cs.will.ILP;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.stream.Stream;
 
 import edu.wisc.cs.will.DataSetUtils.Example;
+import edu.wisc.cs.will.FOPC.Clause;
 import edu.wisc.cs.will.FOPC.Literal;
 import edu.wisc.cs.will.FOPC.Term;
 import edu.wisc.cs.will.FOPC.Theory;
@@ -31,6 +39,9 @@ import java.io.FileWriter;
  * @author twalker
  */
 public final class ILPMain {
+	
+	public static final int maxTrial = 2;	
+	public static String[] argsPersist = null; 
 
     public ILPouterLoop outerLooper;
 
@@ -129,28 +140,82 @@ public final class ILPMain {
 
         setupRelevance();
     }
+    
+    private String getBestConstraint()
+    {
+    	String result=null;
+    	
+    	return result;
+    }
+    private String instantiateConcept(HashMap<String,Integer> params, Clause c)
+    {
+    	String head=null;
+    	String body=null;
+    	
+    	return body;
+    }
+    
+    private double getPlanCompressionDistance()
+    {
+    	return 0.0;
+    }
+    
+    private String setRelevanceFile(String file, String fileTemplate, String head, String body)
+    {
+    	StringBuilder contentBuilder = new StringBuilder();
+    	String content = null;
+    	try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(file)));
+			//Stream<String> stream = Files.lines( Paths.get(fileTemplate), StandardCharsets.UTF_8);
+			//stream.forEach(s -> contentBuilder.append(s).append("\n"));
+			//stream.close();
+			content = new String(Files.readAllBytes(Paths.get(fileTemplate)));
+			content = content.replaceAll("#--#", head);
+			content = content.replaceAll("#~~#", body);
+			bw.write(content);
+			bw.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return content;
+    }
 
     public void runILP() throws SearchInterrupted {
     	long start1 = System.currentTimeMillis();
         long end1;
-        ILPCrossValidationLoop cvLoop = null;
+        ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
         CrossValidationResult results = null;
-    	boolean firsttime = true;
+    	
+    	outerLooper.initialize(false);
     	//Adding while loop  -- MD
-    	for(int iter = 0;iter<5;iter++) {
-	        outerLooper.initialize(false);
-	        
-	        cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
+    	for(int iter = 1;iter<=maxTrial;iter++) {
+	                
 	        //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
 	        cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
 	        cvLoop.executeCrossValidation();
 	        results = cvLoop.getCrossValidationResults();
-	        if(!firsttime)
+	        if(iter<maxTrial)
 	        {
-	        	String sc = cvLoop.finalTheory.getSupportClauses().get(0).toPrettyString();
-	        	System.out.println("Support: "+sc);
+	        	//String c = getBestConstraint();
+	        	String s = "Ell(s):-Column(unknownVar2),Row(unknownVar3),Length(unknownVar3,unknownVar0),Base(s,bs),Height(s,ht),sameAs(unknownVar0,bs),H(unknownVar2,unknownVar4),Contains(s,unknownVar3),Contains(s,unknownVar2),SpRel(\"topleft\",unknownVar6,unknownVar3,unknownVar2)";
+	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
+	        			"./SingleExDescAdvice", s.split(":-")[0], s.split(":-")[1]);
+	        	
+	        	//Clause cl = new Clause();
+	        	//String instanceBody = this.instantiateConcept(params, cl)
+	        	//String head = c.split(":-")[0];
+	        	//String body = c.split(":-")[1];
+	        	//unsetting previous advice
+	        	cvLoop.unsetAdvice(cvLoop.getOuterLoop());
+	        	outerLooper=null;
+	            learnOneClause=null;
+	            context=null;
+	        	//setupRelevance();
+	        	setup(argsPersist);
+	        	cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
+	        	outerLooper.initialize(false);
 	        }
-	        firsttime = false;
     	}
        if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
@@ -193,9 +258,10 @@ public final class ILPMain {
 //        }
 
         end1 = System.currentTimeMillis();
-        //Utils.println(results.toLongString()); //MD
-        //Utils.println(cvLoop.finalTheory.toPrettyString());//MD
+        Utils.println(results.toLongString()); //MD
+        Utils.println(cvLoop.finalTheory.toPrettyString());//MD
         //Utils.println(directory);
+        //Utils.println(cvLoop.getOuterLoop().innerLoopTask.getActiveAdvice().toString());
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");
         Utils.println("% Executed " + Utils.comma(getLearnOneClause().getTotalProofsProved()) + " proofs " + String.format("in %.2f seconds (%.2f proofs/sec).", getLearnOneClause().getTotalProofTimeInNanoseconds() / 1.0e9, getLearnOneClause().getAverageProofsCompletePerSecond()));
         Utils.println("% Performed " + Utils.comma(Unifier.getUnificationCount()) + " unifications while proving Horn clauses.");
@@ -421,6 +487,7 @@ public final class ILPMain {
     public static void mainDefault(String[] args) throws SearchInterrupted {
         ILPMain main = new ILPMain();
         main.setup(args);
+        argsPersist = args;
         main.runILP();
         //System.out.println(main.getBestTheory());
     }

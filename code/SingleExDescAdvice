@@ -1,4 +1,4 @@
 setParameter: stringsAreCaseSensitive = true;
 
 
-relevantClause: #--# : ( #**# ), RELEVANT.
+relevantClause: #--# : ( #~~# ), RELEVANT.

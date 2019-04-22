@@ -1,2 +1,2 @@
-(single_piece_advice59(A) :- 
+(single_example_advice10(A) :- 
 Column(B), Row(C), Length(C, D), Base(A, E), Height(A, _), sameAs(D, E), H(B, _), Contains(A, C), Contains(A, B), SpRel(_, _, C, B))
