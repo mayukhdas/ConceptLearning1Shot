@@ -131,18 +131,21 @@ public final class ILPMain {
     }
 
     public void runILP() throws SearchInterrupted {
-
-        outerLooper.initialize(false);
-
-        long start1 = System.currentTimeMillis();
+    	long start1 = System.currentTimeMillis();
         long end1;
-        
-        ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
-        //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
-        cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
-        cvLoop.executeCrossValidation();
-        CrossValidationResult results = cvLoop.getCrossValidationResults();
-
+        ILPCrossValidationLoop cvLoop = null;
+        CrossValidationResult results = null;
+    	
+    	//Adding while loop 
+    	for(int iter = 0;iter<5;iter++) {
+	        outerLooper.initialize(false);
+	        
+	        cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
+	        //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
+	        cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
+	        cvLoop.executeCrossValidation();
+	        results = cvLoop.getCrossValidationResults();
+    	}
        if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
         	//TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
