@@ -67,7 +67,7 @@ public class PrettyPrinter {
         data.pushIndent(Math.max(additionalLinesPrefix.length(), firstLinePrefix.length()));
 
         PPResult r = s.accept(PRETTY_PRINTER_VISITOR, data);
-
+        
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(firstLinePrefix);

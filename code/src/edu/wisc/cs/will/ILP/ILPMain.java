@@ -12,9 +12,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import edu.wisc.cs.will.DataSetUtils.Example;
+import edu.wisc.cs.will.FOPC.Literal;
+import edu.wisc.cs.will.FOPC.Term;
 import edu.wisc.cs.will.FOPC.Theory;
 import edu.wisc.cs.will.FOPC.TypeSpec;
 import edu.wisc.cs.will.FOPC.Unifier;
+import edu.wisc.cs.will.FOPC.Variable;
 import edu.wisc.cs.will.ResThmProver.DefaultHornClauseContext;
 import edu.wisc.cs.will.ResThmProver.HornClauseContext;
 import edu.wisc.cs.will.Utils.Utils;
@@ -138,6 +141,7 @@ public final class ILPMain {
         //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
         cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
         cvLoop.executeCrossValidation();
+        CrossValidationResult results = cvLoop.getCrossValidationResults();
 
        if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
@@ -180,6 +184,9 @@ public final class ILPMain {
 //        }
 
         end1 = System.currentTimeMillis();
+        Utils.println(results.toLongString()); //MD
+        Utils.println(cvLoop.finalTheory.toPrettyString());//MD
+        Utils.println(directory);
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");
         Utils.println("% Executed " + Utils.comma(getLearnOneClause().getTotalProofsProved()) + " proofs " + String.format("in %.2f seconds (%.2f proofs/sec).", getLearnOneClause().getTotalProofTimeInNanoseconds() / 1.0e9, getLearnOneClause().getAverageProofsCompletePerSecond()));
         Utils.println("% Performed " + Utils.comma(Unifier.getUnificationCount()) + " unifications while proving Horn clauses.");

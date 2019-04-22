@@ -1,8 +1,2 @@
 Ell(r).
 Ell(p).
-Ell(q).
-Ell(t).
-Ell(u).
-Ell(v).
-Ell(w).
-Ell(x).

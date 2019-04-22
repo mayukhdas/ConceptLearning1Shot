@@ -576,7 +576,8 @@ public class ILPouterLoop implements GleanerFileNameProvider {
                     innerLoopTask.setMinPosCoverage(outerLoopState.getOverallMinPosWeight()); // Even when we have fewer examples, we want the minPosWeight to be that from the first call.
                     
                     if (savedBestNode != null) { // Have to recompute this because the examples have changed.
-                        Utils.println("\n% Working on expanding this node: '" + savedBestNode + "'");
+                        //System.exit(0);
+                    	Utils.println("\n% Working on expanding this node: '" + savedBestNode + "'");
                         ((LearnOneClause)savedBestNode.task).currentStartingNode = savedBestNode.getStartingNodeForReset(); // Only setting this while resetting the score for savedBestNode.
                         savedBestNode.resetAssumingAllExamplesCovered();
                         savedBestNode.setDontAddMeToOPEN(false);
@@ -678,7 +679,7 @@ public class ILPouterLoop implements GleanerFileNameProvider {
                         }
                         innerLoopTask.setBodyModes(newSetOfBodyModes);
                     }
-
+                    //Utils.println("Where: "+innerLoopTask.getBackgroundKnowledge().toString());//MD
                     // If we are learning a tree-structured theory, then we continue where we left off.
                     if (isRRR()) {
                         innerLoopTask.performRRRsearch(learningTreeStructuredTheory ? savedBestNode : null);
@@ -687,7 +688,7 @@ public class ILPouterLoop implements GleanerFileNameProvider {
                         innerLoopTask.needToCheckTheAdviceProcessor = false; // No need to do this at least until this "outer looper" is done.
                         if (false) { Utils.println("Search result: " + sr); }
                     }
-
+                    //Utils.println("Where: "+innerLoopTask.getBackgroundKnowledge().toString());//MD
                     // Utils.println(innerLoopTask.reportSearchStats());
                     // Want limits on (and statistics about) the full ILP search as well.
                     setTotal_nodesConsidered(getTotal_nodesConsidered() + innerLoopTask.getNodesConsidered());
@@ -698,7 +699,7 @@ public class ILPouterLoop implements GleanerFileNameProvider {
                     // Report what happened (TODO have an output 'results' file).
                     SingleClauseNode bestNode = theGleaner.bestNode;
                     
-                    Utils.println("\n% The best node found: " + bestNode); // TEMP
+                    Utils.println("\n% The best node found: " + bestNode + "after retraction"); // TEMP
                     
                     if (bestNode != null && bestNode != savedBestNode) { // Also need to check to make sure we didn't simply return the previous root when doing tree-structured learning.
                         Utils.println("\n% The best node found: " + bestNode);
@@ -708,7 +709,7 @@ public class ILPouterLoop implements GleanerFileNameProvider {
                         int newlyCoveredNegExamples = 0;
                         int coveredPosExamplesCount = Utils.getSizeSafely(coveredPosExamplesThisCycle);
                         int coveredNegExamplesCount = Utils.getSizeSafely(coveredNegExamplesThisCycle);
-
+                        //coveredPosExamplesCount = (int)bestNode.getPosCoverage(); //MD
                         if (coveredPosExamplesCount > 0) {
                             for (Example ex : coveredPosExamplesThisCycle) {
                                 // Utils.println("   covered pos: " + ex);
@@ -978,6 +979,7 @@ public class ILPouterLoop implements GleanerFileNameProvider {
                             interiorNode.setTreeForFalse(falseBranch);
                         }
                         else {
+                        	Utils.println("outerlooper nontree");//MD
                             getStdILPtheory().addMainClause(newClause, innerLoopTask.getInlineManager()); // The inline manager probably has already been sent, but send it again anyway.
                             if (learnMLNTheory && !learningTreeStructuredTheory) {
                             	double reg = bestNode.mlnRegressionForTrue();
@@ -1046,7 +1048,7 @@ public class ILPouterLoop implements GleanerFileNameProvider {
                 if (learningTreeStructuredTheory) {
                     stoppedBecauseTreeStructuredQueueEmpty = outerLoopState.queueOfTreeStructuredLearningTasksIsEmpty();
                 }
-
+                
             } // End of WHILE
 
             if (LearnOneClause.debugLevel > -1) {
@@ -1092,10 +1094,17 @@ public class ILPouterLoop implements GleanerFileNameProvider {
             if (holdBodyModes != null) { innerLoopTask.setBodyModes(holdBodyModes); holdBodyModes = null; }
             Theory finalTheory = produceFinalTheory();
 
-            unsetAdvice();
+            //unsetAdvice();
 
             innerLoopTask.fireOuterLoopFinished(this);
-
+            //Utils.println("Reached Here"+innerLoopTask.
+            	//	getParser().getBasicModesMap().get("modes_arithmeticInLogic").
+            	//	get(15).asClause().getDefiniteClauseHead());//MD
+            //Utils.println(finalTheory.getClauses().get(0).getDefiniteClauseBody().toString());//MD
+            //Utils.println(innerLoopTask.
+            //		getInlineManager().
+            //		handleInlinerAndSupportingClauses(finalTheory.getClauses().get(0)).toString());
+            //System.exit(0);//MD
             return finalTheory;
 
         }

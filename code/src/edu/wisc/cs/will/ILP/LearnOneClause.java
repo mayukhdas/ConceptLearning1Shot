@@ -637,15 +637,17 @@ public class LearnOneClause extends StateBasedSearchTask {
 		List<Sentence> results = parser.readFOPCstream(specialCasesString);
 		if (Utils.getSizeSafely(results) > 0) { Utils.error("Need to handle: " + results); }
 */	
-		if (debugLevel > 2) {
+		if (debugLevel > -1) {
 			boolean hold = stringHandler.printVariableCounters;
 		//	stringHandler.printVariableCounters = true; // Turn this on if you want to see the 'true names' of the variables.  I.e., two x's might be different.
 			Utils.println("\n%  The Background Rules:\n");
             for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
                 Utils.println("%  " + clause.toPrettyString("%     ", Integer.MAX_VALUE));
+                //Utils.println();//MD
             }
 			stringHandler.printVariableCounters = hold;
 		}
+		//System.exit(0); //MD
 
         if (debugLevel > -1) { Utils.println("\n%  Read the facts."); }
 
@@ -1684,9 +1686,9 @@ public class LearnOneClause extends StateBasedSearchTask {
                 result = super.performSearch();
             }
 
-            if ( createdActiveAdvice != null ) {
-                adviceProcessor.retractRelevanceAdvice();
-            }
+            //if ( createdActiveAdvice != null ) {
+              //  adviceProcessor.retractRelevanceAdvice();
+            //} //Change by MD
 
             fireInnerLoopFinished(this);
         }

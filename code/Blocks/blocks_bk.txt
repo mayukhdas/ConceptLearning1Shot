@@ -5,22 +5,22 @@ mode: Row(+Part).
 mode: Length(+Part,#Float1).
 mode: H(+Part,#Float2).
 mode: Column(+Part).
-mode: Contains(+Shape,-Part,-Part) max=1.
+mode: Contains(+Shape,-Part).
 mode: Base(+Shape,#Float1).
 mode: Height(+Shape,#Float3).
-mode: SpRel(+Part,+Part,#Rel).
+mode: SpRel(&Rel,#Float5,+Part,+Part).
 mode: Ell(+Shape).
 
 
-bridger: Contains/3.
-bridger: SpRel/3.
+bridger: Contains/2.
+bridger: SpRel/4.
 
 relevant: Row/1, @relevance1.
 relevant: Length/2, @relevance1.
 relevant: H/2, @relevance1.
 relevant: Column/1, @relevance1.
-relevant: Contains/3, @relevance1.
 relevant: Base/2, @relevance1.
 relevant: Height/2, @relevance1.
-relevant: SpRel/3, @relevance1.
+relevant: Contains/2, @relevance1.
+relevant: SpRel/4, @relevance1.
 relevant: Ell/1, @relevance1.

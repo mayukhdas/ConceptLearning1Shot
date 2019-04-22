@@ -1,8 +1,29 @@
 Row(a).
 Length(a, 8.0).
 Column(b).
-Contains(s, a, b).
+Contains(s, b).
+Contains(s, a).
 Height(s, 8.0).
 H(b, 7.0).
 Base(s, 8.0).
-SpRel(b,a,top-bottom).
+SpRel(topleft,0,a,b).
+
+Square(c).
+Length(c, 2.0).
+//Column(d).
+//Contains(r, d).
+Contains(r, c).
+Height(s, 9.0).
+//H(d, 7.0).
+Base(s, 1.0).
+//SpRel(topleft,0,d,c).
+
+Cube(e).
+Length(e, 2.0).
+Column(f).
+Contains(p, f).
+Contains(p, e).
+Height(s, 5.0).
+//H(f, 4.0).
+//Base(s, 8.0).
+//SpRel(topright,0,f,e).

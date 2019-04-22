@@ -35,6 +35,7 @@ public abstract class ScoreSingleClause extends ScoringFunction {
 		// since the determinate literal by itself is of no help.
 		SingleClauseNode node  = (SingleClauseNode)nodeRaw;
 		Utils.println("HERE!*************SCORING - MD, CHECK THIS");
+		//+(node.getClauseHead().getPredicateName().name.contains("mega")?node.getClauseBody():" Not the one"));
 		if (node.endsWithBridgerLiteral()) {
 			if (ScoreSingleClauseByAccuracy.debugLevel > 1) { Utils.println("COMPUTE BONUS (" + computeMaxPossibleScore(node) + "): " + node); }
 			return computeMaxPossibleScore(node) - scoreThisNode(node); // Since bonus is ADDED, need to subtract the normal score so that the computed score is the total score.

@@ -900,7 +900,7 @@ public class Theory extends AllOfFOPC implements Serializable, Iterable<Sentence
 
     private String printClause(Clause clause, String newLineStarter, BindingList bl) {
         //return clause.toPrettyString(newLineStarter + "   ", Integer.MAX_VALUE) +".";
-
+    	
         return PrettyPrinter.print(clause, "", newLineStarter, getPrettyPrinterOptions(), bl);
 
     }

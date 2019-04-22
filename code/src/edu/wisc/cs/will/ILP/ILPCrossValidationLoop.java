@@ -138,7 +138,7 @@ public class ILPCrossValidationLoop {
      *
      *
      */
-
+	public Theory finalTheory = null;
     private int firstFoldToRun;
 
     private int lastFoldToRun;
@@ -397,15 +397,18 @@ public class ILPCrossValidationLoop {
             // outerLoop to pre-CV values regardless of the outcome of the search.
             try {
                 setupAdvice(outerLoop);
+                //Utils.println("THIS IS ADVICE: "+outerLoop.innerLoopTask.getActiveAdvice().toString());//MD
 
                     Theory theory = outerLoop.executeOuterLoop();
 
                     theory.setNegated(getFlipFlopPositiveAndNegativeExamples());
+                    this.finalTheory = theory;
 
                     if (LearnOneClause.debugLevel > -10) {
                         Utils.println(String.format("\n%% Finished fold %d (%.2fs):", currentFold, s.getTotalTimeInSeconds()));
                         Utils.println("\n" + outerLoop.reportSearchStats());
                         Utils.println("\n% " + outerLoop.getLearnedTheory().toPrettyString("% "));
+                        //System.exit(0);//MD
                     }
 
                     // Grab the gleaner from the innerLoop.
@@ -443,7 +446,7 @@ public class ILPCrossValidationLoop {
                 outerLoop.setEvalSetPosExamples(originalEvalSetPosExamples);
                 outerLoop.setEvalSetNegExamples(originalEvalSetNegExamples);
 
-                unsetAdvice(outerLoop);
+                //unsetAdvice(outerLoop);
             }
         }
         else if (filesystemUseEnabled) {
@@ -1092,6 +1095,7 @@ public class ILPCrossValidationLoop {
 
     private void setupAdvice(ILPouterLoop outerLooper) {
         if (outerLooper.innerLoopTask.isRelevanceEnabled()) {
+        	Utils.println("Strength:: "+outerLooper.innerLoopTask.getCurrentRelevanceStrength().toString());//MD
             ActiveAdvice activeAdvice = outerLooper.innerLoopTask.getAdviceProcessor().processAdvice(outerLooper.innerLoopTask.getCurrentRelevanceStrength(), outerLooper.getPosExamples(), outerLooper.getNegExamples());
             setActiveAdvice(outerLooper, activeAdvice);
         }

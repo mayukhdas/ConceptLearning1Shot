@@ -141,6 +141,7 @@ public class InlineManager {
 		}
 
 		List<Clause> results = help_handleInlinerAndSupportingClauses(c, 0);
+		//Utils.println("Inside Inline"+results.toString());//MD
 		if (results == null) { Utils.waitHere("Got no results from in-lining: " + c); return null; }
 		VisitedClauses clausesVisited = new VisitedClauses(100000);  // Watch for duplicates in the Supporting Clauses.
 		List<Clause>   newResults     = new ArrayList<Clause>(results.size());
@@ -175,14 +176,16 @@ public class InlineManager {
 		Set<Clause>   supporters      = null; // Remove duplicates when possible, but might not too look for variants via VisitedClauses instance.
 		BindingList   overallBindings = new BindingList(); // Need to keep track of all the bindings necessary to make the in-lines match up.
 		
+		//Utils.println("NEGLIT: "+c.negLiterals.toString());//MD
 		if (debugLevel > 3) { indentAndPrintln(depth, "Handle: " + c.toString(Integer.MAX_VALUE)); }
-		if (c.negLiterals != null) for (Literal lit : c.negLiterals) {
+		if (c.negLiterals != null) for (Literal lit : c.negLiterals) { //Utils.println("Inside negLits IF");
 			boolean isaInliner   = literalIsInlined(             lit);
 			boolean isaSupporter = literalIsaSupportingPredicate(lit);
-			
+			//Utils.println("Is Inl: "+ isaSupporter);//MD
 			// Here we assume any functions can/will be converted to a literal, e.g., they are inside a FOR-LOOP of some sort.
 			// TODO - maybe we need to check the predicateName of lit and treat like we do for NOT (should also handle ONCE, CALL, etc ...), but risky to require names be in a list ...
-			if (lit.predicateName != notPname && lit.numberArgs() > 0) for (Term t : lit.getArguments()) if (t instanceof Function) {
+			if (lit.predicateName != notPname && lit.numberArgs() > 0) 
+				for (Term t : lit.getArguments()) if (t instanceof Function) {
 				Literal functAtLit = ((Function) t).convertToLiteral(getStringHandler());
 				Iterable<Clause> definingClauses = getHornClauseKnowledgeBase().getPossibleMatchingBackgroundKnowledge(functAtLit, blToUse);
 				if (definingClauses != null) for (Clause c2 : definingClauses) { // TODO clean up the duplicated code.
@@ -199,6 +202,7 @@ public class InlineManager {
 			if (isaInliner && isaSupporter) { 
 				Utils.error("This code assumes a literal is not BOTH an in-liner and a 'supporting' literal: " + lit + "."); // TODO generalize
 			} else if (lit.predicateName == notPname) { // We want to leave these as is, but need to collecting any 'supporters' they need.
+				
 				if (debugLevel > 3) { indentAndPrintln(depth, " NEGATION: " + lit); } 
 				//Utils.println(  "%   current supporters = " + supporters);
 				if (isaInliner || isaSupporter) { Utils.error("This code assumes the negation-by-failure predicate is not an in-liner nor a 'supporting' literal: " + lit + "."); } // TODO generalize
@@ -255,10 +259,12 @@ public class InlineManager {
 				if (debugLevel > 3) { indentAndPrintln(depth, " NEGATION, add this to body: " + lit); }
 				newBodyLiterals.add(lit);
 			} else if (isaSupporter) {
+				Utils.println("Is it here");
 				if (debugLevel > 3) { indentAndPrintln(depth, " SUPPORTER (add to body): " + lit); } 
 				newBodyLiterals.add(lit);
 				// Next see if the body of the supporter has any-liners.
 				Iterable<Clause> definingClauses = getHornClauseKnowledgeBase().getPossibleMatchingBackgroundKnowledge(lit, null);
+				Utils.println(getHornClauseKnowledgeBase().getBackgroundKnowledge().toString());
 				if (definingClauses != null) for (Clause c2 : definingClauses)  {
 					blToUse.theta.clear();
 					BindingList bl = literalMatchesDeterminateClause(lit, c2, blToUse);
@@ -294,7 +300,8 @@ public class InlineManager {
 				if (Utils.getSizeSafely(recurResults) > 0) { supporters.addAll(recurResults); }				
 			} else { // Simply save.
 				newBodyLiterals.add(lit);
-			}			
+			}	
+			
 		}
 		Clause newClause = getStringHandler().getClause(c.posLiterals, newBodyLiterals, c.getExtraLabel());  // Note we are REUSING THE OLD HEAD.
 		List<Clause> newListOfClauses = new ArrayList<Clause>();

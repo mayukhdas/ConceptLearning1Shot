@@ -287,6 +287,8 @@ import edu.wisc.cs.will.Utils.condor.CondorFileReader;
  *
  */
 public class FileParser {  
+	private HashMap<String,List<Sentence>> basicModesMap; //MD
+	private HashMap<String,List<Sentence>> allLibraryMap; //MD
 	protected final static int debugLevel = 0;   // Used to control output from this project (0 = no output, 1=some, 2=much, 3=all).
 
     protected final static boolean traceTokenizer = true;
@@ -2699,7 +2701,8 @@ public class FileParser {
 	private Set<String> loadedLibraries = new HashSet<String>(4);
 	public List<Sentence> loadAllLibraries() throws ParsingException {
 		String[] knownLibraries = { "arithmeticInLogic", "comparisonInLogic", "differentInLogic", "listsInLogic" };
-
+		this.allLibraryMap = new HashMap<String,List<Sentence>>();//MD
+		
 		boolean hold_cleanFunctionAndPredicateNames = stringHandler.cleanFunctionAndPredicateNames;
 		stringHandler.cleanFunctionAndPredicateNames = false;
 		Utils.println(PARSER_VERBOSE_LIBRARY_LOADING, "% LoadAllLibraries() called.  Currently loaded libraries: " + Utils.limitLengthOfPrintedList(loadedLibraries, 25));
@@ -2708,6 +2711,7 @@ public class FileParser {
 			if (results == null) { results = new ArrayList<Sentence>(4); }
 			try {
 				List<Sentence> allLibrarySentences = loadThisFile(true, library, false);
+				this.allLibraryMap.put(library, allLibrarySentences); //MD
 				if (allLibrarySentences != null) { results.addAll(allLibrarySentences); }
 			} catch (Exception e) {
 				Utils.reportStackTrace(e);
@@ -2721,7 +2725,8 @@ public class FileParser {
 	private Set<String> loadedBasicModes = new HashSet<String>(4);
 	public List<Sentence> loadAllBasicModes() throws ParsingException {
 		String[] knownBasicModes = { "modes_arithmeticInLogic", "modes_comparisonInLogic", "modes_differentInLogic", "modes_listsInLogic" };
-
+		this.basicModesMap = new HashMap<String,List<Sentence>>();//MD
+		
 		boolean hold_cleanFunctionAndPredicateNames = stringHandler.cleanFunctionAndPredicateNames;
 		stringHandler.cleanFunctionAndPredicateNames = false;
 		Utils.println(PARSER_VERBOSE_MODE_LOADING, "% LoadAllModes() called.  Currently loaded modes: " + Utils.limitLengthOfPrintedList(loadedBasicModes, 25));
@@ -2730,12 +2735,14 @@ public class FileParser {
 			if (results == null) { results = new ArrayList<Sentence>(4); }
 			try {
 				List<Sentence> allLibrarySentences = loadThisFile(true, library, false);
+				this.basicModesMap.put(library, allLibrarySentences); //MD
 				if (allLibrarySentences != null) { results.addAll(allLibrarySentences); }
 			} catch (Exception e) {
 				Utils.reportStackTrace(e);
 				throw new ParsingException("Problem encountered reading built-in library: '" + library + "'.");
 			}
 		}
+		Utils.println("TESTING BASIC MODES");//MD
 		stringHandler.cleanFunctionAndPredicateNames = hold_cleanFunctionAndPredicateNames;
 		return results;
 	}
@@ -4875,5 +4882,29 @@ public class FileParser {
 	 */
 	public int getNumberOfPrecomputeFiles() {
 		return numberOfPrecomputeFiles;
+	}
+	/**
+	 * @return the basicModesMap
+	 */
+	public HashMap<String, List<Sentence>> getBasicModesMap() {
+		return basicModesMap;
+	}
+	/**
+	 * @return the allLibraryMap
+	 */
+	public HashMap<String, List<Sentence>> getAllLibraryMap() {
+		return allLibraryMap;
+	}
+	/**
+	 * @param basicModesMap the basicModesMap to set
+	 */
+	public void setBasicModesMap(HashMap<String, List<Sentence>> basicModesMap) {
+		this.basicModesMap = basicModesMap;
+	}
+	/**
+	 * @param allLibraryMap the allLibraryMap to set
+	 */
+	public void setAllLibraryMap(HashMap<String, List<Sentence>> allLibraryMap) {
+		this.allLibraryMap = allLibraryMap;
 	}
 }
