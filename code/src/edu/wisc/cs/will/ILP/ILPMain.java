@@ -173,10 +173,13 @@ public final class ILPMain {
     private double getPlanCompressionDistance(String thNew)
     {
     	double d = 0.0;
-    	String g1 = "tower(a)^height(a,2)^rectangle(b)^width(b,3)^length(b,4)^right(b,a)^"
+    	String g1 = "tower(a)^color(a,yellow)^height(a,2)^rectangle(b)^color(b,blue)^width(b,3)^length(b,4)^right(b,a)^"
     			+ "block(c)^location(w1)^block-location(c,w1)^right_behind(b,c)^block(d)"
     			+ "^location(w2)^block-location(d,w2)^bottom_end(a,d)^spatial-rel(top,0,w1,w2)";
-    	String g2 = g1;
+    	String g2 = "tower(a)^color(a,red)^height(a,2)^rectangle(b)^color(b,blue)^width(b,3)^length(b,4)^right(b,a)^"
+    			+ "block(c)^location(w1)^block-location(c,w1)^right_behind(b,c)^block(d)"
+    			+ "^location(w2)^block-location(d,w2)^bottom_end(a,d)^spatial-rel(top,0,w1,w2)";
+    	//String g2 = new String(g1);
     	try {
 			d = BlocksPlanner.compareNCD(g1, g2);
 		} catch (IOException e) {
@@ -239,10 +242,10 @@ public final class ILPMain {
 	        	//String c = getBestConstraint();
 	        	String s = "Ell(s):-Column(unknownVar2),Row(unknownVar3),"
 	        			+ "Length(unknownVar3,unknownVar0),Base(s,bs),"
-	        			+ "Height(s,ht),sameAs(unknownVar0,bs),"
-	        			+ "H(unknownVar2,unknownVar4),Contains(s,unknownVar3),"
+	        			+ "Height(s,ht),sameAs(unknownVar0,bs),H(unknownVar2,"
+	        			+ "unknownVar4),Contains(s,unknownVar3),"
 	        			+ "Contains(s,unknownVar2),"
-	        			+ "SpRel(\"topleft\",unknownVar6,unknownVar3,unknownVar2)"; //temporary example till other code is ready
+	        			+ "SpRel(constant(topleft),unknownVar6,unknownVar3,unknownVar2)"; //temporary example till other code is ready
 	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
 	        			"./SingleExDescAdvice", s.split(":-")[0], s.split(":-")[1]);
 	        	
