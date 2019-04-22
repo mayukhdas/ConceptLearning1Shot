@@ -141,12 +141,20 @@ public final class ILPMain {
         setupRelevance();
     }
     
+    
+    /*
+     * Author: NR
+     * Pick the best constraint predicate for teh next iteration and return 
+     * add to best clause and return clause
+     */
     private String getBestConstraint()
     {
     	String result=null;
     	
     	return result;
     }
+    
+    
     private String instantiateConcept(HashMap<String,Integer> params, Clause c)
     {
     	String head=null;
@@ -155,14 +163,26 @@ public final class ILPMain {
     	return body;
     }
     
+    /*
+     * Author: MD
+     * This method computes plan compression distance between the current theory
+     * and the true theory
+     */
     private double getPlanCompressionDistance()
     {
     	return 0.0;
     }
     
+    
+    /*
+     * Author - MD
+     * Method for resetting relevance file. Picks the structure from the
+     * template file, replaces with provided definite clause, which signifies
+     * the Relevance clause.
+     */
     private String setRelevanceFile(String file, String fileTemplate, String head, String body)
     {
-    	StringBuilder contentBuilder = new StringBuilder();
+    	//StringBuilder contentBuilder = new StringBuilder();
     	String content = null;
     	try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(file)));
@@ -188,7 +208,11 @@ public final class ILPMain {
         CrossValidationResult results = null;
     	
     	outerLooper.initialize(false);
-    	//Adding while loop  -- MD
+    	
+    	
+    	//Adding while loop for LAYERED REFINEMENT
+    	//(not using Onion as it does not serve 
+    	//our purpose of adding constraints)  -- MD
     	for(int iter = 1;iter<=maxTrial;iter++) {
 	                
 	        //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
@@ -198,7 +222,12 @@ public final class ILPMain {
 	        if(iter<maxTrial)
 	        {
 	        	//String c = getBestConstraint();
-	        	String s = "Ell(s):-Column(unknownVar2),Row(unknownVar3),Length(unknownVar3,unknownVar0),Base(s,bs),Height(s,ht),sameAs(unknownVar0,bs),H(unknownVar2,unknownVar4),Contains(s,unknownVar3),Contains(s,unknownVar2),SpRel(\"topleft\",unknownVar6,unknownVar3,unknownVar2)";
+	        	String s = "Ell(s):-Column(unknownVar2),Row(unknownVar3),"
+	        			+ "Length(unknownVar3,unknownVar0),Base(s,bs),"
+	        			+ "Height(s,ht),sameAs(unknownVar0,bs),"
+	        			+ "H(unknownVar2,unknownVar4),Contains(s,unknownVar3),"
+	        			+ "Contains(s,unknownVar2),"
+	        			+ "SpRel(\"topleft\",unknownVar6,unknownVar3,unknownVar2)"; //temporary example till other code is ready
 	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
 	        			"./SingleExDescAdvice", s.split(":-")[0], s.split(":-")[1]);
 	        	
