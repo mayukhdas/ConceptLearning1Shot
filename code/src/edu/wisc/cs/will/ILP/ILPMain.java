@@ -135,8 +135,8 @@ public final class ILPMain {
         long end1;
         ILPCrossValidationLoop cvLoop = null;
         CrossValidationResult results = null;
-    	
-    	//Adding while loop 
+    	boolean firsttime = true;
+    	//Adding while loop  -- MD
     	for(int iter = 0;iter<5;iter++) {
 	        outerLooper.initialize(false);
 	        
@@ -145,6 +145,12 @@ public final class ILPMain {
 	        cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
 	        cvLoop.executeCrossValidation();
 	        results = cvLoop.getCrossValidationResults();
+	        if(!firsttime)
+	        {
+	        	String sc = cvLoop.finalTheory.getSupportClauses().get(0).toPrettyString();
+	        	System.out.println("Support: "+sc);
+	        }
+	        firsttime = false;
     	}
        if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
@@ -187,9 +193,9 @@ public final class ILPMain {
 //        }
 
         end1 = System.currentTimeMillis();
-        Utils.println(results.toLongString()); //MD
-        Utils.println(cvLoop.finalTheory.toPrettyString());//MD
-        Utils.println(directory);
+        //Utils.println(results.toLongString()); //MD
+        //Utils.println(cvLoop.finalTheory.toPrettyString());//MD
+        //Utils.println(directory);
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");
         Utils.println("% Executed " + Utils.comma(getLearnOneClause().getTotalProofsProved()) + " proofs " + String.format("in %.2f seconds (%.2f proofs/sec).", getLearnOneClause().getTotalProofTimeInNanoseconds() / 1.0e9, getLearnOneClause().getAverageProofsCompletePerSecond()));
         Utils.println("% Performed " + Utils.comma(Unifier.getUnificationCount()) + " unifications while proving Horn clauses.");

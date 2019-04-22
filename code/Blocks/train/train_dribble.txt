@@ -584,11 +584,11 @@ TESTING BASIC MODES
 %   Other warnings with this predicate and this new type are not reported in order to keep this printout small.  Use dontComplainAboutMultipleTypes to override.
 
 % Looking at the training examples to see if any types of new constants can be inferred.
-% Time to collect constants: 3 milliseconds
+% Time to collect constants: 2 milliseconds
 % Time to collect examples: 0 seconds
 
 % Read 1 pos examples and 2 neg examples.
-% Time to init learnOneClause: 10 milliseconds
+% Time to init learnOneClause: 9 milliseconds
 
 % Initializing fold 0.
 %   Number of positive TRAIN examples = 1.
@@ -903,7 +903,7 @@ Column(Anon1153), Row(Anon1155), Length(Anon1155, Anon1157), Base(Anon1151, Anon
 
 % ******************************************
 
-% Finished fold 0 (0.17s):
+% Finished fold 0 (0.19s):
 
 % Created a total of 10 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -1196,7 +1196,7 @@ Column(Anon2215), Row(Anon2217), Length(Anon2217, Anon2219), Base(Anon2213, Anon
 
 % ******************************************
 
-% Finished fold 0 (0.16s):
+% Finished fold 0 (0.12s):
 
 % Created a total of 10 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -1489,7 +1489,7 @@ Column(Anon3279), Row(Anon3281), Length(Anon3281, Anon3283), Base(Anon3277, Anon
 
 % ******************************************
 
-% Finished fold 0 (0.08s):
+% Finished fold 0 (0.07s):
 
 % Created a total of 10 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -1782,7 +1782,7 @@ Column(Anon4343), Row(Anon4345), Length(Anon4345, Anon4347), Base(Anon4341, Anon
 
 % ******************************************
 
-% Finished fold 0 (0.10s):
+% Finished fold 0 (0.12s):
 
 % Created a total of 10 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -2075,7 +2075,7 @@ Column(Anon5407), Row(Anon5409), Length(Anon5409, Anon5411), Base(Anon5405, Anon
 
 % ******************************************
 
-% Finished fold 0 (0.12s):
+% Finished fold 0 (0.06s):
 
 % Created a total of 10 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -2107,45 +2107,7 @@ Column(Anon5407), Row(Anon5409), Length(Anon5409, Anon5411), Base(Anon5405, Anon
   initially:  |falseNegatives| = 1 and |trueNegatives| = 2.
      getWeightedCoverage: apply this clause (Ell(A) :- mega_posAnd_notNegOr54(A))
   currently:  |falseNegatives| = 0 and |trueNegatives| = 2.
-%%% Cross-Validation Average Scores [Folds = 1]:
 
-%%% Average TRAINING Coverage Score:
-%              Actual
-%             Pos   Neg Total
-% Model Pos     1     0     1
-%       Neg     0     2     2
-%     Total     1     2
-
-% False Pos mEst  = 0.0100
-% False Neg mEst  = 0.0100
-
-% Accuracy  = 0.9934
-% Precision = 0.9901
-% Recall    = 0.9901
-% F(1)      = 0.9901
-
-% Clauses:
-
-Ell(A) :- mega_posAnd_notNegOr54(A). // Clause #1.
-
-
-% Supporting Clauses:
-
-mega_posAnd_notNegOr54(A) :- 
-     Column(B), 
-     Row(C), 
-     Length(C, D), 
-     Base(A, E), 
-     Height(A, F), 
-     sameAs(D, E), 
-     H(B, G), 
-     Contains(A, C), 
-     Contains(A, B), 
-     SpRel(H, I, C, B). // Supporting Clause #1.
-
-
-.\Blocks\train
-
-% Took 693 milliseconds.
-% Executed 415 proofs in 0.12 seconds (3479.92 proofs/sec).
+% Took 620 milliseconds.
+% Executed 415 proofs in 0.08 seconds (5221.10 proofs/sec).
 % Performed 2,255 unifications while proving Horn clauses.
