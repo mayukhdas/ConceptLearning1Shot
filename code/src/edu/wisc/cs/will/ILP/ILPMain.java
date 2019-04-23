@@ -18,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Stream;
 
 import edu.wisc.cs.will.DataSetUtils.Example;
@@ -308,6 +309,7 @@ public final class ILPMain {
         end1 = System.currentTimeMillis();
         Utils.println(results.toLongString()); //MD
         Utils.println(cvLoop.finalTheory.toPrettyString());//MD
+        test(cvLoop.finalTheory);
         //Utils.println(directory);
         //Utils.println(cvLoop.getOuterLoop().innerLoopTask.getActiveAdvice().toString());
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");
@@ -315,6 +317,25 @@ public final class ILPMain {
         Utils.println("% Performed " + Utils.comma(Unifier.getUnificationCount()) + " unifications while proving Horn clauses.");
     }
 
+    
+    /*
+     * Testmethod no use
+     * Auth: MD
+     */
+    private void test(Theory T)
+    {
+    	Clause c = T.getSupportClauses().get(0);
+    	Literal h = c.getDefiniteClauseHead();
+    	List<Literal> body = c.getDefiniteClauseBody();
+    	Literal testlit = body.get(3);
+    	System.out.println(testlit.getPredicateName());
+    	int arity = testlit.getArity();
+    	for(int i=0;i<arity;i++)
+    	{
+    		System.out.println(testlit.getArgumentTypeSpec(i));
+    	}
+    }
+    
     public void writeLearnedTheory(String prologueString) {
 
         if (bestTheory != null) {
@@ -535,17 +556,18 @@ public final class ILPMain {
     public static void mainDefault(String[] args) throws SearchInterrupted {
         ILPMain main = new ILPMain();
         
-        setConceptParams(args);
-        String[] argsMod = Arrays.copyOf(args, args.length-1);
-        args = argsMod;
+        args=setConceptParams(args);
+        //String[] argsMod = Arrays.copyOf(args, args.length-1);
+        //args = argsMod;
         main.setup(args);
         
         argsPersist = args;
         main.runILP();
         //System.out.println(main.getBestTheory());
     }
-    private static void setConceptParams(String[] args)
+    private static String[] setConceptParams(String[] args)
     {
+    	String[] argsMod = Arrays.copyOf(args, args.length-1);
     	OriginalConceptParams= new HashMap<String,Double>();
     	String paramString = args[args.length-1];
     	String[] components = paramString.split("\\),");
@@ -559,5 +581,6 @@ public final class ILPMain {
     		OriginalConceptParams.put(parts[0], Double.parseDouble(parts[2]));
     	}
     	//System.exit(0);
+    	return argsMod;
     }
 }
