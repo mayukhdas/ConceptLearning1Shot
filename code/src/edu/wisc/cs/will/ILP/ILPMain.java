@@ -44,6 +44,7 @@ public final class ILPMain {
 	
 	public static final int maxTrial = 2;	
 	public static String[] argsPersist = null; 
+	private static HashMap<String,Double> OriginalConceptParams = null;
 
     public ILPouterLoop outerLooper;
 
@@ -533,9 +534,30 @@ public final class ILPMain {
      */
     public static void mainDefault(String[] args) throws SearchInterrupted {
         ILPMain main = new ILPMain();
+        
+        setConceptParams(args);
+        String[] argsMod = Arrays.copyOf(args, args.length-1);
+        args = argsMod;
         main.setup(args);
+        
         argsPersist = args;
         main.runILP();
         //System.out.println(main.getBestTheory());
+    }
+    private static void setConceptParams(String[] args)
+    {
+    	OriginalConceptParams= new HashMap<String,Double>();
+    	String paramString = args[args.length-1];
+    	String[] components = paramString.split("\\),");
+    	System.out.println(Arrays.asList(components));
+    	
+    	for(int i=1;i<components.length;i++)
+    	{
+    		String comp = components[i];
+    		String[] parts = comp.split("\\(|,|\\)");
+    		System.out.println(Arrays.asList(parts));
+    		OriginalConceptParams.put(parts[0], Double.parseDouble(parts[2]));
+    	}
+    	//System.exit(0);
     }
 }

@@ -591,7 +591,7 @@ TESTING BASIC MODES
 % Time to collect examples: 0 seconds
 
 % Read 1 pos examples and 2 neg examples.
-% Time to init learnOneClause: 2 milliseconds
+% Time to init learnOneClause: 4 milliseconds
 
 % Initializing fold 0.
 %   Number of positive TRAIN examples = 1.
@@ -906,7 +906,7 @@ Column(Anon1145), Row(Anon1147), Length(Anon1147, Anon1149), Base(Anon1143, Anon
 
 % ******************************************
 
-% Finished fold 0 (0.14s):
+% Finished fold 0 (0.09s):
 
 % Created a total of 10 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -977,6 +977,6 @@ mega_posAnd_notNegOr6(A) :-
 
 
 
-% Took 3.202 seconds.
-% Executed 83 proofs in 0.03 seconds (2463.84 proofs/sec).
+% Took 3.471 seconds.
+% Executed 83 proofs in 0.03 seconds (3143.59 proofs/sec).
 % Performed 902 unifications while proving Horn clauses.

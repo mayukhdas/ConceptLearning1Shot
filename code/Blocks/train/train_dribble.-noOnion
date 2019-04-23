@@ -1,0 +1,11 @@
+% Running on host: DESKTOP-K98RL7C
+
+% Creating string handler #1.
+
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+
+% getInputArgWithDefaultValue: args=[.\Blocks\train/train_pos.-noOnion, .\Blocks\train/train_neg.-noOnion, .\Blocks\train/train_bk.-noOnion, .\Blocks\train/train_facts.-noOnion]
+%  for N=0: args[N]=.\Blocks\train/train_pos.-noOnion
