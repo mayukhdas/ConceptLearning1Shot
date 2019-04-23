@@ -3,29 +3,19 @@
  * and open the template in the editor.
  */
 package edu.wisc.cs.will.ILP;
-
-import java.io.BufferedWriter;
 import java.io.File;
 import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.stream.Stream;
-
 import edu.wisc.cs.will.DataSetUtils.Example;
-import edu.wisc.cs.will.FOPC.Clause;
 import edu.wisc.cs.will.FOPC.Literal;
 import edu.wisc.cs.will.FOPC.Term;
 import edu.wisc.cs.will.FOPC.Theory;
 import edu.wisc.cs.will.FOPC.TypeSpec;
 import edu.wisc.cs.will.FOPC.Unifier;
 import edu.wisc.cs.will.FOPC.Variable;
+import edu.wisc.cs.will.FOPC.Constant;
 import edu.wisc.cs.will.ResThmProver.DefaultHornClauseContext;
 import edu.wisc.cs.will.ResThmProver.HornClauseContext;
 import edu.wisc.cs.will.Utils.Utils;
@@ -33,97 +23,60 @@ import edu.wisc.cs.will.stdAIsearch.BestFirstSearch;
 import edu.wisc.cs.will.stdAIsearch.SearchInterrupted;
 import edu.wisc.cs.will.stdAIsearch.SearchStrategy;
 import java.io.FileWriter;
-
 /**
  *
  * @author twalker
  */
 public final class ILPMain {
-	
-	public static final int maxTrial = 2;	
-	public static String[] argsPersist = null; 
-
     public ILPouterLoop outerLooper;
-
     private LearnOneClause learnOneClause;
-
     public HornClauseContext context;
-
     public int numberOfFolds = 1;
-
     public String directory;
-
     public String prefix = null;
-
     public int firstFold = 0;
-
     public int lastFold = -1;
-
     public boolean checkpointEnabled = false;
-
     private long maxTimeInMilliseconds = 3 * 24 * 60 * 60 * 1000L; // As a default, allow a max of three days (e.g., overnight plus the weekend).  This is in milliseconds, but remember that the max time, command-line argument is in seconds!
-
     public boolean useRRR = false;
-
     public boolean flipFlopPosNeg = false;
-
     public boolean lowerCaseMeansVariable = false; // TODO - allow user to specify this.
-
     public String fileExtension = Utils.defaultFileExtension;
-
     boolean useOnion = true;
-
     public Boolean relevanceEnabled = true;
-
     public OnionFilter onionFilter = null;
-
     private static final String testBedsPrefix = "../Testbeds/"; // But DO include the backslash here.
-
     public Theory bestTheory = null;
-
     public CoverageScore bestTheoryTrainingScore = null;
-
     public ILPMain() {
     }
-
     public void setup(String... args) throws SearchInterrupted {
         args = Utils.chopCommentFromArgs(args);
-
         Utils.Verbosity defaultVerbosity = Utils.isDevelopmentRun() ? Utils.Verbosity.Developer : Utils.Verbosity.Medium;
-
         processFlagArguments(args);
-
         Utils.seedRandom(12345);
-
         if (Utils.isVerbositySet() == false) {
             Utils.setVerbosity(defaultVerbosity);
         }
-
         if (lastFold == -1) {
             lastFold = numberOfFolds - 1;
         }
-
         boolean partialRun = (firstFold != 0 && lastFold != numberOfFolds - 1);
-
         setupDirectoryAndPrefix(args);
-
         String[] newArgList = new String[4];
         newArgList[0] = directory + "/" + prefix + "_pos." + fileExtension;
         newArgList[1] = directory + "/" + prefix + "_neg." + fileExtension;
         newArgList[2] = directory + "/" + prefix + "_bk." + fileExtension;
         newArgList[3] = directory + "/" + prefix + "_facts." + fileExtension;
-
         if (flipFlopPosNeg) {
             String temp = newArgList[0];
             newArgList[0] = newArgList[1];
             newArgList[1] = temp;
         }
-
         Utils.createDribbleFile(directory + "/" + prefix + "_dribble" + (useRRR ? "_rrr" : "") + (flipFlopPosNeg ? "_flipFlopped" : "") + (partialRun ? "_fold" + firstFold + "to" + lastFold : "") + "." + fileExtension);
-        //	Utils.waitHere(directory + prefix + "_dribble" + (useRRR ? "_rrr" : "") + (flipFlopPosNeg ? "_flipFlopped" : "") + (partialRun ? "_fold" + firstFold + "to" + lastFold : "" ) + "." + fileExtension);
-
+        //  Utils.waitHere(directory + prefix + "_dribble" + (useRRR ? "_rrr" : "") + (flipFlopPosNeg ? "_flipFlopped" : "") + (partialRun ? "_fold" + firstFold + "to" + lastFold : "" ) + "." + fileExtension);
         try {
-            //	HandleFOPCstrings stringHandler = new HandleFOPCstrings(lowerCaseMeansVariable);
+            //  HandleFOPCstrings stringHandler = new HandleFOPCstrings(lowerCaseMeansVariable);
             if (context == null) {
                 context = new DefaultHornClauseContext();
             }
@@ -133,93 +86,54 @@ public final class ILPMain {
             Utils.error("File not found: " + e.getMessage());
         }
         setupParameters();
-
         if (getLearnOneClause().createdSomeNegExamples) {
             Example.writeObjectsToFile(newArgList[1], getLearnOneClause().getNegExamples(), ".", "// Negative examples, including created ones.");
         }
-
         setupRelevance();
     }
-    
-    private String getBestConstraint()
-    {
-    	String result=null;
-    	
-    	return result;
-    }
-    private String instantiateConcept(HashMap<String,Integer> params, Clause c)
-    {
-    	String head=null;
-    	String body=null;
-    	
-    	return body;
-    }
-    
-    private double getPlanCompressionDistance()
-    {
-    	return 0.0;
-    }
-    
-    private String setRelevanceFile(String file, String fileTemplate, String head, String body)
-    {
-    	StringBuilder contentBuilder = new StringBuilder();
-    	String content = null;
-    	try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(file)));
-			//Stream<String> stream = Files.lines( Paths.get(fileTemplate), StandardCharsets.UTF_8);
-			//stream.forEach(s -> contentBuilder.append(s).append("\n"));
-			//stream.close();
-			content = new String(Files.readAllBytes(Paths.get(fileTemplate)));
-			content = content.replaceAll("#--#", head);
-			content = content.replaceAll("#~~#", body);
-			bw.write(content);
-			bw.close();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	return content;
-    }
-
     public void runILP() throws SearchInterrupted {
-    	long start1 = System.currentTimeMillis();
+        long start1 = System.currentTimeMillis();
         long end1;
-        ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
+        ILPCrossValidationLoop cvLoop = null;
         CrossValidationResult results = null;
-    	
-    	outerLooper.initialize(false);
-    	//Adding while loop  -- MD
-    	for(int iter = 1;iter<=maxTrial;iter++) {
-	                
-	        //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
-	        cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
-	        cvLoop.executeCrossValidation();
-	        results = cvLoop.getCrossValidationResults();
-	        if(iter<maxTrial)
-	        {
-	        	//String c = getBestConstraint();
-	        	String s = "Ell(s):-Column(unknownVar2),Row(unknownVar3),Length(unknownVar3,unknownVar0),Base(s,bs),Height(s,ht),sameAs(unknownVar0,bs),H(unknownVar2,unknownVar4),Contains(s,unknownVar3),Contains(s,unknownVar2),SpRel(\"topleft\",unknownVar6,unknownVar3,unknownVar2)";
-	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
-	        			"./SingleExDescAdvice", s.split(":-")[0], s.split(":-")[1]);
-	        	
-	        	//Clause cl = new Clause();
-	        	//String instanceBody = this.instantiateConcept(params, cl)
-	        	//String head = c.split(":-")[0];
-	        	//String body = c.split(":-")[1];
-	        	//unsetting previous advice
-	        	cvLoop.unsetAdvice(cvLoop.getOuterLoop());
-	        	outerLooper=null;
-	            learnOneClause=null;
-	            context=null;
-	        	//setupRelevance();
-	        	setup(argsPersist);
-	        	cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
-	        	outerLooper.initialize(false);
-	        }
-    	}
+        boolean firsttime = true;
+        //Adding while loop  -- MD
+        for(int iter = 0;iter<5;iter++) {
+            outerLooper.initialize(false);
+            
+            cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
+            //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
+            cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
+            cvLoop.executeCrossValidation();
+            results = cvLoop.getCrossValidationResults();
+            if(!firsttime)
+            {   System.out.println("I am here  \n");
+                String sc = cvLoop.finalTheory.getSupportClauses().get(0).toPrettyString();
+                System.out.println("Support: "+sc);                 
+                System.out.println("Support_checking: "+cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(7));
+                
+                for(int i = 1;i<cvLoop.finalTheory.getSupportClauses().get(0).getLength()-1;i++) {
+                		Literal L = cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(i);
+//                		System.out.println("Support: inside loop1 "+L);
+                		for (int j = 0; j < L.getArity(); j++)
+                		{	
+                			if((L.getArgument(j).toPrettyString()=="_"))
+                			{
+                				System.out.println("Support: inside loop2 "+L);
+                			}
+                		}                		 
+                	                		
+                }
+                
+                System.out.println("Checking the parser :: "+ cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_arithmeticInLogic").get(1).asClause());
+                
+            }
+            firsttime = false;
+            
+        }
        if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
-        	//TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
+            //TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
             onion.setFilter(onionFilter);
             // Utils.println("maxTimeInMilliseconds = " + maxTimeInMilliseconds);
             onion.setMaxSecondsToSpend((int) Math.min(Integer.MAX_VALUE, maxTimeInMilliseconds / 1000));
@@ -233,14 +147,11 @@ public final class ILPMain {
                 Utils.println("\n\n% Best Theory Chosen by the Onion:");
                 Utils.println(bestTheory.toPrettyString("    "));
                 Utils.println("\n" + onion.getResultsFromBestFold());
-
                 if (onion.bestSetting != null) {
                     Utils.print("\n\n% Chosen Parameter Settings:");
                     Utils.println(onion.bestSetting.toString(true));
                 }
-
                 CrossValidationFoldResult bestFold = onion.getBestFold();
-
                 if (bestFold != null) {
                     bestTheoryTrainingScore = bestFold.getTrainingCoverageScore();
                 }
@@ -254,27 +165,22 @@ public final class ILPMain {
 //            cvLoop.executeCrossValidation();
             
             
-            //	ILPCrossValidationResult results = cvLoop.getCrossValidationResults();
+            //  ILPCrossValidationResult results = cvLoop.getCrossValidationResults();
 //        }
-
         end1 = System.currentTimeMillis();
-        Utils.println(results.toLongString()); //MD
-        Utils.println(cvLoop.finalTheory.toPrettyString());//MD
+        //Utils.println(results.toLongString()); //MD
+        //Utils.println(cvLoop.finalTheory.toPrettyString());//MD
         //Utils.println(directory);
-        //Utils.println(cvLoop.getOuterLoop().innerLoopTask.getActiveAdvice().toString());
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");
         Utils.println("% Executed " + Utils.comma(getLearnOneClause().getTotalProofsProved()) + " proofs " + String.format("in %.2f seconds (%.2f proofs/sec).", getLearnOneClause().getTotalProofTimeInNanoseconds() / 1.0e9, getLearnOneClause().getAverageProofsCompletePerSecond()));
         Utils.println("% Performed " + Utils.comma(Unifier.getUnificationCount()) + " unifications while proving Horn clauses.");
     }
-
     public void writeLearnedTheory(String prologueString) {
-
         if (bestTheory != null) {
             if (directory != null && prefix != null) {
                 File theoryFile = new File(directory, prefix + "_theory.txt");
                 try {
                     String theoryAsString = prologueString + bestTheory.toPrettyString("") + "\n";
-
                     new CondorFileWriter(theoryFile).append(theoryAsString).close();
                 } catch (IOException except) {
                     Utils.printlnErr("Could not save the learned theory to a file: " + except.toString() + ".");
@@ -282,7 +188,6 @@ public final class ILPMain {
             }
         }
     }
-
     private void processFlagArguments(String[] args) throws IllegalArgumentException {
         // Allow these three to come in any order.
         for (int arg = 1; arg < args.length; arg++) {
@@ -349,7 +254,6 @@ public final class ILPMain {
             }
         }
     }
-
     private void setupDirectoryAndPrefix(String[] args) throws IllegalArgumentException {
         // LearnOnClause performs the inner loop of ILP.
         directory = args[0];
@@ -368,12 +272,11 @@ public final class ILPMain {
             prefix = prefix.substring(0, prefix.length() - 1);
         }
     }
-
     private void setupParameters() {
         Gleaner gleaner = (Gleaner) getLearnOneClause().searchMonitor;
         outerLooper.writeGleanerFilesToDisk = true;
-        //		if (args.length > 3) { getLearnOneClause().setMinPosCoverage(Double.parseDouble(args[3])); }
-        //		if (args.length > 4) { getLearnOneClause().setMinPrecision(  Double.parseDouble(args[4]));   }
+        //      if (args.length > 3) { getLearnOneClause().setMinPosCoverage(Double.parseDouble(args[3])); }
+        //      if (args.length > 4) { getLearnOneClause().setMinPrecision(  Double.parseDouble(args[4]));   }
         // Set some additional parameters for the inner-loop runs.
         maxTimeInMilliseconds = 12 * 60 * 60 * 1000; // This is for any ONE task (but over ALL Onion layers for that task).
         getLearnOneClause().setMaxNodesToConsider(10000); // <-----------------------
@@ -400,7 +303,6 @@ public final class ILPMain {
         outerLooper.setCheckpointEnabled(checkpointEnabled);
         getLearnOneClause().setDumpGleanerEveryNexpansions(1000);
     }
-
     private void setupRelevance() throws SearchInterrupted {
         if (isRelevanceEnabled()) {
             try {
@@ -417,7 +319,6 @@ public final class ILPMain {
             getLearnOneClause().setRelevanceEnabled(false);
         }
     }
-
     public HornClauseContext getContext() {
         if (context == null) {
             if (outerLooper == null) {
@@ -427,44 +328,34 @@ public final class ILPMain {
                 context = getLearnOneClause().getContext();
             }
         }
-
         return context;
     }
-
     public boolean isRelevanceEnabled() {
         return relevanceEnabled == null ? getRelevanceFile().exists() : relevanceEnabled;
     }
-
     public void setRelevanceEnabled(Boolean relevanceEnabled) {
         this.relevanceEnabled = relevanceEnabled;
     }
-
     public boolean isRelevanceEnableSet() {
         return relevanceEnabled != null;
     }
-
     public File getRelevanceFile() {
         File relevanceFile = new CondorFile(directory + "/" + prefix + "_bkRel." + fileExtension);
-
         return relevanceFile;
     }
-
     public LearnOneClause getLearnOneClause() {
         return outerLooper.innerLoopTask;
     }
-
     public Theory getBestTheory() {
         return bestTheory;
     }
-
     public static void mainJWS(String[] args) throws SearchInterrupted, IOException {
-        //	Experimenter.mainJWS(args);
+        //  Experimenter.mainJWS(args);
         ExperimenterMR.mainJWS(args);
     }
-
     public static void main(String[] args) throws SearchInterrupted, IOException {
         String userName = Utils.getUserName();
-        //	waitHereUnlessCondorJob("user name = " + userName);
+        //  waitHereUnlessCondorJob("user name = " + userName);
         if ("shavlik".equals(userName)) {
             mainJWS(args);
             System.exit(0);
@@ -473,13 +364,12 @@ public final class ILPMain {
             mainJWS(args);
             System.exit(0);
         }
-        //	else if ("kunapg".equals( userName)) { mainGK( args);  System.exit(0); }
+        //  else if ("kunapg".equals( userName)) { mainGK( args);  System.exit(0); }
         //  else if () { mainYOU(args); }
         else {
             mainDefault(args);
         }
     }
-
     /**
      * @param args
      * @throws SearchInterrupted
@@ -487,7 +377,6 @@ public final class ILPMain {
     public static void mainDefault(String[] args) throws SearchInterrupted {
         ILPMain main = new ILPMain();
         main.setup(args);
-        argsPersist = args;
         main.runILP();
         //System.out.println(main.getBestTheory());
     }
