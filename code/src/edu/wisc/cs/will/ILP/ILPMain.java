@@ -15,6 +15,7 @@ import edu.wisc.cs.will.FOPC.Theory;
 import edu.wisc.cs.will.FOPC.TypeSpec;
 import edu.wisc.cs.will.FOPC.Unifier;
 import edu.wisc.cs.will.FOPC.Variable;
+import edu.wisc.cs.will.FOPC.Clause;
 import edu.wisc.cs.will.FOPC.Constant;
 import edu.wisc.cs.will.ResThmProver.DefaultHornClauseContext;
 import edu.wisc.cs.will.ResThmProver.HornClauseContext;
@@ -112,21 +113,20 @@ public final class ILPMain {
                 System.out.println("Support: "+sc);                 
                 System.out.println("Support_checking: "+cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(7));
                 
-                for(int i = 1;i<cvLoop.finalTheory.getSupportClauses().get(0).getLength()-1;i++) {
+                for(int i = 1;i<cvLoop.finalTheory.getSupportClauses().get(0).getLength();i++) {
                 		Literal L = cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(i);
-//                		System.out.println("Support: inside loop1 "+L);
                 		for (int j = 0; j < L.getArity(); j++)
                 		{	
                 			if((L.getArgument(j).toPrettyString()=="_"))
-                			{
-                				System.out.println("Support: inside loop2 "+L);
+                			{	System.out.println("Support inside loop2 "+L);
                 			}
-                		}                		 
-                	                		
+                		}	                		
                 }
-                
-                System.out.println("Checking the parser :: "+ cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_arithmeticInLogic").get(1).asClause());
-                
+                Clause L1=cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic").get(0).asClause();
+                System.out.println("Checking the parser check check :: "+cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic"));
+                cvLoop.finalTheory.getSupportClauses().get(0).asClause().appendClause(L1);
+                System.out.println("Checking the parser trying :: "+cvLoop.finalTheory.getSupportClauses().get(0));
+             
             }
             firsttime = false;
             
