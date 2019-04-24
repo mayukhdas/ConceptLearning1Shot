@@ -17,6 +17,7 @@ import edu.wisc.cs.will.FOPC.Unifier;
 import edu.wisc.cs.will.FOPC.Variable;
 import edu.wisc.cs.will.FOPC.Clause;
 import edu.wisc.cs.will.FOPC.Constant;
+import edu.wisc.cs.will.FOPC.DefiniteClause;
 import edu.wisc.cs.will.ResThmProver.DefaultHornClauseContext;
 import edu.wisc.cs.will.ResThmProver.HornClauseContext;
 import edu.wisc.cs.will.Utils.Utils;
@@ -113,19 +114,23 @@ public final class ILPMain {
                 System.out.println("Support: "+sc);                 
                 System.out.println("Support_checking: "+cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(7));
                 
-                for(int i = 1;i<cvLoop.finalTheory.getSupportClauses().get(0).getLength();i++) {
-                		Literal L = cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(i);
-                		for (int j = 0; j < L.getArity(); j++)
-                		{	
-                			if((L.getArgument(j).toPrettyString()=="_"))
-                			{	System.out.println("Support inside loop2 "+L);
-                			}
-                		}	                		
-                }
-                Clause L1=cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic").get(0).asClause();
-                System.out.println("Checking the parser check check :: "+cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic"));
-                cvLoop.finalTheory.getSupportClauses().get(0).asClause().appendClause(L1);
-                System.out.println("Checking the parser trying :: "+cvLoop.finalTheory.getSupportClauses().get(0));
+//                for(int i = 1;i<cvLoop.finalTheory.getSupportClauses().get(0).getLength();i++) {
+//                		Literal L = cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(i);
+//                		for (int j = 0; j < L.getArity(); j++)
+//                		{	
+//                			if((L.getArgument(j).toPrettyString()=="_"))
+//                			{	System.out.println("Support inside loop2 "+L);
+//                			}
+//                		}	                		
+//                }
+                Clause L1=cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic").get(3).asClause();
+//                System.out.println("Checking the parser check check :: "+cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic"));
+//                cvLoop.finalTheory.getSupportClauses().get(0).asClause().appendClause(L1);
+//                System.out.println("Checking the parser trying :: "+cvLoop.finalTheory.getSupportClauses().get(0));
+                System.out.println("\n****************** background ******************\n");
+                for (DefiniteClause clause : context.getClausebase().getBackgroundKnowledge()) {
+                    Utils.println("%  " + clause.getDefiniteClauseAsClause().convertToClausalForm());
+                };
              
             }
             firsttime = false;
