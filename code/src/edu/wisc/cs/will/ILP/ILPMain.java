@@ -8,13 +8,20 @@ import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import edu.wisc.cs.will.DataSetUtils.Example;
 import edu.wisc.cs.will.FOPC.Literal;
+import edu.wisc.cs.will.FOPC.PredicateNameAndArity;
+import edu.wisc.cs.will.FOPC.StringConstant;
 import edu.wisc.cs.will.FOPC.Term;
 import edu.wisc.cs.will.FOPC.Theory;
 import edu.wisc.cs.will.FOPC.TypeSpec;
 import edu.wisc.cs.will.FOPC.Unifier;
 import edu.wisc.cs.will.FOPC.Variable;
+import edu.wisc.cs.will.FOPC.BindingList;
 import edu.wisc.cs.will.FOPC.Clause;
 import edu.wisc.cs.will.FOPC.Constant;
 import edu.wisc.cs.will.FOPC.DefiniteClause;
@@ -48,6 +55,14 @@ public final class ILPMain {
     public Boolean relevanceEnabled = true;
     public OnionFilter onionFilter = null;
     private static final String testBedsPrefix = "../Testbeds/"; // But DO include the backslash here.
+	private static final String E = null;
+	private static final StringConstant[] A = null;
+	private static final String F = null;
+	private static final String B = null;
+	private static final String C = null;
+	private static final String D = null;
+	private static final String G = null;
+	private static final String H = null;
     public Theory bestTheory = null;
     public CoverageScore bestTheoryTrainingScore = null;
     public ILPMain() {
@@ -100,42 +115,54 @@ public final class ILPMain {
         CrossValidationResult results = null;
         boolean firsttime = true;
         //Adding while loop  -- MD
-        for(int iter = 0;iter<5;iter++) {
+        for(int iter = 0;iter<1;iter++) {
             outerLooper.initialize(false);
             
             cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
-            //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
             cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
             cvLoop.executeCrossValidation();
             results = cvLoop.getCrossValidationResults();
-            if(!firsttime)
-            {   System.out.println("I am here  \n");
-                String sc = cvLoop.finalTheory.getSupportClauses().get(0).toPrettyString();
-                System.out.println("Support: "+sc);                 
-                System.out.println("Support_checking: "+cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(7));
-                
-//                for(int i = 1;i<cvLoop.finalTheory.getSupportClauses().get(0).getLength();i++) {
-//                		Literal L = cvLoop.finalTheory.getSupportClauses().get(0).getIthLiteral(i);
-//                		for (int j = 0; j < L.getArity(); j++)
-//                		{	
-//                			if((L.getArgument(j).toPrettyString()=="_"))
-//                			{	System.out.println("Support inside loop2 "+L);
-//                			}
-//                		}	                		
-//                }
-                Clause L1=cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic").get(3).asClause();
-//                System.out.println("Checking the parser check check :: "+cvLoop.getOuterLoop().innerLoopTask.getParser().getBasicModesMap().get("modes_comparisonInLogic"));
-//                cvLoop.finalTheory.getSupportClauses().get(0).asClause().appendClause(L1);
-//                System.out.println("Checking the parser trying :: "+cvLoop.finalTheory.getSupportClauses().get(0));
-                System.out.println("\n****************** background ******************\n");
-                for (DefiniteClause clause : context.getClausebase().getBackgroundKnowledge()) {
-                    Utils.println("%  " + clause.getDefiniteClauseAsClause().convertToClausalForm());
-                };
-             
+//            System.out.println("I am here 1 \n"+cvLoop.finalTheory.getSupportClauses().get(0).getAntecedent());
+            Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
+           
+            System.out.println("I am here  \n"+c1.asConnectedSentence());
+            int i = 0;
+            for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
+              if (clause.isDefiniteClauseRule() & i<1) {
+                  i=i+1;                  
+                  c1.appendClause(clause);
+                  }    
             }
-            firsttime = false;
+            System.out.println("\n"+c1);     
+//            List<Clause> GroundingsPerClause = new ArrayList<Clause>();
+//            //if(negBLCopy!=null )
+//            if(negBLCopy.size()!=0)
+//            {
+//                BindingList theta = unifier.unify(cl.getDefiniteClauseHead(), eg.extractLiteral());
+//                Clause unifiedClause = cl.applyTheta(theta);
+//                for(BindingList bl: negBLCopy)
+//                {
+//                    Clause unifiedClause2 = unifiedClause.applyTheta(bl);
+//                    if(!(unifiedClause2.containsVariables())) //  Makes sure partial grounding are rejected
+//                        GroundingsPerClause.add(unifiedClause2);
+//                    //System.out.println(unifiedClause2);
+//                    
+//                }
+//            Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
+//            while(context.getClausebase().getBackgroundKnowledge().iterator().hasNext()) 
+//            {	Clause cc=context.getClausebase().getBackgroundKnowledge().iterator().next();
+//            	System.out.println("I am here  \n"+cc);
+//            	if(cc.toString().contains("sameasNew"))
+//            		{
+//            		BindingList theta = context.getUnifier().unify(c1.getDefiniteClauseHead(),cc);            	
+//                Clause unifiedClause = c1.applyTheta(theta); 
+//                System.out.println("I am here  \n"+unifiedClause);
+//        	}
+//        }
+//        }
             
         }
+        
        if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
             //TuneParametersForILP onion = new TuneParametersForILP(outerLooper);

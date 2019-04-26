@@ -1757,6 +1757,7 @@ public class LearnOneClause extends StateBasedSearchTask {
     }
 
 
+
     public Set<String> getAlchemyModeStrings(Collection<PredicateNameAndArity> pnameArities) {
 
         Set<String> set = new LinkedHashSet<String>();

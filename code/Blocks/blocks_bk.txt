@@ -1,4 +1,5 @@
 setParam: nodeSize=100.
+setParam: loadAllBasicModes = false.
 
 
 mode: Row(+Part).
@@ -13,15 +14,16 @@ mode: Ell(+Shape).
 mode: sameAsNew(#Float1,#Float4).
 mode: equalWithToleranceNew(#Float3,#Float2,#Float6).
 
+Ell(Shape) :- sameAsNew(Float1, Float4).
+
+Ell(Shape) :- equalWithToleranceNew(Float3, Float2, Float6).
+
 okIfUnknown: equalWithToleranceNew/3
 okIfUnknown: sameAsNew/2
 
-//usePrologVariables: true.
-//precompute:
-//sameAsNew(X, Y) :- Length(P, X), Base(P, Y), !.
+
 precompute: sameAsNew(Float1, Float4) :- Length(Part, Float1), Base(Shape, Float4), equalWithSmallTolerance(Float1, Float4).
 
-//precompute: equalWithTolerance(X,Y,Z) :-  Height(P, X), H(P, Y), var(Z), !, Z is X - Y.
 precompute: equalWithToleranceNew(Float3, Float2, Float6) :-  Height(Shape, Float3), H(Part, Float2), Float6 is Float3 - Float2 .
 
 
