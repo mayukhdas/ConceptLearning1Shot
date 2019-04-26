@@ -11,9 +11,9 @@ usePrologVariables: true.
 ////////////////////////////////////////////////////////////////////////////////
 
 // Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, null' and covering 1.0 wgt'ed positive and 0.0 wgt'ed negative examples:
-//    Wgt'ed recall = 0.990, precision = 0.990, and F1 = 0.990 - learned after 3 total and 2 acceptable nodes.  Node score = 0.9900887099009901
+//    Wgt'ed recall = 0.990, precision = 0.990, and F1 = 0.990 - learned after 3 total and 2 acceptable nodes.  Node score = 0.9900988999009901
 Ell(A) :- 
-   Base(A, 8).
+   mega_posAnd_notNegOr6(A).
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -23,7 +23,7 @@ Ell(A) :-
 ////////////////////////////////////////////////////////////////////////////////
 
 // Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1_fold0, null' and covering 1.0 wgt'ed positive and 0.0 wgt'ed negative examples:
-//    Wgt'ed recall = 0.990, precision = 0.990, and F1 = 0.990 - learned after 3 total and 2 acceptable nodes.  Node score = 0.9900887099009901
+//    Wgt'ed recall = 0.990, precision = 0.990, and F1 = 0.990 - learned after 3 total and 2 acceptable nodes.  Node score = 0.9900988999009901
 Ell(A) :- 
-   Base(A, 8).
+   mega_posAnd_notNegOr6(A).
 

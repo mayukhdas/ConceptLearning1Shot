@@ -3,16 +3,16 @@ setParam: loadAllBasicModes = false.
 
 
 mode: Row(+Part).
-mode: Length(+Part,#Float1).
-mode: H(+Part,#Float2).
+mode: Length(+Part,+Float1).
+mode: H(+Part,+Float2).
 mode: Column(+Part).
 mode: Contains(+Shape,-Part).
-mode: Base(+Shape,#Float4).
-mode: Height(+Shape,#Float3).
-mode: SpRel(&Rel,#Float5,+Part,+Part).
+mode: Base(+Shape,+Float4).
+mode: Height(+Shape,+Float3).
+mode: SpRel(&Rel,+Float5,+Part,+Part).
 mode: Ell(+Shape).
-mode: sameAsNew(#Float1,#Float4).
-mode: equalWithToleranceNew(#Float3,#Float2,#Float6).
+mode: sameAsNew(+Float1,+Float4).
+mode: equalWithToleranceNew(+Float3,+Float2,#Float6).
 
 Ell(Shape) :- sameAsNew(Float1, Float4).
 

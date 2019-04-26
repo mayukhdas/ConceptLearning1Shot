@@ -8,8 +8,11 @@ import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import edu.wisc.cs.will.DataSetUtils.Example;
@@ -25,6 +28,7 @@ import edu.wisc.cs.will.FOPC.BindingList;
 import edu.wisc.cs.will.FOPC.Clause;
 import edu.wisc.cs.will.FOPC.Constant;
 import edu.wisc.cs.will.FOPC.DefiniteClause;
+import edu.wisc.cs.will.FOPC.HandleFOPCstrings;
 import edu.wisc.cs.will.ResThmProver.DefaultHornClauseContext;
 import edu.wisc.cs.will.ResThmProver.HornClauseContext;
 import edu.wisc.cs.will.Utils.Utils;
@@ -41,6 +45,7 @@ public final class ILPMain {
     private LearnOneClause learnOneClause;
     public HornClauseContext context;
     public int numberOfFolds = 1;
+    public long counter;
     public String directory;
     public String prefix = null;
     public int firstFold = 0;
@@ -124,15 +129,47 @@ public final class ILPMain {
             results = cvLoop.getCrossValidationResults();
             Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
            
-            System.out.println("I am here  \n"+c1.asConnectedSentence());
+//            System.out.println("I am here  \n"+c1.asConnectedSentence());
             int i = 0;
+            
             for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
-              if (clause.isDefiniteClauseRule() & i<1) {
-                  i=i+1;                  
-                  c1.appendClause(clause);
-                  }    
-            }
+                if (clause.isDefiniteClauseRule() & i<1) {
+                    i=i+1;
+//                    System.out.println("Clause............."+clause.getDefiniteClauseBody().get(0)+"..........."+c1.getAntecedent());
+                    
+                    Literal clauseLit = clause.getDefiniteClauseBody().get(0);
+                    List<Literal> cLit      = c1.getDefiniteClauseBody();
+                    Dictionary codes = new Hashtable(); 
+                    for(Literal l:cLit)
+                    {	
+                    	List<TypeSpec> ts1 = l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
+                    	if(l.copyAndRenameVariables().toString().contains("_")) {
+                    		List<TypeSpec>lst =l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
+                    		//Workaround!
+                    		codes.put(l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList(), "Anon"+counter);
+                    		System.out.println("HI "+l.copyAndRenameVariables().toString().replaceAll("_", "Anon"+counter));
+                    		counter++;
+                    	}
+                    }
+//                   BindingList bl = null;
+//                   String newLineStarter = "\n";
+//                   int precedence = 1;
+//                   System.out.println("11"+c1.toPrettyString(newLineStarter, precedence, bl));
+                    System.out.println(codes);
+                   c1.appendClause(clause);
+                   List<Literal> cLit2      = c1.getDefiniteClauseBody();
+                   for(Literal l:cLit2) {
+                	   if(codes.get(l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList())!=null) {
+                		   
+                	   }
+                   }
+                	   
+                   
+                }
+              }
             System.out.println("\n"+c1);     
+            
+            
 //            List<Clause> GroundingsPerClause = new ArrayList<Clause>();
 //            //if(negBLCopy!=null )
 //            if(negBLCopy.size()!=0)
