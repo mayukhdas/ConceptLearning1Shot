@@ -122,7 +122,6 @@ public final class ILPMain {
             cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
             cvLoop.executeCrossValidation();
             results = cvLoop.getCrossValidationResults();
-//            System.out.println("I am here 1 \n"+cvLoop.finalTheory.getSupportClauses().get(0).getAntecedent());
             Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
            
             System.out.println("I am here  \n"+c1.asConnectedSentence());
