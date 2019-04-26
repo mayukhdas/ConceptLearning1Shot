@@ -64,14 +64,6 @@ public final class ILPMain {
     public Boolean relevanceEnabled = true;
     public OnionFilter onionFilter = null;
     private static final String testBedsPrefix = "../Testbeds/"; // But DO include the backslash here.
-	private static final String E = null;
-	private static final StringConstant[] A = null;
-	private static final String F = null;
-	private static final String B = null;
-	private static final String C = null;
-	private static final String D = null;
-	private static final String G = null;
-	private static final String H = null;
     public Theory bestTheory = null;
     public CoverageScore bestTheoryTrainingScore = null;
     public ILPMain() {
@@ -127,62 +119,82 @@ public final class ILPMain {
         //Adding while loop  -- MD
         for(int iter = 0;iter<1;iter++) {
             outerLooper.initialize(false);
-
+            
             cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
             //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
             cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
             cvLoop.executeCrossValidation();
             results = cvLoop.getCrossValidationResults();
-//             System.out.println("I am here  \n"+cvLoop.finalTheory.getSupportClauses().get(0));
+//            System.out.println("I am here  \n"+cvLoop.finalTheory.getSupportClauses().get(0));
             Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
-            System.out.println("I am here  \n"+c1);
-            int i = 0;
+            //System.out.println("I am here  \n"+c1);
+            
+                     
+            List<Literal> cLit2     = new ArrayList<Literal>();
+            stringHandler = new HandleFOPCstrings();
+                  
             List<Literal> cLit      = c1.getDefiniteClauseBody();
-            List<Literal> cLit2 = new ArrayList<Literal>();
-
-           stringHandler = new HandleFOPCstrings();
-           int counter = 1;
-           Dictionary codes = new Hashtable(); 
-           for(Literal l: cLit)
+            int counter = 1;
+            for(Literal l: cLit)
             {
                Collection<Variable> headVars = l.collectAllVariables();
                BindingList bl = new BindingList();
                for (Variable bVar : headVars)
+                {
+                		if ("_".equals(bVar.getName()))
+                		 {
+                			 bl.addBinding(bVar, (stringHandler.getVariableOrConstant(bVar.getTypeSpec(), "Anon"+counter).asTerm()));
+                			 counter++;
+                		 }
+                		else
+                		{
+                			bl.addBinding(bVar, stringHandler.getVariableOrConstant(bVar.getTypeSpec(), bVar.getName()).asTerm());
+                   		}
+                  }
+                	 cLit2.add(l.applyTheta(bl));
+             }
+                       
+              int i = 0;
+              for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
+              if (clause.isDefiniteClauseRule() & i<2) {
+              i=i+1; 
+                  
+              Literal clauseLit                        = clause.getDefiniteClauseBody().get(0);   // new addition
+              List<TypeSpec> newAdditionTypeSpec       = clauseLit.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList(); 
+              Collection<Variable> newAdditionVariable = clauseLit.collectAllVariables();
+            	 
+               BindingList bl2 = new BindingList();
+               for(Literal l2:cLit2)  //original clause
                {
-                  if ("_".equals(bVar.getName()))
-                   {
-                       bl.addBinding(bVar, (stringHandler.getVariableOrConstant(bVar.getTypeSpec(), "Anon"+counter)));
-//                       codes.put(bVar.getTypeSpec(), "Anon"+counter);
-                       counter++;
-                   }
-                  else
-                  {
-                      bl.addBinding(bVar, stringHandler.getVariableOrConstant(bVar.getTypeSpec(), bVar.getName()).asTerm());
-                  }                      
-               }
-               cLit2.add(l.applyTheta(bl));              
-            }
-           System.out.println("newClause : "+c1.posLiterals);
-           System.out.println("newClause : "+cLit2);
-           Clause newClause = new Clause(c1.getStringHandler(), c1.posLiterals, cLit2);
-        
-           System.out.println("newClause : "+newClause);
-            for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
-                if (clause.isDefiniteClauseRule() & i<1) {
-                    i=i+1;
-                    Literal clauseLit       = clause.getDefiniteClauseBody().get(0);
-                    List<TypeSpec> ts2      = clauseLit.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();             
-                    System.out.println("\n"+clauseLit);
-                    System.out.println("\n"+clauseLit);
-                   newClause.appendClause(clause);
-                   System.out.println("\n"+newClause);
+                     List<TypeSpec> tspecOriginalClause             = l2.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
+                	 Collection<Variable> tsVariableOriginalClause  = l2.collectAllVariables();
+                	 
+                	 int originalclausecount = 0;
+                     for(Variable originalclause: tsVariableOriginalClause)
+                     {
+                    	 
+                    	 TypeSpec tsoc = tspecOriginalClause .get(originalclausecount);
+                    	 int newadditioncount = 0;
+                    	 for(Variable arg1: newAdditionVariable)
+                    	 { 
+                    		 TypeSpec tsav = newAdditionTypeSpec.get(newadditioncount);
+                             if(tsoc.equals(tsav) && !(bl2.getTheta().containsKey(arg1)))
+                             {
+                            	 bl2.addBinding(arg1, originalclause);                                    
+                                
+                             }
+                             newadditioncount++;     
+                         }
+                         originalclausecount++;
+                     }
                 }
-                
-              }     
-              
-
-
-          }
+                Literal clauseLit2                        = clause.getDefiniteClauseBody().get(0); 
+                cLit2.add(clauseLit2.applyTheta(bl2));
+              }    
+            }
+            Clause newClause = new Clause(c1.getStringHandler(), c1.posLiterals, cLit2);
+            System.out.println("Show this clause to user: "+newClause);
+       }
             
 //            List<Clause> GroundingsPerClause = new ArrayList<Clause>();
 //            //if(negBLCopy!=null )
