@@ -534,6 +534,16 @@
 % Have read the relevance files.
 
 
+% Creating string handler #2.
+
+
+***** Warning: Do you really want to make string handler #2? *****
+
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+
 % NEW target:                 Ell(D)
 %  targetPred:                Ell/1
 %  targetArgTypes:            signature = [const], types = [+Shape]
@@ -548,7 +558,7 @@
 % Processing precompute file: precomputed.txt
 Writing to file: C:\Users\Nandini\git\ConceptLearningOnion1Shot\precomputed.txt
 % Loading: precomputed.txt
-% Read an additional 4 facts from edu.wisc.cs.will.Utils.condor.CondorFileReader@179d3b25.
+% Read an additional 4 facts from edu.wisc.cs.will.Utils.condor.CondorFileReader@bebdb06.
 
 % Started collecting constants
 
@@ -567,11 +577,11 @@ Writing to file: C:\Users\Nandini\git\ConceptLearningOnion1Shot\precomputed.txt
 %   Other warnings with this predicate and this new type are not reported in order to keep this printout small.  Use dontComplainAboutMultipleTypes to override.
 
 % Looking at the training examples to see if any types of new constants can be inferred.
-% Time to collect constants: 0 seconds
+% Time to collect constants: 10 milliseconds
 % Time to collect examples: 0 seconds
 
 % Read 1 pos examples and 2 neg examples.
-% Time to init learnOneClause: 0 seconds
+% Time to init learnOneClause: 10 milliseconds
 
 % Initializing fold 0.
 %   Number of positive TRAIN examples = 1.
@@ -820,7 +830,7 @@ Is it here
 
 % ******************************************
 
-% Finished fold 0 (0.09s):
+% Finished fold 0 (0.08s):
 
 % Created a total of 5 clauses and expanded 1 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
@@ -852,6 +862,18 @@ Is it here
      getWeightedCoverage: apply this clause (Ell(A) :- mega_posAnd_notNegOr6(A))
   currently:  |falseNegatives| = 0 and |trueNegatives| = 2.
 
-% Took 94 milliseconds.
-% Executed 40 proofs in 0.01 seconds (2753.00 proofs/sec).
+% Creating string handler #3.
+
+
+***** Warning: Do you really want to make string handler #3? *****
+
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+
+% Switching to VarIndicator = uppercase.
+
+% Took 100 milliseconds.
+% Executed 40 proofs in 0.01 seconds (3488.24 proofs/sec).
 % Performed 381 unifications while proving Horn clauses.

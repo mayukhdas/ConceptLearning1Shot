@@ -8,6 +8,8 @@ import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -45,6 +47,8 @@ public final class ILPMain {
     private LearnOneClause learnOneClause;
     public HornClauseContext context;
     public int numberOfFolds = 1;
+    public HandleFOPCstrings stringHandler;
+    
     public long counter;
     public String directory;
     public String prefix = null;
@@ -118,57 +122,67 @@ public final class ILPMain {
         long end1;
         ILPCrossValidationLoop cvLoop = null;
         CrossValidationResult results = null;
+        stringHandler = new HandleFOPCstrings();
         boolean firsttime = true;
         //Adding while loop  -- MD
         for(int iter = 0;iter<1;iter++) {
             outerLooper.initialize(false);
-            
+
             cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
+            //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
             cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
             cvLoop.executeCrossValidation();
             results = cvLoop.getCrossValidationResults();
+//             System.out.println("I am here  \n"+cvLoop.finalTheory.getSupportClauses().get(0));
             Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
-           
-//            System.out.println("I am here  \n"+c1.asConnectedSentence());
+            System.out.println("I am here  \n"+c1);
             int i = 0;
-            
+            List<Literal> cLit      = c1.getDefiniteClauseBody();
+            List<Literal> cLit2 = new ArrayList<Literal>();
+
+           stringHandler = new HandleFOPCstrings();
+           int counter = 1;
+           Dictionary codes = new Hashtable(); 
+           for(Literal l: cLit)
+            {
+               Collection<Variable> headVars = l.collectAllVariables();
+               BindingList bl = new BindingList();
+               for (Variable bVar : headVars)
+               {
+                  if ("_".equals(bVar.getName()))
+                   {
+                       bl.addBinding(bVar, (stringHandler.getVariableOrConstant(bVar.getTypeSpec(), "Anon"+counter)));
+//                       codes.put(bVar.getTypeSpec(), "Anon"+counter);
+                       counter++;
+                   }
+                  else
+                  {
+                      bl.addBinding(bVar, stringHandler.getVariableOrConstant(bVar.getTypeSpec(), bVar.getName()).asTerm());
+                  }                      
+               }
+               cLit2.add(l.applyTheta(bl));              
+            }
+           System.out.println("newClause : "+c1.posLiterals);
+           System.out.println("newClause : "+cLit2);
+           Clause newClause = new Clause(c1.getStringHandler(), c1.posLiterals, cLit2);
+        
+           System.out.println("newClause : "+newClause);
             for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
                 if (clause.isDefiniteClauseRule() & i<1) {
                     i=i+1;
-//                    System.out.println("Clause............."+clause.getDefiniteClauseBody().get(0)+"..........."+c1.getAntecedent());
-                    
-                    Literal clauseLit = clause.getDefiniteClauseBody().get(0);
-                    List<Literal> cLit      = c1.getDefiniteClauseBody();
-                    Dictionary codes = new Hashtable(); 
-                    for(Literal l:cLit)
-                    {	
-                    	List<TypeSpec> ts1 = l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
-                    	if(l.copyAndRenameVariables().toString().contains("_")) {
-                    		List<TypeSpec>lst =l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
-                    		//Workaround!
-                    		codes.put(l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList(), "Anon"+counter);
-                    		System.out.println("HI "+l.copyAndRenameVariables().toString().replaceAll("_", "Anon"+counter));
-                    		counter++;
-                    	}
-                    }
-//                   BindingList bl = null;
-//                   String newLineStarter = "\n";
-//                   int precedence = 1;
-//                   System.out.println("11"+c1.toPrettyString(newLineStarter, precedence, bl));
-                    System.out.println(codes);
-                   c1.appendClause(clause);
-                   List<Literal> cLit2      = c1.getDefiniteClauseBody();
-                   for(Literal l:cLit2) {
-                	   if(codes.get(l.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList())!=null) {
-                		   
-                	   }
-                   }
-                	   
-                   
+                    Literal clauseLit       = clause.getDefiniteClauseBody().get(0);
+                    List<TypeSpec> ts2      = clauseLit.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();             
+                    System.out.println("\n"+clauseLit);
+                    System.out.println("\n"+clauseLit);
+                   newClause.appendClause(clause);
+                   System.out.println("\n"+newClause);
                 }
-              }
-            System.out.println("\n"+c1);     
-            
+                
+              }     
+              
+
+
+          }
             
 //            List<Clause> GroundingsPerClause = new ArrayList<Clause>();
 //            //if(negBLCopy!=null )
@@ -197,7 +211,7 @@ public final class ILPMain {
 //        }
 //        }
             
-        }
+        
         
        if (useOnion) {
             TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
