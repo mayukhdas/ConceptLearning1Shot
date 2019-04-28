@@ -16,13 +16,18 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 import edu.wisc.cs.will.DataSetUtils.Example;
+import edu.wisc.cs.will.FOPC.BindingList;
 import edu.wisc.cs.will.FOPC.Clause;
+import edu.wisc.cs.will.FOPC.HandleFOPCstrings;
 import edu.wisc.cs.will.FOPC.Literal;
 import edu.wisc.cs.will.FOPC.Term;
 import edu.wisc.cs.will.FOPC.Theory;
@@ -43,8 +48,10 @@ import java.io.FileWriter;
  */
 public final class ILPMain {
 	
-	public static final int maxTrial = 2;	
+	public HandleFOPCstrings stringHandler;
+	public static final int maxTrial = 1;	
 	public static String[] argsPersist = null; 
+	public static Theory outputTheory = null;
 	private static HashMap<String,Double> OriginalConceptParams = null;
 
     public ILPouterLoop outerLooper;
@@ -237,19 +244,91 @@ public final class ILPMain {
 	        cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
 	        cvLoop.executeCrossValidation();
 	        results = cvLoop.getCrossValidationResults();
-	        double dist = getPlanCompressionDistance(null); //MD
-        	Utils.println(""+dist); //MD
-	        if(iter<maxTrial)
+	        outputTheory = cvLoop.finalTheory;
+	        
+	        //-Nan--------------------
+	        Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
+	        List<Literal> cLit2     = new ArrayList<Literal>();
+	        stringHandler = new HandleFOPCstrings();
+
+	           List<Literal> cLit      = c1.getDefiniteClauseBody();
+	           //System.out.println("Printing cLit:"+ cLit);
+	           int counter = 1;
+	           for(Literal l: cLit)
+	           {
+	              Collection<Variable> headVars = l.collectAllVariables();
+	              BindingList bl = new BindingList();
+	              for (Variable bVar : headVars)
+	               {
+	                       if ("_".equals(bVar.getName()))
+	                        {
+	                            bl.addBinding(bVar, (stringHandler.getVariableOrConstant(bVar.getTypeSpec(), "Anon"+counter).asTerm()));
+	                            counter++;
+	                        }
+	                       else
+	                       {
+	                           bl.addBinding(bVar, stringHandler.getVariableOrConstant(bVar.getTypeSpec(), bVar.getName()).asTerm());
+	                          }
+	                 }
+	                    cLit2.add(l.applyTheta(bl));
+	            }
+
+	             int i = 0;
+	             for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
+	             if (clause.isDefiniteClauseRule() & i<2) {
+	             i=i+1;
+
+	             Literal clauseLit                        = clause.getDefiniteClauseBody().get(0);   // new addition
+	             List<TypeSpec> newAdditionTypeSpec       = clauseLit.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
+	             Collection<Variable> newAdditionVariable = clauseLit.collectAllVariables();
+	               
+	              BindingList bl2 = new BindingList();
+	              for(Literal l2:cLit2)  //original clause
+	              {
+	                    List<TypeSpec> tspecOriginalClause             = l2.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
+	                    Collection<Variable> tsVariableOriginalClause  = l2.collectAllVariables();
+	                   
+	                    int originalclausecount = 0;
+	                    for(Variable originalclause: tsVariableOriginalClause)
+	                    {
+	                       
+	                        TypeSpec tsoc = tspecOriginalClause .get(originalclausecount);
+	                        int newadditioncount = 0;
+	                        for(Variable arg1: newAdditionVariable)
+	                        {
+	                            TypeSpec tsav = newAdditionTypeSpec.get(newadditioncount);
+	                            if(tsoc.equals(tsav) && !(bl2.getTheta().containsKey(arg1)))
+	                            {
+	                                bl2.addBinding(arg1, originalclause);
+
+	                            }
+	                            newadditioncount++;
+	                        }
+	                        originalclausecount++;
+	                    }
+	               }
+	               Literal clauseLit2                        = clause.getDefiniteClauseBody().get(0);
+	               cLit2.add(clauseLit2.applyTheta(bl2));
+	             }
+	           }
+	           Clause newClause = new Clause(c1.getStringHandler(), c1.posLiterals, cLit2);
+	           System.out.println("Show this clause to user: "+newClause);
+	           
+	        //-End Nan-----------------
+	           Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	           System.out.println("Is is correct (Type 0 if No / 1 if Yes)?");
+
+	           int input = myObj.nextInt();
+	           
+	        //double dist = getPlanCompressionDistance(null); //MD
+        	//Utils.println(""+dist); //MD
+	        if(iter<maxTrial && input>0)
 	        {
 	        	//String c = getBestConstraint();
-	        	String s = "Ell(s):-Column(unknownVar2),Row(unknownVar3),"
-	        			+ "Length(unknownVar3,unknownVar0),Base(s,bs),"
-	        			+ "Height(s,ht),sameAs(unknownVar0,bs),H(unknownVar2,"
-	        			+ "unknownVar4),Contains(s,unknownVar3),"
-	        			+ "Contains(s,unknownVar2),"
-	        			+ "SpRel(constant(topleft),unknownVar6,unknownVar3,unknownVar2)"; //temporary example till other code is ready
+	        	String head = "Ell(A)";
+	        	String body = newClause.getAntecedent().toString();
 	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
-	        			"./SingleExDescAdvice", s.split(":-")[0], s.split(":-")[1]);
+	        			"./SingleExDescAdvice", head, body);
 	        	
 	        	//Clause cl = new Clause();
 	        	//String instanceBody = this.instantiateConcept(params, cl)
@@ -266,50 +345,11 @@ public final class ILPMain {
 	        	outerLooper.initialize(false);
 	        }
     	}
-       if (useOnion) {
-            TuneParametersForILP onion = new TuneParametersForILP(outerLooper, numberOfFolds);
-        	//TuneParametersForILP onion = new TuneParametersForILP(outerLooper);
-            onion.setFilter(onionFilter);
-            // Utils.println("maxTimeInMilliseconds = " + maxTimeInMilliseconds);
-            onion.setMaxSecondsToSpend((int) Math.min(Integer.MAX_VALUE, maxTimeInMilliseconds / 1000));
-            onion.run();
-            bestTheory = onion.getTheoryFromBestFold();
-            Utils.println("\n% ----------------------------------------------");
-            if (bestTheory == null) {
-                Utils.println("\n% The ONION was unable to find an acceptable theory.");
-            }
-            else {
-                Utils.println("\n\n% Best Theory Chosen by the Onion:");
-                Utils.println(bestTheory.toPrettyString("    "));
-                Utils.println("\n" + onion.getResultsFromBestFold());
-
-                if (onion.bestSetting != null) {
-                    Utils.print("\n\n% Chosen Parameter Settings:");
-                    Utils.println(onion.bestSetting.toString(true));
-                }
-
-                CrossValidationFoldResult bestFold = onion.getBestFold();
-
-                if (bestFold != null) {
-                    bestTheoryTrainingScore = bestFold.getTrainingCoverageScore();
-                }
-            }
-            Utils.println("\n% ------------------------------------------------");
-       }
-//        else {
-//            cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
-//            cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
-//            cvLoop.setMaximumCrossValidationTimeInMillisec(maxTimeInMilliseconds);
-//            cvLoop.executeCrossValidation();
-            
-            
-            //	ILPCrossValidationResult results = cvLoop.getCrossValidationResults();
-//        }
 
         end1 = System.currentTimeMillis();
         Utils.println(results.toLongString()); //MD
-        Utils.println(cvLoop.finalTheory.toPrettyString());//MD
-        test(cvLoop.finalTheory);
+        Utils.println(outputTheory.toPrettyString());//MD
+        //test(cvLoop.finalTheory);
         //Utils.println(directory);
         //Utils.println(cvLoop.getOuterLoop().innerLoopTask.getActiveAdvice().toString());
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");

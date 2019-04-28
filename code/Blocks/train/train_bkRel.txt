@@ -1,4 +1,4 @@
 setParameter: stringsAreCaseSensitive = true;
 
 
-relevantClause: Ell(s) : ( Column(unknownVar2),Row(unknownVar3),Length(unknownVar3,unknownVar0),Base(s,bs),Height(s,ht),sameAs(unknownVar0,bs),H(unknownVar2,unknownVar4),Contains(s,unknownVar3),Contains(s,unknownVar2),SpRel(constant(topleft),unknownVar6,unknownVar3,unknownVar2) ), RELEVANT.
+relevantClause: Ell(s) : ( Column(unknownVar2),Row(unknownVar3),Length(unknownVar3,unknownVar0),Base(s,bs),Height(s,ht),H(unknownVar2,unknownVar4),Contains(s,unknownVar3),Contains(s,unknownVar2),SpRel(constant(topleft),unknownVar6,unknownVar3,unknownVar2) ), RELEVANT.
