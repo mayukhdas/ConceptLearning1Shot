@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -41,7 +42,6 @@ import edu.wisc.cs.will.stdAIsearch.BestFirstSearch;
 import edu.wisc.cs.will.stdAIsearch.SearchInterrupted;
 import edu.wisc.cs.will.stdAIsearch.SearchStrategy;
 import java.io.FileWriter;
-
 /**
  *
  * @author twalker
@@ -49,6 +49,7 @@ import java.io.FileWriter;
 public final class ILPMain {
 	
 	public HandleFOPCstrings stringHandler;
+	public int index = 0;
 	public static final int maxTrial = 1;	
 	public static String[] argsPersist = null; 
 	public static Theory outputTheory = null;
@@ -229,9 +230,11 @@ public final class ILPMain {
     public void runILP() throws SearchInterrupted {
     	long start1 = System.currentTimeMillis();
         long end1;
+        int input = 0;
+        int i = 0;
         ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
         CrossValidationResult results = null;
-    	
+        Clause newClause = null;
     	outerLooper.initialize(false);
     	
     	
@@ -245,7 +248,7 @@ public final class ILPMain {
 	        cvLoop.executeCrossValidation();
 	        results = cvLoop.getCrossValidationResults();
 	        outputTheory = cvLoop.finalTheory;
-	        
+            while(input == 0){
 	        //-Nan--------------------
 	        Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
 	        List<Literal> cLit2     = new ArrayList<Literal>();
@@ -272,10 +275,20 @@ public final class ILPMain {
 	                 }
 	                    cLit2.add(l.applyTheta(bl));
 	            }
+	             Iterator<Clause> i_clause= context.getClausebase().getBackgroundKnowledge().iterator();
+//	             System.out.println("Hi checking first "+ context.getClausebase().getBackgroundKnowledge());
+	             List<Clause> ListOfClauses     = new ArrayList<Clause>();
+	             while(i_clause.hasNext()) {
+	            	 Clause ctemp=i_clause.next();
+	            	 if(ctemp.isDefiniteClauseRule()) {
+	            		 ListOfClauses.add(ctemp);
+	            	 }
+	             }
+//	             for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
 
-	             int i = 0;
-	             for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
-	             if (clause.isDefiniteClauseRule() & i<2) {
+	             Clause clause=ListOfClauses.get(index);
+	             
+	             if (i<2) {
 	             i=i+1;
 
 	             Literal clauseLit                        = clause.getDefiniteClauseBody().get(0);   // new addition
@@ -310,16 +323,17 @@ public final class ILPMain {
 	               Literal clauseLit2                        = clause.getDefiniteClauseBody().get(0);
 	               cLit2.add(clauseLit2.applyTheta(bl2));
 	             }
-	           }
-	           Clause newClause = new Clause(c1.getStringHandler(), c1.posLiterals, cLit2);
+//	           }
+	           newClause = new Clause(c1.getStringHandler(), c1.posLiterals, cLit2);
 	           System.out.println("Show this clause to user: "+newClause);
 	           
 	        //-End Nan-----------------
 	           Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	           System.out.println("Is is correct (Type 0 if No / 1 if Yes)?");
 
-	           int input = myObj.nextInt();
-	           
+	           input = myObj.nextInt();
+	           index=index+1;
+    		}
 	        //double dist = getPlanCompressionDistance(null); //MD
         	//Utils.println(""+dist); //MD
 	        if(iter<maxTrial && input>0)
