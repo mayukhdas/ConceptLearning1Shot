@@ -1,6 +1,9 @@
 % Running on host: DESKTOP-K98RL7C
 
-% Creating string handler #1.
+% Creating string handler #3.
+
+
+***** Warning: Do you really want to make string handler #3? *****
 
 
 % Switching to VarIndicator = uppercase.
@@ -548,7 +551,7 @@
 % Processing precompute file: precomputed.txt
 Writing to file: C:\Users\mayuk\Documents\git\ConceptLearningOnion1Shot\code\precomputed.txt
 % Loading: precomputed.txt
-% Read an additional 1,260 facts from edu.wisc.cs.will.Utils.condor.CondorFileReader@6adede5.
+% Read an additional 1,260 facts from edu.wisc.cs.will.Utils.condor.CondorFileReader@41a2befb.
 
 % Started collecting constants
 
@@ -567,11 +570,11 @@ Writing to file: C:\Users\mayuk\Documents\git\ConceptLearningOnion1Shot\code\pre
 %   Other warnings with this predicate and this new type are not reported in order to keep this printout small.  Use dontComplainAboutMultipleTypes to override.
 
 % Looking at the training examples to see if any types of new constants can be inferred.
-% Time to collect constants: 6 milliseconds
+% Time to collect constants: 1 milliseconds
 % Time to collect examples: 0 seconds
 
 % Read 1 pos examples and 2 neg examples.
-% Time to init learnOneClause: 167 milliseconds
+% Time to init learnOneClause: 26 milliseconds
 
 % Initializing fold 0.
 %   Number of positive TRAIN examples = 1.
@@ -579,179 +582,18 @@ Writing to file: C:\Users\mayuk\Documents\git\ConceptLearningOnion1Shot\code\pre
 %   Number of positive EVAL  examples = 0.
 %   Number of negative EVAL  examples = 0.
 Strength:: STRONGLY_IRRELEVANT
-% [AdviceProcessor]  Generated 6 clause(s) at relevance level STRONGLY_IRRELEVANT:
-% [AdviceProcessor]   mega_posAnd_notNegOr0(A) :- 
-% [AdviceProcessor]             Column(B), 
-% [AdviceProcessor]             Row(C), 
-% [AdviceProcessor]             Length(C, D), 
-% [AdviceProcessor]             Base(A, E), 
-% [AdviceProcessor]             Height(A, F), 
-% [AdviceProcessor]             H(B, G), 
-% [AdviceProcessor]             Contains(A, C), 
-% [AdviceProcessor]             Contains(A, B), 
-% [AdviceProcessor]             SpRel(topleft, H, C, B)  POSSIBLE_ANSWER
-% [AdviceProcessor]   mega_notPosAnd_negAnd1(A) :- 
-% [AdviceProcessor]             \+(Column(B), 
-% [AdviceProcessor]                Row(C), 
-% [AdviceProcessor]                Length(C, D), 
-% [AdviceProcessor]                Base(A, E), 
-% [AdviceProcessor]                Height(A, F), 
-% [AdviceProcessor]                H(B, G), 
-% [AdviceProcessor]                Contains(A, C), 
-% [AdviceProcessor]                Contains(A, B), 
-% [AdviceProcessor]                SpRel(topleft, H, C, B)
-% [AdviceProcessor]               )  POSSIBLE_ANSWER
-% [AdviceProcessor]   single_example_advice4(A) :- 
-% [AdviceProcessor]             Column(B), 
-% [AdviceProcessor]             Row(C), 
-% [AdviceProcessor]             Length(C, D), 
-% [AdviceProcessor]             Base(A, E), 
-% [AdviceProcessor]             Height(A, F), 
-% [AdviceProcessor]             H(B, G), 
-% [AdviceProcessor]             Contains(A, C), 
-% [AdviceProcessor]             Contains(A, B), 
-% [AdviceProcessor]             SpRel(topleft, H, C, B)  VERY_STRONGLY_RELEVANT
-% [AdviceProcessor]   not_single_example_advice4(A) :- 
-% [AdviceProcessor]             \+(Column(B), 
-% [AdviceProcessor]                Row(C), 
-% [AdviceProcessor]                Length(C, D), 
-% [AdviceProcessor]                Base(A, E), 
-% [AdviceProcessor]                Height(A, F), 
-% [AdviceProcessor]                H(B, G), 
-% [AdviceProcessor]                Contains(A, C), 
-% [AdviceProcessor]                Contains(A, B), 
-% [AdviceProcessor]                SpRel(topleft, H, C, B)
-% [AdviceProcessor]               )  VERY_STRONGLY_RELEVANT_NEG
-% [AdviceProcessor]   single_piece_advice5(A) :- 
-% [AdviceProcessor]             Column(B), 
-% [AdviceProcessor]             Row(C), 
-% [AdviceProcessor]             Length(C, D), 
-% [AdviceProcessor]             Base(A, E), 
-% [AdviceProcessor]             Height(A, F), 
-% [AdviceProcessor]             H(B, G), 
-% [AdviceProcessor]             Contains(A, C), 
-% [AdviceProcessor]             Contains(A, B), 
-% [AdviceProcessor]             SpRel(topleft, H, C, B)  STRONGLY_RELEVANT
-% [AdviceProcessor]   not_single_piece_advice5(A) :- 
-% [AdviceProcessor]             \+(Column(B), 
-% [AdviceProcessor]                Row(C), 
-% [AdviceProcessor]                Length(C, D), 
-% [AdviceProcessor]                Base(A, E), 
-% [AdviceProcessor]                Height(A, F), 
-% [AdviceProcessor]                H(B, G), 
-% [AdviceProcessor]                Contains(A, C), 
-% [AdviceProcessor]                Contains(A, B), 
-% [AdviceProcessor]                SpRel(topleft, H, C, B)
-% [AdviceProcessor]               )  STRONGLY_RELEVANT_NEG
 
-% WARNING #1: Duplicate cost of 'single_piece_advice5/1'.  Had previously said cost = 0.10001 and now saying cost = 0.1.
-% Will use this latest setting.
-
-% WARNING #2: Duplicate cost of 'mega_notPosAnd_negAnd1/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
-% Will use this latest setting.
-
-% WARNING #3: Duplicate cost of 'not_single_example_advice4/1'.  Had previously said cost = 0.015009999999999999 and now saying cost = 0.015.
-% Will use this latest setting.
-
-% WARNING #4: Duplicate cost of 'mega_posAnd_notNegOr0/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
-% Will use this latest setting.
-
-% WARNING #5: Duplicate cost of 'single_example_advice4/1'.  Had previously said cost = 0.01001 and now saying cost = 0.01.
-% Will use this latest setting.
-
-% WARNING #6: Duplicate cost of 'not_single_piece_advice5/1'.  Had previously said cost = 0.15001 and now saying cost = 0.15.
-% Will use this latest setting.
-
+% Skipping over this 'waitHere': Unknown predicate name in advice: sameAsNew/2.
+% [AdviceProcessor]  Generated 0 clauses at relevance level STRONGLY_IRRELEVANT.
 % Have selected pos example #0 as the next seed: Ell(s)
-% [AdviceProcessor] retractRelevanceAdvice: there are 6 assertedRelevanceModes to retract.
-% [AdviceProcessor]  Generated 6 clause(s) at relevance level STRONGLY_IRRELEVANT:
-% [AdviceProcessor]   mega_posAnd_notNegOr6(A) :- 
-% [AdviceProcessor]             Column(B), 
-% [AdviceProcessor]             Row(C), 
-% [AdviceProcessor]             Length(C, D), 
-% [AdviceProcessor]             Base(A, E), 
-% [AdviceProcessor]             Height(A, F), 
-% [AdviceProcessor]             H(B, G), 
-% [AdviceProcessor]             Contains(A, C), 
-% [AdviceProcessor]             Contains(A, B), 
-% [AdviceProcessor]             SpRel(topleft, H, C, B)  POSSIBLE_ANSWER
-% [AdviceProcessor]   mega_notPosAnd_negAnd7(A) :- 
-% [AdviceProcessor]             \+(Column(B), 
-% [AdviceProcessor]                Row(C), 
-% [AdviceProcessor]                Length(C, D), 
-% [AdviceProcessor]                Base(A, E), 
-% [AdviceProcessor]                Height(A, F), 
-% [AdviceProcessor]                H(B, G), 
-% [AdviceProcessor]                Contains(A, C), 
-% [AdviceProcessor]                Contains(A, B), 
-% [AdviceProcessor]                SpRel(topleft, H, C, B)
-% [AdviceProcessor]               )  POSSIBLE_ANSWER
-% [AdviceProcessor]   single_example_advice10(A) :- 
-% [AdviceProcessor]             Column(B), 
-% [AdviceProcessor]             Row(C), 
-% [AdviceProcessor]             Length(C, D), 
-% [AdviceProcessor]             Base(A, E), 
-% [AdviceProcessor]             Height(A, F), 
-% [AdviceProcessor]             H(B, G), 
-% [AdviceProcessor]             Contains(A, C), 
-% [AdviceProcessor]             Contains(A, B), 
-% [AdviceProcessor]             SpRel(topleft, H, C, B)  VERY_STRONGLY_RELEVANT
-% [AdviceProcessor]   not_single_example_advice10(A) :- 
-% [AdviceProcessor]             \+(Column(B), 
-% [AdviceProcessor]                Row(C), 
-% [AdviceProcessor]                Length(C, D), 
-% [AdviceProcessor]                Base(A, E), 
-% [AdviceProcessor]                Height(A, F), 
-% [AdviceProcessor]                H(B, G), 
-% [AdviceProcessor]                Contains(A, C), 
-% [AdviceProcessor]                Contains(A, B), 
-% [AdviceProcessor]                SpRel(topleft, H, C, B)
-% [AdviceProcessor]               )  VERY_STRONGLY_RELEVANT_NEG
-% [AdviceProcessor]   single_piece_advice11(A) :- 
-% [AdviceProcessor]             Column(B), 
-% [AdviceProcessor]             Row(C), 
-% [AdviceProcessor]             Length(C, D), 
-% [AdviceProcessor]             Base(A, E), 
-% [AdviceProcessor]             Height(A, F), 
-% [AdviceProcessor]             H(B, G), 
-% [AdviceProcessor]             Contains(A, C), 
-% [AdviceProcessor]             Contains(A, B), 
-% [AdviceProcessor]             SpRel(topleft, H, C, B)  STRONGLY_RELEVANT
-% [AdviceProcessor]   not_single_piece_advice11(A) :- 
-% [AdviceProcessor]             \+(Column(B), 
-% [AdviceProcessor]                Row(C), 
-% [AdviceProcessor]                Length(C, D), 
-% [AdviceProcessor]                Base(A, E), 
-% [AdviceProcessor]                Height(A, F), 
-% [AdviceProcessor]                H(B, G), 
-% [AdviceProcessor]                Contains(A, C), 
-% [AdviceProcessor]                Contains(A, B), 
-% [AdviceProcessor]                SpRel(topleft, H, C, B)
-% [AdviceProcessor]               )  STRONGLY_RELEVANT_NEG
 
-% WARNING #7: Duplicate cost of 'mega_posAnd_notNegOr6/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
-% Will use this latest setting.
-
-% WARNING #8: Duplicate cost of 'single_piece_advice11/1'.  Had previously said cost = 0.10001 and now saying cost = 0.1.
-% Will use this latest setting.
-
-% WARNING #9: Duplicate cost of 'not_single_piece_advice11/1'.  Had previously said cost = 0.15001 and now saying cost = 0.15.
-% Will use this latest setting.
-
-% WARNING #10: Duplicate cost of 'mega_notPosAnd_negAnd7/1'.  Had previously said cost = 0.00101 and now saying cost = 0.001.
-% Will use this latest setting.
-
-% WARNING #11: Duplicate cost of 'single_example_advice10/1'.  Had previously said cost = 0.01001 and now saying cost = 0.01.
-% Will use this latest setting.
-
-% WARNING #12: Duplicate cost of 'not_single_example_advice10/1'.  Had previously said cost = 0.015009999999999999 and now saying cost = 0.015.
-% Will use this latest setting.
-
+% Skipping over this 'waitHere': Unknown predicate name in advice: sameAsNew/2.
+% [AdviceProcessor]  Generated 0 clauses at relevance level STRONGLY_IRRELEVANT.
 
 % LearnOneClause Parameters:
 %   Targets (1):
 %    Ell(+Shape)
-%  Modes (16):
+%  Modes (10):
 %    Row(+Part),
 %    Length(+Part, +Float1),
 %    H(+Part, +Float2),
@@ -761,13 +603,7 @@ Strength:: STRONGLY_IRRELEVANT
 %    Height(+Shape, +Float3),
 %    SpRel(&Rel, +Float5, +Part, +Part),
 %    sameAsNew(+Float1, +Float4),
-%    equalWithToleranceNew(+Float3, +Float2, #Float6),
-%    mega_posAnd_notNegOr6(+Shape),
-%    single_piece_advice11(+Shape),
-%    not_single_piece_advice11(+Shape),
-%    mega_notPosAnd_negAnd7(+Shape),
-%    single_example_advice10(+Shape),
-%    not_single_example_advice10(+Shape)
+%    equalWithToleranceNew(+Float3, +Float2, #Float6)
 
 % target           = Ell(D)
 HERE!*************SCORING - MD, CHECK THIS
@@ -775,41 +611,23 @@ HERE!*************SCORING - MD, CHECK THIS
 % Most-general root: Ell(_).  [covers 1.0/1.0 pos, 2.0/2.0 neg]  score = 0.332
 
 % Consider expanding [#1 of outerLoop #1_fold0, bodyLen=0] 'Ell(_).  [covers 1.0/1.0 pos, 2.0/2.0 neg]' score=0.3322248136212625
-%  At # nodes expanded = 1, |OPEN| = 0.  Pruned 0 variant children.  Sending 4 items to OPEN for evaluation and possible insertion.
-% Have created 4 valid-on-seeds descendants and have picked up 3 bad extensions.
+%  At # nodes expanded = 1, |OPEN| = 0.  Pruned 0 variant children.  Sending 1 items to OPEN for evaluation and possible insertion.
+% Have created 1 valid-on-seeds descendants.
+HERE!*************SCORING - MD, CHECK THIS
+
+% Consider expanding [#2 of outerLoop #1_fold0, bodyLen=0:1] 'Ell(A) :- Contains(A, _).  [covers 1.0/1.0 pos, 2.0/2.0 neg]' score=0.3322147136212625
+HERE!*************SCORING - MD, CHECK THIS
+% Gleaner: New best node found (score = 0.990079): Ell(A) :- Contains(A, B), Row(B).  [covers 1.0/1.0 pos, 0.0/2.0 neg]
 HERE!*************SCORING - MD, CHECK THIS
 HERE!*************SCORING - MD, CHECK THIS
-Is it here
-[mode(Row(+Part)), mode(Length(+Part, +Float1)), mode(H(+Part, +Float2)), mode(Column(+Part)), mode(Contains(+Shape, -Part)), mode(Base(+Shape, +Float4)), mode(Height(+Shape, +Float3)), mode(SpRel(&Rel, +Float5, +Part, +Part)), mode(Ell(+Shape)), mode(sameAsNew(+Float1, +Float4)), mode(equalWithToleranceNew(+Float3, +Float2, #Float6)), (Ell(Shape) :- sameAsNew(Float1, Float4)), (Ell(Shape) :- equalWithToleranceNew(Float3, Float2, Float6)), (isaInterestingSymbol(X, X) :- isaInterestingSymbol(X)), (isaInterestingNumber(X, Y) :- isaInterestingNumber(Y), equalWithSmallTolerance(X, Y)), (isaDifferentInterestingSymbol(X, Y) :- isaInterestingSymbol(X), isaInterestingSymbol(Y), different(X, Y)), (isaDifferentInterestingNumber(X, Y) :- isaInterestingNumber(X), isaInterestingNumber(Y), different(X, Y)), (positiveNumber(X) :- number(X), X > 0), (negativeNumber(X) :- number(X), X < 0), (in0to1(X) :- number(X), X >= 0, X <= 1), (in0to10(X) :- number(X), X >= 0, X <= 10), (in0to100(X) :- number(X), X >= 0, X <= 100), (in0to1000(X) :- number(X), X >= 0, X <= 1000), (in0toDot001(X) :- number(X), X >= 0, X <= 0.001), (in0toDot01(X) :- number(X), X >= 0, X <= 0.01), (in0toDot1(X) :- number(X), X >= 0, X <= 0.1), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp >= Z), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp =< Z), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (sameAs(X, X) :- !), (sameAs(X, Y) :- number(X), number(Y), equalWithSmallTolerance(X, Y), !), (sameAs([], []) :- !), (sameAs([X1| Y1], [X2| Y2]) :- sameAs(X1, X2), sameAs(Y1, Y2), !), (different(X, Y) :- \+(sameAs(X, Y))), (equalWithSmallTolerance(X, X) :- !), (equalWithSmallTolerance(X, Y) :- number(X), number(Y), !, Scaled is (2 * abs(X - Y)) / ((abs(X) + abs(Y)) + 1.0E-18), Scaled < 1.0E-6), (safeLog(0, Base, 1) :- !), (safeLog(X, Base, Result) :- number(X), number(Base), Result is log(X, Base)), (equalWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff <= Tolerance), (isaEqualTolerance(X) :- number(X), X >= 0, !), (differentWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff > Tolerance), (lessThan(X, Y) :- number(X), number(Y), X < Y), (greaterThan(X, Y) :- number(X), number(Y), X > Y), (lessThanOrEqual(X, Y) :- number(X), number(Y), X <= Y), (greaterThanOrEqual(X, Y) :- number(X), number(Y), X >= Y), (inBetweenCC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle <= Upper), (inBetweenOC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle <= Upper), (inBetweenCO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle < Upper), (inBetweenOO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle < Upper), (addList(List, Result) :- allNumbers(List), addListOfNumbers(List, Result)), (multiplyList(List, Result) :- allNumbers(List), multiplyListOfNumbers(List, Result)), (allNumbers([X| Y]) :- number(X), allNumbers(Y)), (abs(X, Y) :- number(X), var(Y), Y is abs(X)), (abs(X, Y) :- number(X), number(Y), Y is abs(X)), (plus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X + Y), (plus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z - X), (plus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z - Y), (minus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X - Y), (minus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X - Z), (minus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z + Y), (minus(X, Y) :- number(X), var(Y), !, Y is -X), (minus(X, Y) :- number(Y), var(X), !, X is -Y), (mult(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X * Y), (mult(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z / X), (mult(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z / Y), (div(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X / Y), (div(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X / Z), (div(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z * Y), (exp(0, _, 0) :- !), (exp(_, 0, 1) :- !), (exp(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X ** Y), (exp(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is log(Z) / log(X)), (exp(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z ** (1 / Y)), (log(X, _, _) :- number(X), X <= 0, !, false()), (log(1, _, 0) :- !), (log(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is log(X, Y)), (log(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Y ** Z), (log(X, Y, Z) :- number(Z), number(Z), var(Y), !, Y is X ** (1 / Z)), (log(X, Z) :- number(X), var(Z), !, Z is log(X)), (log(X, Z) :- number(Z), var(X), !, X is exp(1) ** Z), (max(X, Y, Z) :- number(X), number(Y), !, Z is max(X, Y)), (min(X, Y, Z) :- number(X), number(Y), !, Z is min(X, Y)), (plus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X + Y, equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X - Y, equalWithSmallTolerance(Z, Ztemp)), (mult(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X * Y, equalWithSmallTolerance(Z, Ztemp)), (div(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is Z * Y, equalWithSmallTolerance(X, Ztemp)), (exp(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X ** Y, equalWithSmallTolerance(Z, Ztemp)), (log(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is log(X, Y), equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y) :- number(X), number(Y), !, Ytemp is -X, equalWithSmallTolerance(Z, Ztemp)), (log(X, Z) :- number(X), number(Y), !, Ztemp is log(X), equalWithSmallTolerance(Z, Ztemp)), (member(X, Y) :- ground(X), ground(Y), !, contains(X, Y)), member(X, [X| _]), (member(X, [_| Y]) :- member(X, Y)), (contains(X, [X| _]) :- !), (contains(X, [_| Y]) :- contains(X, Y)), (memberOfList(X, List) :- list(List), member(X, List)), positionInList(X, [X| _], 0), (positionInList(X, List, N) :- list(List), N is position(X, List)), (firstInList(First, List) :- list(List), First is first(List)), (restOfList(Rest, List) :- list(List), Rest is rest(List)), (nthInList(N, List, Result) :- number(N), list(List), Result is nth(N, List)), (lengthOfList(List, N) :- list(List), N is length(List)), (reverseList(List, A) :- list(List), A is reverse(List)), (reverseList(A, List) :- list(List), A is reverse(List)), (pushIntoList(A, List, C) :- list(List), C is push(A, List)), (removeFromList(A, List, C) :- list(List), C is remove(A, List)), (appendLists(List1, List2, Result) :- list(List1), list(List2), Result is append(List1, List2)), union([], B, B), (union([A| B], C, [A| ResultOnB]) :- \+(member(A, C)), !, union(B, C, ResultOnB)), (union([A| B], C, ResultOnB) :- union(B, C, ResultOnB)), intersection([], _, []), (intersection([A| B], C, [A| ResultOnB]) :- member(A, C), !, intersection(B, C, ResultOnB)), (intersection([A| B], C, ResultOnB) :- intersection(B, C, ResultOnB)), (alwaysTrue(Index, List, Expression) :- memberOfList(Index, List), \+(call(Expression)), !, fail), alwaysTrue(_, _, _), (sometimesTrue(Index, List, Expression) :- L is length(List), memberOfList(Index, List), call(Expression), true), (neverTrue(Index, List, Expression) :- member(Index, List), call(Expression), !, fail), (neverTrue(_, _, _) :- true), (evaluateAll(Index, List, Expression) :- memberOfList(Index, List), call(Expression), fail), evaluateAll(_, _, _), (mega_posAnd_notNegOr6(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (mega_notPosAnd_negAnd7(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_example_advice10(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (not_single_example_advice10(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_piece_advice11(Anon1175) :- Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)), (not_single_piece_advice11(Anon1175) :- \+(Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)))]
 
-***** Warning: #1 Gleaner: when handling inliners in: 
-   (Ell(A) :- mega_posAnd_notNegOr6(A))
- got multiple clauses:
-   [(Ell(A) :- mega_posAnd_notNegOr6(A)), (mega_posAnd_notNegOr6(A) :- Column(B), Row(C), Length(C, _), Base(A, _), Height(A, _), H(B, _), Contains(A, C), Contains(A, B), SpRel(topleft, _, C, B))] *****
+% The best node found: Ell(A) :- Contains(A, B), Row(B).  [covers 1.0/1.0 pos, 0.0/2.0 neg]after retraction
 
-% Gleaner: New best node found (score = 0.990099): Ell(A) :- mega_posAnd_notNegOr6(A).  [covers 1.0/1.0 pos, 0.0/2.0 neg]
-HERE!*************SCORING - MD, CHECK THIS
-Is it here
-[mode(Row(+Part)), mode(Length(+Part, +Float1)), mode(H(+Part, +Float2)), mode(Column(+Part)), mode(Contains(+Shape, -Part)), mode(Base(+Shape, +Float4)), mode(Height(+Shape, +Float3)), mode(SpRel(&Rel, +Float5, +Part, +Part)), mode(Ell(+Shape)), mode(sameAsNew(+Float1, +Float4)), mode(equalWithToleranceNew(+Float3, +Float2, #Float6)), (Ell(Shape) :- sameAsNew(Float1, Float4)), (Ell(Shape) :- equalWithToleranceNew(Float3, Float2, Float6)), (isaInterestingSymbol(X, X) :- isaInterestingSymbol(X)), (isaInterestingNumber(X, Y) :- isaInterestingNumber(Y), equalWithSmallTolerance(X, Y)), (isaDifferentInterestingSymbol(X, Y) :- isaInterestingSymbol(X), isaInterestingSymbol(Y), different(X, Y)), (isaDifferentInterestingNumber(X, Y) :- isaInterestingNumber(X), isaInterestingNumber(Y), different(X, Y)), (positiveNumber(X) :- number(X), X > 0), (negativeNumber(X) :- number(X), X < 0), (in0to1(X) :- number(X), X >= 0, X <= 1), (in0to10(X) :- number(X), X >= 0, X <= 10), (in0to100(X) :- number(X), X >= 0, X <= 100), (in0to1000(X) :- number(X), X >= 0, X <= 1000), (in0toDot001(X) :- number(X), X >= 0, X <= 0.001), (in0toDot01(X) :- number(X), X >= 0, X <= 0.01), (in0toDot1(X) :- number(X), X >= 0, X <= 0.1), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp >= Z), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp =< Z), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (sameAs(X, X) :- !), (sameAs(X, Y) :- number(X), number(Y), equalWithSmallTolerance(X, Y), !), (sameAs([], []) :- !), (sameAs([X1| Y1], [X2| Y2]) :- sameAs(X1, X2), sameAs(Y1, Y2), !), (different(X, Y) :- \+(sameAs(X, Y))), (equalWithSmallTolerance(X, X) :- !), (equalWithSmallTolerance(X, Y) :- number(X), number(Y), !, Scaled is (2 * abs(X - Y)) / ((abs(X) + abs(Y)) + 1.0E-18), Scaled < 1.0E-6), (safeLog(0, Base, 1) :- !), (safeLog(X, Base, Result) :- number(X), number(Base), Result is log(X, Base)), (equalWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff <= Tolerance), (isaEqualTolerance(X) :- number(X), X >= 0, !), (differentWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff > Tolerance), (lessThan(X, Y) :- number(X), number(Y), X < Y), (greaterThan(X, Y) :- number(X), number(Y), X > Y), (lessThanOrEqual(X, Y) :- number(X), number(Y), X <= Y), (greaterThanOrEqual(X, Y) :- number(X), number(Y), X >= Y), (inBetweenCC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle <= Upper), (inBetweenOC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle <= Upper), (inBetweenCO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle < Upper), (inBetweenOO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle < Upper), (addList(List, Result) :- allNumbers(List), addListOfNumbers(List, Result)), (multiplyList(List, Result) :- allNumbers(List), multiplyListOfNumbers(List, Result)), (allNumbers([X| Y]) :- number(X), allNumbers(Y)), (abs(X, Y) :- number(X), var(Y), Y is abs(X)), (abs(X, Y) :- number(X), number(Y), Y is abs(X)), (plus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X + Y), (plus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z - X), (plus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z - Y), (minus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X - Y), (minus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X - Z), (minus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z + Y), (minus(X, Y) :- number(X), var(Y), !, Y is -X), (minus(X, Y) :- number(Y), var(X), !, X is -Y), (mult(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X * Y), (mult(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z / X), (mult(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z / Y), (div(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X / Y), (div(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X / Z), (div(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z * Y), (exp(0, _, 0) :- !), (exp(_, 0, 1) :- !), (exp(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X ** Y), (exp(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is log(Z) / log(X)), (exp(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z ** (1 / Y)), (log(X, _, _) :- number(X), X <= 0, !, false()), (log(1, _, 0) :- !), (log(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is log(X, Y)), (log(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Y ** Z), (log(X, Y, Z) :- number(Z), number(Z), var(Y), !, Y is X ** (1 / Z)), (log(X, Z) :- number(X), var(Z), !, Z is log(X)), (log(X, Z) :- number(Z), var(X), !, X is exp(1) ** Z), (max(X, Y, Z) :- number(X), number(Y), !, Z is max(X, Y)), (min(X, Y, Z) :- number(X), number(Y), !, Z is min(X, Y)), (plus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X + Y, equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X - Y, equalWithSmallTolerance(Z, Ztemp)), (mult(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X * Y, equalWithSmallTolerance(Z, Ztemp)), (div(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is Z * Y, equalWithSmallTolerance(X, Ztemp)), (exp(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X ** Y, equalWithSmallTolerance(Z, Ztemp)), (log(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is log(X, Y), equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y) :- number(X), number(Y), !, Ytemp is -X, equalWithSmallTolerance(Z, Ztemp)), (log(X, Z) :- number(X), number(Y), !, Ztemp is log(X), equalWithSmallTolerance(Z, Ztemp)), (member(X, Y) :- ground(X), ground(Y), !, contains(X, Y)), member(X, [X| _]), (member(X, [_| Y]) :- member(X, Y)), (contains(X, [X| _]) :- !), (contains(X, [_| Y]) :- contains(X, Y)), (memberOfList(X, List) :- list(List), member(X, List)), positionInList(X, [X| _], 0), (positionInList(X, List, N) :- list(List), N is position(X, List)), (firstInList(First, List) :- list(List), First is first(List)), (restOfList(Rest, List) :- list(List), Rest is rest(List)), (nthInList(N, List, Result) :- number(N), list(List), Result is nth(N, List)), (lengthOfList(List, N) :- list(List), N is length(List)), (reverseList(List, A) :- list(List), A is reverse(List)), (reverseList(A, List) :- list(List), A is reverse(List)), (pushIntoList(A, List, C) :- list(List), C is push(A, List)), (removeFromList(A, List, C) :- list(List), C is remove(A, List)), (appendLists(List1, List2, Result) :- list(List1), list(List2), Result is append(List1, List2)), union([], B, B), (union([A| B], C, [A| ResultOnB]) :- \+(member(A, C)), !, union(B, C, ResultOnB)), (union([A| B], C, ResultOnB) :- union(B, C, ResultOnB)), intersection([], _, []), (intersection([A| B], C, [A| ResultOnB]) :- member(A, C), !, intersection(B, C, ResultOnB)), (intersection([A| B], C, ResultOnB) :- intersection(B, C, ResultOnB)), (alwaysTrue(Index, List, Expression) :- memberOfList(Index, List), \+(call(Expression)), !, fail), alwaysTrue(_, _, _), (sometimesTrue(Index, List, Expression) :- L is length(List), memberOfList(Index, List), call(Expression), true), (neverTrue(Index, List, Expression) :- member(Index, List), call(Expression), !, fail), (neverTrue(_, _, _) :- true), (evaluateAll(Index, List, Expression) :- memberOfList(Index, List), call(Expression), fail), evaluateAll(_, _, _), (mega_posAnd_notNegOr6(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (mega_notPosAnd_negAnd7(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_example_advice10(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (not_single_example_advice10(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_piece_advice11(Anon1175) :- Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)), (not_single_piece_advice11(Anon1175) :- \+(Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)))]
-
-***** Warning: #2 Gleaner: when handling inliners in: 
-   (Ell(A) :- single_piece_advice11(A))
- got multiple clauses:
-   [(Ell(A) :- single_piece_advice11(A)), (single_piece_advice11(A) :- Column(B), Row(C), Length(C, _), Base(A, _), Height(A, _), H(B, _), Contains(A, C), Contains(A, B), SpRel(topleft, _, C, B))] *****
-
-HERE!*************SCORING - MD, CHECK THIS
-Is it here
-[mode(Row(+Part)), mode(Length(+Part, +Float1)), mode(H(+Part, +Float2)), mode(Column(+Part)), mode(Contains(+Shape, -Part)), mode(Base(+Shape, +Float4)), mode(Height(+Shape, +Float3)), mode(SpRel(&Rel, +Float5, +Part, +Part)), mode(Ell(+Shape)), mode(sameAsNew(+Float1, +Float4)), mode(equalWithToleranceNew(+Float3, +Float2, #Float6)), (Ell(Shape) :- sameAsNew(Float1, Float4)), (Ell(Shape) :- equalWithToleranceNew(Float3, Float2, Float6)), (isaInterestingSymbol(X, X) :- isaInterestingSymbol(X)), (isaInterestingNumber(X, Y) :- isaInterestingNumber(Y), equalWithSmallTolerance(X, Y)), (isaDifferentInterestingSymbol(X, Y) :- isaInterestingSymbol(X), isaInterestingSymbol(Y), different(X, Y)), (isaDifferentInterestingNumber(X, Y) :- isaInterestingNumber(X), isaInterestingNumber(Y), different(X, Y)), (positiveNumber(X) :- number(X), X > 0), (negativeNumber(X) :- number(X), X < 0), (in0to1(X) :- number(X), X >= 0, X <= 1), (in0to10(X) :- number(X), X >= 0, X <= 10), (in0to100(X) :- number(X), X >= 0, X <= 100), (in0to1000(X) :- number(X), X >= 0, X <= 1000), (in0toDot001(X) :- number(X), X >= 0, X <= 0.001), (in0toDot01(X) :- number(X), X >= 0, X <= 0.01), (in0toDot1(X) :- number(X), X >= 0, X <= 0.1), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp >= Z), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp =< Z), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (sameAs(X, X) :- !), (sameAs(X, Y) :- number(X), number(Y), equalWithSmallTolerance(X, Y), !), (sameAs([], []) :- !), (sameAs([X1| Y1], [X2| Y2]) :- sameAs(X1, X2), sameAs(Y1, Y2), !), (different(X, Y) :- \+(sameAs(X, Y))), (equalWithSmallTolerance(X, X) :- !), (equalWithSmallTolerance(X, Y) :- number(X), number(Y), !, Scaled is (2 * abs(X - Y)) / ((abs(X) + abs(Y)) + 1.0E-18), Scaled < 1.0E-6), (safeLog(0, Base, 1) :- !), (safeLog(X, Base, Result) :- number(X), number(Base), Result is log(X, Base)), (equalWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff <= Tolerance), (isaEqualTolerance(X) :- number(X), X >= 0, !), (differentWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff > Tolerance), (lessThan(X, Y) :- number(X), number(Y), X < Y), (greaterThan(X, Y) :- number(X), number(Y), X > Y), (lessThanOrEqual(X, Y) :- number(X), number(Y), X <= Y), (greaterThanOrEqual(X, Y) :- number(X), number(Y), X >= Y), (inBetweenCC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle <= Upper), (inBetweenOC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle <= Upper), (inBetweenCO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle < Upper), (inBetweenOO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle < Upper), (addList(List, Result) :- allNumbers(List), addListOfNumbers(List, Result)), (multiplyList(List, Result) :- allNumbers(List), multiplyListOfNumbers(List, Result)), (allNumbers([X| Y]) :- number(X), allNumbers(Y)), (abs(X, Y) :- number(X), var(Y), Y is abs(X)), (abs(X, Y) :- number(X), number(Y), Y is abs(X)), (plus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X + Y), (plus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z - X), (plus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z - Y), (minus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X - Y), (minus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X - Z), (minus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z + Y), (minus(X, Y) :- number(X), var(Y), !, Y is -X), (minus(X, Y) :- number(Y), var(X), !, X is -Y), (mult(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X * Y), (mult(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z / X), (mult(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z / Y), (div(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X / Y), (div(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X / Z), (div(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z * Y), (exp(0, _, 0) :- !), (exp(_, 0, 1) :- !), (exp(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X ** Y), (exp(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is log(Z) / log(X)), (exp(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z ** (1 / Y)), (log(X, _, _) :- number(X), X <= 0, !, false()), (log(1, _, 0) :- !), (log(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is log(X, Y)), (log(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Y ** Z), (log(X, Y, Z) :- number(Z), number(Z), var(Y), !, Y is X ** (1 / Z)), (log(X, Z) :- number(X), var(Z), !, Z is log(X)), (log(X, Z) :- number(Z), var(X), !, X is exp(1) ** Z), (max(X, Y, Z) :- number(X), number(Y), !, Z is max(X, Y)), (min(X, Y, Z) :- number(X), number(Y), !, Z is min(X, Y)), (plus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X + Y, equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X - Y, equalWithSmallTolerance(Z, Ztemp)), (mult(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X * Y, equalWithSmallTolerance(Z, Ztemp)), (div(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is Z * Y, equalWithSmallTolerance(X, Ztemp)), (exp(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X ** Y, equalWithSmallTolerance(Z, Ztemp)), (log(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is log(X, Y), equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y) :- number(X), number(Y), !, Ytemp is -X, equalWithSmallTolerance(Z, Ztemp)), (log(X, Z) :- number(X), number(Y), !, Ztemp is log(X), equalWithSmallTolerance(Z, Ztemp)), (member(X, Y) :- ground(X), ground(Y), !, contains(X, Y)), member(X, [X| _]), (member(X, [_| Y]) :- member(X, Y)), (contains(X, [X| _]) :- !), (contains(X, [_| Y]) :- contains(X, Y)), (memberOfList(X, List) :- list(List), member(X, List)), positionInList(X, [X| _], 0), (positionInList(X, List, N) :- list(List), N is position(X, List)), (firstInList(First, List) :- list(List), First is first(List)), (restOfList(Rest, List) :- list(List), Rest is rest(List)), (nthInList(N, List, Result) :- number(N), list(List), Result is nth(N, List)), (lengthOfList(List, N) :- list(List), N is length(List)), (reverseList(List, A) :- list(List), A is reverse(List)), (reverseList(A, List) :- list(List), A is reverse(List)), (pushIntoList(A, List, C) :- list(List), C is push(A, List)), (removeFromList(A, List, C) :- list(List), C is remove(A, List)), (appendLists(List1, List2, Result) :- list(List1), list(List2), Result is append(List1, List2)), union([], B, B), (union([A| B], C, [A| ResultOnB]) :- \+(member(A, C)), !, union(B, C, ResultOnB)), (union([A| B], C, ResultOnB) :- union(B, C, ResultOnB)), intersection([], _, []), (intersection([A| B], C, [A| ResultOnB]) :- member(A, C), !, intersection(B, C, ResultOnB)), (intersection([A| B], C, ResultOnB) :- intersection(B, C, ResultOnB)), (alwaysTrue(Index, List, Expression) :- memberOfList(Index, List), \+(call(Expression)), !, fail), alwaysTrue(_, _, _), (sometimesTrue(Index, List, Expression) :- L is length(List), memberOfList(Index, List), call(Expression), true), (neverTrue(Index, List, Expression) :- member(Index, List), call(Expression), !, fail), (neverTrue(_, _, _) :- true), (evaluateAll(Index, List, Expression) :- memberOfList(Index, List), call(Expression), fail), evaluateAll(_, _, _), (mega_posAnd_notNegOr6(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (mega_notPosAnd_negAnd7(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_example_advice10(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (not_single_example_advice10(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_piece_advice11(Anon1175) :- Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)), (not_single_piece_advice11(Anon1175) :- \+(Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)))]
-
-% The best node found: Ell(A) :- mega_posAnd_notNegOr6(A).  [covers 1.0/1.0 pos, 0.0/2.0 neg]after retraction
-
-% The best node found: Ell(A) :- mega_posAnd_notNegOr6(A).  [covers 1.0/1.0 pos, 0.0/2.0 neg]
+% The best node found: Ell(A) :- Contains(A, B), Row(B).  [covers 1.0/1.0 pos, 0.0/2.0 neg]
 outerlooper nontree
-Is it here
-[mode(Row(+Part)), mode(Length(+Part, +Float1)), mode(H(+Part, +Float2)), mode(Column(+Part)), mode(Contains(+Shape, -Part)), mode(Base(+Shape, +Float4)), mode(Height(+Shape, +Float3)), mode(SpRel(&Rel, +Float5, +Part, +Part)), mode(Ell(+Shape)), mode(sameAsNew(+Float1, +Float4)), mode(equalWithToleranceNew(+Float3, +Float2, #Float6)), (Ell(Shape) :- sameAsNew(Float1, Float4)), (Ell(Shape) :- equalWithToleranceNew(Float3, Float2, Float6)), (isaInterestingSymbol(X, X) :- isaInterestingSymbol(X)), (isaInterestingNumber(X, Y) :- isaInterestingNumber(Y), equalWithSmallTolerance(X, Y)), (isaDifferentInterestingSymbol(X, Y) :- isaInterestingSymbol(X), isaInterestingSymbol(Y), different(X, Y)), (isaDifferentInterestingNumber(X, Y) :- isaInterestingNumber(X), isaInterestingNumber(Y), different(X, Y)), (positiveNumber(X) :- number(X), X > 0), (negativeNumber(X) :- number(X), X < 0), (in0to1(X) :- number(X), X >= 0, X <= 1), (in0to10(X) :- number(X), X >= 0, X <= 10), (in0to100(X) :- number(X), X >= 0, X <= 100), (in0to1000(X) :- number(X), X >= 0, X <= 1000), (in0toDot001(X) :- number(X), X >= 0, X <= 0.001), (in0toDot01(X) :- number(X), X >= 0, X <= 0.01), (in0toDot1(X) :- number(X), X >= 0, X <= 0.1), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp >= Z), (greaterOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), number(Z), !, Temp is abs(X - Y), Temp =< Z), (smallerOrEqualDifference(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is abs(X - Y)), (sameAs(X, X) :- !), (sameAs(X, Y) :- number(X), number(Y), equalWithSmallTolerance(X, Y), !), (sameAs([], []) :- !), (sameAs([X1| Y1], [X2| Y2]) :- sameAs(X1, X2), sameAs(Y1, Y2), !), (different(X, Y) :- \+(sameAs(X, Y))), (equalWithSmallTolerance(X, X) :- !), (equalWithSmallTolerance(X, Y) :- number(X), number(Y), !, Scaled is (2 * abs(X - Y)) / ((abs(X) + abs(Y)) + 1.0E-18), Scaled < 1.0E-6), (safeLog(0, Base, 1) :- !), (safeLog(X, Base, Result) :- number(X), number(Base), Result is log(X, Base)), (equalWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff <= Tolerance), (isaEqualTolerance(X) :- number(X), X >= 0, !), (differentWithTolerance(X, Y, Tolerance) :- number(X), number(Y), isaEqualTolerance(Tolerance), Diff is abs(X - Y), Diff > Tolerance), (lessThan(X, Y) :- number(X), number(Y), X < Y), (greaterThan(X, Y) :- number(X), number(Y), X > Y), (lessThanOrEqual(X, Y) :- number(X), number(Y), X <= Y), (greaterThanOrEqual(X, Y) :- number(X), number(Y), X >= Y), (inBetweenCC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle <= Upper), (inBetweenOC(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle <= Upper), (inBetweenCO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower <= Middle, Middle < Upper), (inBetweenOO(Lower, Middle, Upper) :- number(Lower), number(Middle), number(Upper), Lower < Middle, Middle < Upper), (addList(List, Result) :- allNumbers(List), addListOfNumbers(List, Result)), (multiplyList(List, Result) :- allNumbers(List), multiplyListOfNumbers(List, Result)), (allNumbers([X| Y]) :- number(X), allNumbers(Y)), (abs(X, Y) :- number(X), var(Y), Y is abs(X)), (abs(X, Y) :- number(X), number(Y), Y is abs(X)), (plus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X + Y), (plus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z - X), (plus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z - Y), (minus(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X - Y), (minus(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X - Z), (minus(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z + Y), (minus(X, Y) :- number(X), var(Y), !, Y is -X), (minus(X, Y) :- number(Y), var(X), !, X is -Y), (mult(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X * Y), (mult(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is Z / X), (mult(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z / Y), (div(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X / Y), (div(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is X / Z), (div(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z * Y), (exp(0, _, 0) :- !), (exp(_, 0, 1) :- !), (exp(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is X ** Y), (exp(X, Y, Z) :- number(X), number(Z), var(Y), !, Y is log(Z) / log(X)), (exp(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Z ** (1 / Y)), (log(X, _, _) :- number(X), X <= 0, !, false()), (log(1, _, 0) :- !), (log(X, Y, Z) :- number(X), number(Y), var(Z), !, Z is log(X, Y)), (log(X, Y, Z) :- number(Y), number(Z), var(X), !, X is Y ** Z), (log(X, Y, Z) :- number(Z), number(Z), var(Y), !, Y is X ** (1 / Z)), (log(X, Z) :- number(X), var(Z), !, Z is log(X)), (log(X, Z) :- number(Z), var(X), !, X is exp(1) ** Z), (max(X, Y, Z) :- number(X), number(Y), !, Z is max(X, Y)), (min(X, Y, Z) :- number(X), number(Y), !, Z is min(X, Y)), (plus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X + Y, equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X - Y, equalWithSmallTolerance(Z, Ztemp)), (mult(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X * Y, equalWithSmallTolerance(Z, Ztemp)), (div(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is Z * Y, equalWithSmallTolerance(X, Ztemp)), (exp(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is X ** Y, equalWithSmallTolerance(Z, Ztemp)), (log(X, Y, Z) :- number(X), number(Y), number(Z), !, Ztemp is log(X, Y), equalWithSmallTolerance(Z, Ztemp)), (minus(X, Y) :- number(X), number(Y), !, Ytemp is -X, equalWithSmallTolerance(Z, Ztemp)), (log(X, Z) :- number(X), number(Y), !, Ztemp is log(X), equalWithSmallTolerance(Z, Ztemp)), (member(X, Y) :- ground(X), ground(Y), !, contains(X, Y)), member(X, [X| _]), (member(X, [_| Y]) :- member(X, Y)), (contains(X, [X| _]) :- !), (contains(X, [_| Y]) :- contains(X, Y)), (memberOfList(X, List) :- list(List), member(X, List)), positionInList(X, [X| _], 0), (positionInList(X, List, N) :- list(List), N is position(X, List)), (firstInList(First, List) :- list(List), First is first(List)), (restOfList(Rest, List) :- list(List), Rest is rest(List)), (nthInList(N, List, Result) :- number(N), list(List), Result is nth(N, List)), (lengthOfList(List, N) :- list(List), N is length(List)), (reverseList(List, A) :- list(List), A is reverse(List)), (reverseList(A, List) :- list(List), A is reverse(List)), (pushIntoList(A, List, C) :- list(List), C is push(A, List)), (removeFromList(A, List, C) :- list(List), C is remove(A, List)), (appendLists(List1, List2, Result) :- list(List1), list(List2), Result is append(List1, List2)), union([], B, B), (union([A| B], C, [A| ResultOnB]) :- \+(member(A, C)), !, union(B, C, ResultOnB)), (union([A| B], C, ResultOnB) :- union(B, C, ResultOnB)), intersection([], _, []), (intersection([A| B], C, [A| ResultOnB]) :- member(A, C), !, intersection(B, C, ResultOnB)), (intersection([A| B], C, ResultOnB) :- intersection(B, C, ResultOnB)), (alwaysTrue(Index, List, Expression) :- memberOfList(Index, List), \+(call(Expression)), !, fail), alwaysTrue(_, _, _), (sometimesTrue(Index, List, Expression) :- L is length(List), memberOfList(Index, List), call(Expression), true), (neverTrue(Index, List, Expression) :- member(Index, List), call(Expression), !, fail), (neverTrue(_, _, _) :- true), (evaluateAll(Index, List, Expression) :- memberOfList(Index, List), call(Expression), fail), evaluateAll(_, _, _), (mega_posAnd_notNegOr6(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (mega_notPosAnd_negAnd7(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_example_advice10(Anon1191) :- Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193)), (not_single_example_advice10(Anon1191) :- \+(Column(Anon1193), Row(Anon1195), Length(Anon1195, Anon1197), Base(Anon1191, Anon1199), Height(Anon1191, Anon1201), H(Anon1193, Anon1203), Contains(Anon1191, Anon1195), Contains(Anon1191, Anon1193), SpRel(topleft, Anon1205, Anon1195, Anon1193))), (single_piece_advice11(Anon1175) :- Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)), (not_single_piece_advice11(Anon1175) :- \+(Column(Anon1177), Row(Anon1179), Length(Anon1179, Anon1181), Base(Anon1175, Anon1183), Height(Anon1175, Anon1185), H(Anon1177, Anon1187), Contains(Anon1175, Anon1179), Contains(Anon1175, Anon1177), SpRel(topleft, Anon1189, Anon1179, Anon1177)))]
 
 % On cycle #1, the best clause found is:
-%      Ell(A) :- mega_posAnd_notNegOr6(A).  [covers 1.0/1.0 pos, 0.0/2.0 neg]
+%      Ell(A) :- Contains(A, B), Row(B).  [covers 1.0/1.0 pos, 0.0/2.0 neg]
 % This clause covers 1 positive examples, of which 1 are newly covered.
 % It also covers 0 negative examples, of which 0 are newly covered.
 % The current set of 1 best clauses covers 100.0% of the positive examples and 0.0% of the negatives.}
@@ -820,49 +638,25 @@ Is it here
 
 % ******************************************
 
-% Finished fold 0 (0.13s):
+% Finished fold 0 (0.02s):
 
-% Created a total of 5 clauses and expanded 1 of them.
+% Created a total of 5 clauses and expanded 2 of them.
 % The collection of best clauses per cycle covers 1 (out of 1) pos and 0 (out of 2) neg examples.
 
 % % 
 % % Clauses:
 
-% Ell(A) :- mega_posAnd_notNegOr6(A). // Clause #1.
-
-
-% % Supporting Clauses:
-
-% mega_posAnd_notNegOr6(A) :- 
-%      Column(B), 
-%      Row(C), 
-%      Length(C, D), 
-%      Base(A, E), 
-%      Height(A, F), 
-%      H(B, G), 
-%      Contains(A, C), 
+% Ell(A) :- 
 %      Contains(A, B), 
-%      SpRel(topleft, H, C, B). // Supporting Clause #1.
+%      Row(B). // Clause #1.
 
 
   initially:  |falseNegatives| = 1 and |trueNegatives| = 2.
-     getWeightedCoverage: apply this clause (Ell(A) :- mega_posAnd_notNegOr6(A))
+     getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, B), Row(B))
   currently:  |falseNegatives| = 0 and |trueNegatives| = 2.
   initially:  |falseNegatives| = 1 and |trueNegatives| = 2.
-     getWeightedCoverage: apply this clause (Ell(A) :- mega_posAnd_notNegOr6(A))
+     getWeightedCoverage: apply this clause (Ell(A) :- Contains(A, B), Row(B))
   currently:  |falseNegatives| = 0 and |trueNegatives| = 2.
-
-% Creating string handler #2.
-
-
-***** Warning: Do you really want to make string handler #2? *****
-
-
-% Switching to VarIndicator = uppercase.
-
-% Unset'ing VarIndicator.
-
-% Switching to VarIndicator = uppercase.
 %%% Cross-Validation Average Scores [Folds = 1]:
 
 %%% Average TRAINING Coverage Score:
@@ -882,24 +676,12 @@ Is it here
 
 % Clauses:
 
-Ell(A) :- mega_posAnd_notNegOr6(A). // Clause #1.
-
-
-% Supporting Clauses:
-
-mega_posAnd_notNegOr6(A) :- 
-     Column(B), 
-     Row(C), 
-     Length(C, D), 
-     Base(A, E), 
-     Height(A, F), 
-     H(B, G), 
-     Contains(A, C), 
+Ell(A) :- 
      Contains(A, B), 
-     SpRel(topleft, H, C, B). // Supporting Clause #1.
+     Row(B). // Clause #1.
 
 
 
-% Took 7.732 seconds.
-% Executed 40 proofs in 0.02 seconds (2251.19 proofs/sec).
-% Performed 381 unifications while proving Horn clauses.
+% Took 3.891 seconds.
+% Executed 44 proofs in 0.01 seconds (7032.31 proofs/sec).
+% Performed 471 unifications while proving Horn clauses.

@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -50,7 +51,7 @@ public final class ILPMain {
 	
 	public HandleFOPCstrings stringHandler;
 	public int index = 0;
-	public static final int maxTrial = 1;	
+	public static final int maxTrial = 2;	
 	public static String[] argsPersist = null; 
 	public static Theory outputTheory = null;
 	private static HashMap<String,Double> OriginalConceptParams = null;
@@ -211,6 +212,8 @@ public final class ILPMain {
     	//StringBuilder contentBuilder = new StringBuilder();
     	String content = null;
     	try {
+    		//create copy
+    		
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(file)));
 			//Stream<String> stream = Files.lines( Paths.get(fileTemplate), StandardCharsets.UTF_8);
 			//stream.forEach(s -> contentBuilder.append(s).append("\n"));
@@ -325,12 +328,12 @@ public final class ILPMain {
 	             }
 //	           }
 	           newClause = new Clause(c1.getStringHandler(), c1.posLiterals, cLit2);
-	           System.out.println("Show this clause to user: "+newClause);
-	           
+	           System.out.println("Show this clause to user: "+newClause.getAntecedent().toString());
+	           System.out.println(varCaseChange(newClause.getAntecedent().toString()));
 	        //-End Nan-----------------
 	           Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	           System.out.println("Is is correct (Type 0 if No / 1 if Yes)?");
-
+	           
 	           input = myObj.nextInt();
 	           index=index+1;
     		}
@@ -339,10 +342,19 @@ public final class ILPMain {
 	        if(iter<maxTrial && input>0)
 	        {
 	        	//String c = getBestConstraint();
-	        	String head = "Ell(A)";
-	        	String body = newClause.getAntecedent().toString();
+	        	try {
+					Files.copy(new File(directory+"/"+prefix+"_bkRel."+fileExtension).toPath(), 
+							new File(directory+"/"+prefix+"_bkRel_OLD"+System.currentTimeMillis()+"."+fileExtension).toPath(),
+							StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        	String head = "Ell(s)";
+	        	String body = varCaseChange(newClause.getAntecedent().toString());
 	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
 	        			"./SingleExDescAdvice", head, body);
+	        	
 	        	
 	        	//Clause cl = new Clause();
 	        	//String instanceBody = this.instantiateConcept(params, cl)
@@ -376,18 +388,35 @@ public final class ILPMain {
      * Testmethod no use
      * Auth: MD
      */
-    private void test(Theory T)
+    private String varCaseChange(String sent)
     {
-    	Clause c = T.getSupportClauses().get(0);
-    	Literal h = c.getDefiniteClauseHead();
-    	List<Literal> body = c.getDefiniteClauseBody();
-    	Literal testlit = body.get(3);
-    	System.out.println(testlit.getPredicateName());
-    	int arity = testlit.getArity();
-    	for(int i=0;i<arity;i++)
+    	StringBuilder sb = new StringBuilder(sent);
+    	sb.deleteCharAt(sent.length()-2); 
+    	sb.deleteCharAt(0); 
+    	sent = sb.toString();
+    	String[] lits = sent.split("\\),");
+    	String[] lits2 = new String[lits.length];
+    	//System.out.println(lits[0]);
+    	for(int iter = 0; iter<lits.length;iter++)
     	{
-    		System.out.println(testlit.getArgumentTypeSpec(i));
+    		String lit = lits[iter];
+    		String pred = lit.split("\\(")[0];
+    		String[] args = lit.split("\\(")[1].split(",");
+    		int i = pred.contains("SpRel")?1:0;
+    		while(i<args.length) {
+    			args[i] = args[i].toLowerCase();
+    			if(args[i].trim().equals("a"))
+    				args[i] = "s";
+    			i++;
+    		}
+    		args[0] = pred.contains("SpRel")? "constant("+args[0]+")" : args[0];
+    		if(iter>=lits.length-1)
+    			lits2[iter] = pred+"("+String.join(",", args);
+    		else
+    			lits2[iter] = pred+"("+String.join(",", args)+")";
     	}
+    	
+    	return String.join(",", lits2);
     }
     
     public void writeLearnedTheory(String prologueString) {
