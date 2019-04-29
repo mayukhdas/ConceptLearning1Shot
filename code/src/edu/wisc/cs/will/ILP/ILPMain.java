@@ -4,8 +4,11 @@
  */
 package edu.wisc.cs.will.ILP;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+
 import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
 
@@ -13,6 +16,7 @@ import convert.BlocksPlanner;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -31,6 +35,7 @@ import edu.wisc.cs.will.FOPC.BindingList;
 import edu.wisc.cs.will.FOPC.Clause;
 import edu.wisc.cs.will.FOPC.HandleFOPCstrings;
 import edu.wisc.cs.will.FOPC.Literal;
+import edu.wisc.cs.will.FOPC.PredicateName;
 import edu.wisc.cs.will.FOPC.Term;
 import edu.wisc.cs.will.FOPC.Theory;
 import edu.wisc.cs.will.FOPC.TypeSpec;
@@ -230,7 +235,7 @@ public final class ILPMain {
     	return content;
     }
 
-    public void runILP() throws SearchInterrupted {
+    public void runILP() throws SearchInterrupted, IOException {
     	long start1 = System.currentTimeMillis();
         long end1;
         int input = 0;
@@ -251,6 +256,7 @@ public final class ILPMain {
 	        cvLoop.executeCrossValidation();
 	        results = cvLoop.getCrossValidationResults();
 	        outputTheory = cvLoop.finalTheory;
+	        PredicateName pname =null;
             while(input == 0){
 	        //-Nan--------------------
 	        Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
@@ -296,6 +302,7 @@ public final class ILPMain {
 
 	             Literal clauseLit                        = clause.getDefiniteClauseBody().get(0);   // new addition
 	             List<TypeSpec> newAdditionTypeSpec       = clauseLit.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
+	             pname = clauseLit.getPredicateName();
 	             Collection<Variable> newAdditionVariable = clauseLit.collectAllVariables();
 	               
 	              BindingList bl2 = new BindingList();
@@ -350,21 +357,39 @@ public final class ILPMain {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+	        	FileInputStream fstreamtemp = null;
+				try {
+					fstreamtemp = new FileInputStream("C:\\Users\\nandi\\git\\ConceptLearningOnion1Shot\\code\\Blocks\\blocks_bk.txt");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            BufferedReader brtemp = new BufferedReader(new InputStreamReader(fstreamtemp));
+	            String strLinetemp;
+	            BufferedWriter bw1 = new BufferedWriter(new FileWriter(new File("C:\\Users\\nandi\\git\\ConceptLearningOnion1Shot\\code\\Blocks\\blocks_new_bk.txt")));
+	            String strLine3;
+  	            try {
+					while ((strLinetemp = brtemp.readLine()) != null)  
+					{
+						if((!strLinetemp.contains(pname.name)))
+						{
+							bw1.write(strLinetemp+"\n");
+						}
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+  	            bw1.close();
 	        	String head = "Ell(s)";
 	        	String body = varCaseChange(newClause.getAntecedent().toString());
 	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
-	        			"./SingleExDescAdvice", head, body);
-	        	
-	        	
-	        	//Clause cl = new Clause();
-	        	//String instanceBody = this.instantiateConcept(params, cl)
-	        	//String head = c.split(":-")[0];
-	        	//String body = c.split(":-")[1];
-	        	//unsetting previous advice
+	        			"./code/SingleExDescAdvice", head, body);
 	        	cvLoop.unsetAdvice(cvLoop.getOuterLoop());
 	        	outerLooper=null;
 	            learnOneClause=null;
 	            context=null;
+	            
 	        	//setupRelevance();
 	        	setup(argsPersist);
 	        	cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
@@ -645,7 +670,12 @@ public final class ILPMain {
         main.setup(args);
         
         argsPersist = args;
-        main.runILP();
+        try {
+			main.runILP();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         //System.out.println(main.getBestTheory());
     }
     private static String[] setConceptParams(String[] args)
