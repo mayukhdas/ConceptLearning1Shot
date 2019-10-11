@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import edu.wisc.cs.will.Utils.condor.CondorFile;
 import edu.wisc.cs.will.Utils.condor.CondorFileWriter;
 
-import convert.BlocksPlanner;
+//import convert.BlocksPlanner;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,9 +56,10 @@ public final class ILPMain {
 	
 	public HandleFOPCstrings stringHandler;
 	public int index = 0;
-	public static final int maxTrial = 2;	
+	public static final int maxTrial =5;	
 	public static String[] argsPersist = null; 
 	public static Theory outputTheory = null;
+	public static String ShapeName = "Ell";
 	private static HashMap<String,Double> OriginalConceptParams = null;
 
     public ILPouterLoop outerLooper;
@@ -155,7 +156,8 @@ public final class ILPMain {
         if (getLearnOneClause().createdSomeNegExamples) {
             Example.writeObjectsToFile(newArgList[1], getLearnOneClause().getNegExamples(), ".", "// Negative examples, including created ones.");
         }
-
+        //Scanner myObj = new Scanner(System.in);
+    	//myObj.nextInt(); //MD
         setupRelevance();
     }
     
@@ -197,8 +199,8 @@ public final class ILPMain {
     			+ "^location(w2)^block-location(d,w2)^bottom_end(a,d)^spatial-rel(top,0,w1,w2)";
     	//String g2 = new String(g1);
     	try {
-			d = BlocksPlanner.compareNCD(g1, g2);
-		} catch (IOException e) {
+			//d = BlocksPlanner.compareNCD(g1, g2);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -212,7 +214,7 @@ public final class ILPMain {
      * template file, replaces with provided definite clause, which signifies
      * the Relevance clause.
      */
-    private String setRelevanceFile(String file, String fileTemplate, String head, String body)
+    private String writeRelevanceFile(String file, String fileTemplate, String head, String body)
     {
     	//StringBuilder contentBuilder = new StringBuilder();
     	String content = null;
@@ -240,15 +242,28 @@ public final class ILPMain {
         long end1;
         int input = 0;
         int i = 0;
-        ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
+        ILPCrossValidationLoop cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
         CrossValidationResult results = null;
         Clause newClause = null;
     	outerLooper.initialize(false);
     	
-    	
+    	int interesting = 0;
+        Iterator<Clause> i_clause= context.getClausebase().getBackgroundKnowledge().iterator();
+//        System.out.println("Hi checking first "+ context.getClausebase().getBackgroundKnowledge());
+        List<Clause> ListOfClauses     = new ArrayList<Clause>();
+        while(i_clause.hasNext()) {
+       	 Clause ctemp=i_clause.next();
+       	 if(ctemp.isDefiniteClauseRule())// && ctemp.getDefiniteClauseHead().getPredicateName().toString().contains(ShapeName)) {
+       	 {
+       		 if(ctemp.getDefiniteClauseHead().getPredicateName().toString().contains(ShapeName))
+       			 interesting++;
+       		 ListOfClauses.add(ctemp);
+       	 }
+        }
     	//Adding while loop for LAYERED REFINEMENT
     	//(not using Onion as it does not serve 
     	//our purpose of adding constraints)  -- MD
+        double prevDist = 0.0;
     	for(int iter = 1;iter<=maxTrial;iter++) {
 	                
 	        //cvLoop.setFlipFlopPositiveAndNegativeExamples(flipFlopPosNeg);
@@ -256,8 +271,16 @@ public final class ILPMain {
 	        cvLoop.executeCrossValidation();
 	        results = cvLoop.getCrossValidationResults();
 	        outputTheory = cvLoop.finalTheory;
+	        if(iter>=maxTrial)
+	        	break;
 	        PredicateName pname =null;
+	        input = 0;
+	        //if(index<=interesting) {
             while(input == 0){
+
+ 	           if(index>=interesting)
+ 	        	   break;
+            	
 	        //-Nan--------------------
 	        Clause c1=cvLoop.finalTheory.getSupportClauses().get(0);
 	        List<Literal> cLit2     = new ArrayList<Literal>();
@@ -284,23 +307,24 @@ public final class ILPMain {
 	                 }
 	                    cLit2.add(l.applyTheta(bl));
 	            }
-	             Iterator<Clause> i_clause= context.getClausebase().getBackgroundKnowledge().iterator();
-//	             System.out.println("Hi checking first "+ context.getClausebase().getBackgroundKnowledge());
-	             List<Clause> ListOfClauses     = new ArrayList<Clause>();
-	             while(i_clause.hasNext()) {
-	            	 Clause ctemp=i_clause.next();
-	            	 if(ctemp.isDefiniteClauseRule()) {
-	            		 ListOfClauses.add(ctemp);
-	            	 }
-	             }
+	           	
 //	             for (Clause clause : context.getClausebase().getBackgroundKnowledge()) {
-
+	             System.out.println(ListOfClauses);
+//	             if(index>=ListOfClauses.size())
+//	             {
+//	            	 input=0;
+//	            	 iter = maxTrial;
+//	            	 break;
+//	             }
+	            	 
 	             Clause clause=ListOfClauses.get(index);
 	             
-	             if (i<2) {
+	             //if (i<2) 
+	             {
 	             i=i+1;
 
 	             Literal clauseLit                        = clause.getDefiniteClauseBody().get(0);   // new addition
+	             System.out.println(clauseLit + " :: "+index +" :: "+iter);//md
 	             List<TypeSpec> newAdditionTypeSpec       = clauseLit.getPredicateName().getTypeOnlyList().get(0).getTypeSpecList();
 	             pname = clauseLit.getPredicateName();
 	             Collection<Variable> newAdditionVariable = clauseLit.collectAllVariables();
@@ -339,14 +363,18 @@ public final class ILPMain {
 	           System.out.println(varCaseChange(newClause.getAntecedent().toString()));
 	        //-End Nan-----------------
 	           Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-	           System.out.println("Is is correct (Type 0 if No / 1 if Yes)?");
+	           System.out.println("Is this correct (Type 0 if No / 1 if Yes)?");
 	           
 	           input = myObj.nextInt();
 	           index=index+1;
     		}
-	        //double dist = getPlanCompressionDistance(null); //MD
+	        double dist = getPlanCompressionDistance(varCaseChange(newClause.getAntecedent().toString())); //MD
+	        if(input>0 && Math.abs(dist-prevDist)<0.1)
+	        	prevDist = dist;
+	        else 
+	        	input = 0;
         	//Utils.println(""+dist); //MD
-	        if(iter<maxTrial && input>0)
+	        if(iter<=maxTrial && input>0)
 	        {
 	        	//String c = getBestConstraint();
 	        	try {
@@ -357,51 +385,65 @@ public final class ILPMain {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-	        	FileInputStream fstreamtemp = null;
-				try {
-					fstreamtemp = new FileInputStream("C:\\Users\\nandi\\git\\ConceptLearningOnion1Shot\\code\\Blocks\\blocks_bk.txt");
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	            BufferedReader brtemp = new BufferedReader(new InputStreamReader(fstreamtemp));
-	            String strLinetemp;
-	            BufferedWriter bw1 = new BufferedWriter(new FileWriter(new File("C:\\Users\\nandi\\git\\ConceptLearningOnion1Shot\\code\\Blocks\\blocks_new_bk.txt")));
-	            String strLine3;
-  	            try {
-					while ((strLinetemp = brtemp.readLine()) != null)  
-					{
-						if((!strLinetemp.contains(pname.name)))
-						{
-							bw1.write(strLinetemp+"\n");
-						}
-					}
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-  	            bw1.close();
+//	        	FileInputStream fstreamtemp = null;
+//				try {
+//					fstreamtemp = new FileInputStream("C:\\Users\\dsd170230\\eclipse-workspace\\conceptForCwC\\Blocks\\blocks_bk.txt");
+//				} catch (FileNotFoundException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//	            BufferedReader brtemp = new BufferedReader(new InputStreamReader(fstreamtemp));
+//	            String strLinetemp;
+//	            BufferedWriter bw1 = new BufferedWriter(new FileWriter(new File("C:\\Users\\dsd170230\\eclipse-workspace\\conceptForCwC\\Blocks\\blocks_new_bk.txt")));
+//	            String strLine3;
+//  	            try {
+//					while ((strLinetemp = brtemp.readLine()) != null)  
+//					{
+//						if((!strLinetemp.contains(pname.name)))
+//						{
+//							bw1.write(strLinetemp+"\n");
+//						}
+//					}
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//  	            bw1.close();
 	        	String head = "Ell(s)";
 	        	String body = varCaseChange(newClause.getAntecedent().toString());
-	        	String rep = setRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
-	        			"./code/SingleExDescAdvice", head, body);
-	        	cvLoop.unsetAdvice(cvLoop.getOuterLoop());
-	        	outerLooper=null;
-	            learnOneClause=null;
-	            context=null;
+	        	String rep = writeRelevanceFile(directory+"/"+prefix+"_bkRel."+fileExtension, 
+	        			"./SingleExDescAdvice", head, body);
+
+		        getLearnOneClause().initialized = false;
+	        	getLearnOneClause().adviceProcessor.retractRelevanceAdvice();
+	        	setupRelevance();
+	        	setup(argsPersist);
+	        	cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);
+	        	outerLooper.initialize(false);
+	        	//getLearnOneClause().initialized = true;
+	        	//cvLoop.unsetAdvice(cvLoop.getOuterLoop());
+	        	//outerLooper=null;
+	            //learnOneClause=null;
+	            //context=null;
 	            
 	        	//setupRelevance();
-	        	setup(argsPersist);
-	        	cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
-	        	outerLooper.initialize(false);
+	            //Scanner myObj = new Scanner(System.in);
+	        	//myObj.nextInt();
+	        	//setup(argsPersist);
+	        	
+	        	//cvLoop = new ILPCrossValidationLoop(outerLooper, numberOfFolds, firstFold, lastFold);;
+	        	//outerLooper.initialize(false);
 	        }
+	        
+        	//getLearnOneClause().initialized = true;
+        	
     	}
 
         end1 = System.currentTimeMillis();
         Utils.println(results.toLongString()); //MD
         Utils.println(outputTheory.toPrettyString());//MD
         //test(cvLoop.finalTheory);
-        //Utils.println(directory);
+        Utils.println(index+"-----"+interesting);
         //Utils.println(cvLoop.getOuterLoop().innerLoopTask.getActiveAdvice().toString());
         Utils.println("\n% Took " + Utils.convertMillisecondsToTimeSpan(end1 - start1, 3) + ".");
         Utils.println("% Executed " + Utils.comma(getLearnOneClause().getTotalProofsProved()) + " proofs " + String.format("in %.2f seconds (%.2f proofs/sec).", getLearnOneClause().getTotalProofTimeInNanoseconds() / 1.0e9, getLearnOneClause().getAverageProofsCompletePerSecond()));
@@ -579,9 +621,11 @@ public final class ILPMain {
     }
 
     private void setupRelevance() throws SearchInterrupted {
+    	
         if (isRelevanceEnabled()) {
             try {
                 File file = getRelevanceFile();
+                            	
                 getLearnOneClause().setRelevanceFile(file);
                 getLearnOneClause().setRelevanceEnabled(true);
             } catch (FileNotFoundException fileNotFoundException) {

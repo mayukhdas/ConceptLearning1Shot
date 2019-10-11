@@ -1,0 +1,4 @@
+setParameter: stringsAreCaseSensitive = true;
+
+
+relevantClause: Ell(s) : ( Column(b), Row(c), Length(c, anon1), Base(s, anon2), Height(s, anon3), H(b, anon4), Contains(s, c), Contains(s, b), SpRel(constant(topleft), anon5, c, b) ), RELEVANT.

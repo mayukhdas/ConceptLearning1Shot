@@ -1899,7 +1899,7 @@ public class ILPouterLoop implements GleanerFileNameProvider {
         return innerLoopTask.getWeightedCoverage(clause, positiveExamples, negativeExamples);
     }
 
-    private void setupAdvice() {
+    public void setupAdvice() {
         if ( innerLoopTask.isRelevanceEnabled() && getActiveAdvice() == null) {
             createdActiveAdvice = innerLoopTask.getAdviceProcessor().processAdvice(innerLoopTask.getCurrentRelevanceStrength(), getPosExamples(), getNegExamples());
             setActiveAdvice(createdActiveAdvice);

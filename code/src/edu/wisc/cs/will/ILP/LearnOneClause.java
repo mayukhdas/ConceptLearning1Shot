@@ -328,7 +328,7 @@ public class LearnOneClause extends StateBasedSearchTask {
 
     private List<ModeConstraint> modeConstraints = null;
 
-    private final AdviceProcessor adviceProcessor;
+    public final AdviceProcessor adviceProcessor;
     private ActiveAdvice activeAdvice = null;
 
     private EventListenerList searchListenerList = new EventListenerList();
@@ -351,7 +351,7 @@ public class LearnOneClause extends StateBasedSearchTask {
     // setParam: numberOfPrecomputes = 100.
     
     @SuppressWarnings("FieldNameHidesFieldInSuperclass")
-    private boolean initialized = false;
+    public boolean initialized = false;
 
 	/** Constructs a new LearnOneClause search.
      *

@@ -3,29 +3,48 @@ setParam: loadAllBasicModes = false.
 
 
 mode: Row(+Part).
-mode: Length(+Part,+Float1).
-mode: H(+Part,+Float2).
+mode: Length(+Part,#Float1).
+mode: H(+Part,#Float2).
 mode: Column(+Part).
 mode: Contains(+Shape,-Part).
-mode: Base(+Shape,+Float4).
-mode: Height(+Shape,+Float3).
-mode: SpRel(&Rel,+Float5,+Part,+Part).
+mode: Base(+Shape,#Float4).
+mode: Height(+Shape,#Float3).
+mode: SpRel(&Rel,#Float5,+Part,+Part).
 mode: Ell(+Shape).
+
+
+//okIfUnknown: equalWithToleranceNew/3
+//okIfUnknown: sameAsNew/2
+
 mode: sameAsNew(+Float1,+Float4).
-mode: equalWithToleranceNew(+Float3,+Float2,#Float6).
+mode: same_1(+Float3,+Float4).
+mode: greaterThanNew(+Float3,+Float2).
+mode: minus_1(+Float3,+Float2,&Float6).
+
+
+precompute: sameAsNew(X, Y) :- Length(Part,X), Base(Shape,Y), sameAs(X, Y).
+
+precompute: same_1(X, Y) :- Height(Shape,X), Base(Shape,Y), sameAs(X, Y).
+
+precompute: greaterThanNew(X,Y) :- Height(Shape,X), H(Part,Y), greaterThan(X, Y).
+
+precompute: minus_1(X,Y,Z) :- Height(Shape,X), H(Part,Y), minus(X, Y, Z), Z is 1.
+
+
+//precompute: equalWithToleranceNew(Float3, Float2, Float6) :-  Height(Shape, Float3), H(Part, Float2), Float6 is Float3 - Float2 .
+
+
+//mode: equalWithToleranceNew(+Float3,+Float2,#Float6).
+
+
 
 Ell(Shape) :- sameAsNew(Float1, Float4).
 
-Ell(Shape) :- equalWithToleranceNew(Float3, Float2, Float6).
+Ell(Shape) :- greaterThanNew(Float3, Float2).
 
-okIfUnknown: equalWithToleranceNew/3
-okIfUnknown: sameAsNew/2
+Ell(Shape) :- same_1(Float3, Float4).
 
-
-precompute: sameAsNew(Float1, Float4) :- Length(Part, Float1), Base(Shape, Float4), equalWithSmallTolerance(Float1, Float4).
-
-precompute: equalWithToleranceNew(Float3, Float2, Float6) :-  Height(Shape, Float3), H(Part, Float2), Float6 is Float3 - Float2 .
-
+Ell(Shape) :- minus_1(Float3,Float2,Float6).
 
 bridger: Contains/2.
 bridger: SpRel/4.
